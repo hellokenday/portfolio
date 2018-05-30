@@ -1,0 +1,28 @@
+// main.scss
+
+@charset 'utf-8';
+
+// modules and variables
+
+// partials
+
+// ...
+
+// bootstrap
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// third-party
+@import "vendor/boilerplate";
+@import "vendor/normalize";
+
+@import 'colors';
+
+body {
+   background-color: $red;
+}
