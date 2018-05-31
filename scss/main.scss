@@ -9,20 +9,10 @@
 // ...
 
 // bootstrap
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
-
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 // third-party
-@import "vendor/boilerplate";
-@import "vendor/normalize";
+@import 'vendor/boilerplate';
+@import 'vendor/normalize';
 
-@import 'colors';
-
-body {
-   background-color: $red;
-}
+@import 'colors'
