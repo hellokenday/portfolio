@@ -3,16 +3,25 @@
 @charset 'utf-8';
 
 // modules and variables
-
-// partials
-
-// ...
+@import 'modules/variables';
+@import 'modules/colors';
 
 // bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+// partials
+@import 'partials/buttons';
+@import 'partials/fontface';
+@import 'partials/typography';
 
 // third-party
 @import 'vendor/boilerplate';
 @import 'vendor/normalize';
 
-@import 'colors'
+// gutter on small devices
+@include media-breakpoint-down(sm) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

@@ -1,0 +1,15 @@
+$font-family-base:            'Apercu';
+$gray-900:                    #767676;
+$h3-font-size:                24px;
+$headings-font-weight:        400;
+
+// grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 960px
+);
+
+// grid columns
+$grid-gutter-width:           32px;
