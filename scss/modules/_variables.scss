@@ -13,3 +13,18 @@ $container-max-widths: (
 
 // grid columns
 $grid-gutter-width:           32px;
+
+
+// stylelint-disable
+$spacer: 1rem;
+$spacers: ();
+$spacers: map-merge((
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 2),
+  5: ($spacer * 3),
+  6: ($spacer * 6),
+  7: ($spacer * 9),
+), $spacers);
