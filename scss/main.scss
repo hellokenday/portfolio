@@ -27,9 +27,12 @@
   }
 }
 
-.projects {
-  margin-bottom: 144px;
-}
+//@include media-breakpoint-up(md) {
+//  
+//  .projects {
+//    margin-bottom: 96px;
+//  }
+//}
 
 .bio {
   opacity: 0.67;
@@ -40,6 +43,11 @@
   .bio {
     font-size: 16px !important;
     line-height: 24px !important;
+  }
+  
+  .projects h3 {
+    margin-top: 24px;
+    margin-bottom: 24px;
   }
 }
 
