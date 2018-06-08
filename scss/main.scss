@@ -27,7 +27,7 @@
 // gutter on small devices
 .container {
     @include media-breakpoint-down(sm) {
-    padding-left:  24px;
-    padding-right: 24px;
+    padding-left:  $spacing-sm;
+    padding-right: $spacing-sm;
   }
 }

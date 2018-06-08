@@ -30,3 +30,10 @@ $spacers: map-merge((
   8: 120px,
   9: 144px,
 ), $spacers);
+
+// custom spacers
+$spacing-bs: 8px; 
+$spacing-sm: 24px; 
+$spacing-md: 48px; 
+$spacing-lg: 96px; 
+$spacing-xl: 144px; 
