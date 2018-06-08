@@ -29,6 +29,7 @@
 
 // Gutter on small devices
 .container {
+    position: relative;
     @include media-breakpoint-down(sm) {
     padding-left:  $spacing-sm;
     padding-right: $spacing-sm;

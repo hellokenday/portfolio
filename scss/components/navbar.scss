@@ -2,16 +2,45 @@
 
 .navbar {
   padding: 0;
+  
+  // Hide next project on small devices
+  &.sticky-top .next-project {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    } 
+  }
+}
+
+.next-project,
+.prev-project {
+  color: $breadcrumb-divider-color;
+  color: $breadcrumb-divider-color;
 }
 
 .next-project {
-  @include media-breakpoint-down(sm) {
-    display: none;
-  }
   &::after {
     display: inline-block; // Suppress underlining of the separator in modern browsers
     padding-left: .5rem;
-    color: $breadcrumb-divider-color;
     content: $next-arrow;
+    float: right;
   }
+}
+
+.prev-project {
+  &::before {
+    display: inline-block; // Suppress underlining of the separator in modern browsers
+    padding-right: .5rem;
+    content: $prev-arrow;
+    float: left;
+  }
+  @include media-breakpoint-down(sm) {
+    display: none;
+  } 
+}
+
+// to do: sort out left and right padding
+.navbar-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
