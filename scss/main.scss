@@ -2,32 +2,32 @@
 
 @charset 'utf-8';
 
-// modules and variables
+// Modules and variables
 @import 'modules/variables';
 @import 'modules/colors';
 
-// bootstrap
+// Bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
-// partials
+// Partials
 @import 'partials/buttons';
 @import 'partials/fontface';
 @import 'partials/typography';
 
-// components
+// Components
 @import 'components/navbar';
 
-// helpers
+// Helpers
 @import 'helpers/mixins';
 
-// third-party
+// Third-party
 @import 'vendor/boilerplate';
 @import 'vendor/normalize';
 
-// pages
+// Pages
 @import 'pages/homepage';
 
-// gutter on small devices
+// Gutter on small devices
 .container {
     @include media-breakpoint-down(sm) {
     padding-left:  $spacing-sm;
