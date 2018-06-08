@@ -1,0 +1,17 @@
+// navbar
+
+.navbar {
+  padding: 0;
+}
+
+.next-project {
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+  &::after {
+    display: inline-block; // Suppress underlining of the separator in modern browsers
+    padding-left: .5rem;
+    color: $breadcrumb-divider-color;
+    content: $next-arrow;
+  }
+}
