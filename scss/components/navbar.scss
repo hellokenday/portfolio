@@ -11,6 +11,8 @@
   }
 }
 
+// Navbar bottom
+
 .next-project,
 .prev-project {
   color: $breadcrumb-divider-color;
@@ -38,9 +40,10 @@
   } 
 }
 
-// to do: sort out left and right padding
 .navbar-bottom {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 16px;
 }
