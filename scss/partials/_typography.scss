@@ -11,6 +11,11 @@ html {
   font-size: 1rem;
 }
 
-p {
+p, 
+span {
   font-weight: 300;
+}
+
+span {
+  color: $light-grey;
 }
