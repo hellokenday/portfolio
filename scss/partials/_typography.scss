@@ -13,12 +13,11 @@ html {
   font-size: 1rem;
 }
 
-p, 
-span,
-li {
-  font-weight: 300;
-}
-
 span {
   color: $light-grey;
+}
+
+.navbar,
+a {
+  font-weight: 400;
 }

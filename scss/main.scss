@@ -10,6 +10,7 @@
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 // Partials
+@import 'partials/layout';
 @import 'partials/buttons';
 @import 'partials/fontface';
 @import 'partials/typography';
@@ -28,12 +29,4 @@
 // Pages
 @import 'pages/homepage';
 @import 'pages/about';
-
-// Gutter on small devices
-.container {
-    position: relative;
-    @include media-breakpoint-down(sm) {
-    padding-left:  $spacing-sm;
-    padding-right: $spacing-sm;
-  }
-}
+@import 'pages/project';

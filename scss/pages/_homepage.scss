@@ -1,62 +1,65 @@
 // homepage
 
-.bio {
-  opacity: 0.67;
-  @include media-breakpoint-down(sm) {
-    font-size:     16px;
-    line-height:   24px;
-  }
-}
+.homepage {
   
-.projects h3 {
-  @include media-breakpoint-down(sm) {
-    margin-top:    $spacing-sm;
-    margin-bottom: $spacing-sm;
+  .bio {
+    opacity: 0.67;
+    @include media-breakpoint-down(sm) {
+      font-size:     16px;
+      line-height:   24px;
+    }
   }
-}
 
-.project {
-  
-  position: relative;
-  display: block;
-  overflow: hidden;
-  
-  &.project {
-    color: $white;
-  }
-  
-  h3 {
+  .projects h3 {
     @include media-breakpoint-down(sm) {
       margin-top:    $spacing-sm;
       margin-bottom: $spacing-sm;
     }
   }
 
-  &:hover .overlay {
-    opacity: 1;
-  }
-  
-  .overlay {
-    position: absolute;
-    top:  0;
-    left: 0;
-    width:   100%;
-    height:  100%;
-    z-index: 99;
-    background: $overlay;
-    text-align: center;
-    opacity: 0;
-    
-    @include transition(opacity 0.25s ease);
-    
-    @include media-breakpoint-down(sm) {
-      display: none;
+  .project {
+
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    &.project {
+      color: $white;
     }
 
-    .project-title {
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
+    h3 {
+      @include media-breakpoint-down(sm) {
+        margin-top:    $spacing-sm;
+        margin-bottom: $spacing-sm;
+      }
+    }
+
+    &:hover .overlay {
+      opacity: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      top:  0;
+      left: 0;
+      width:   100%;
+      height:  100%;
+      z-index: 99;
+      background: $overlay;
+      text-align: center;
+      opacity: 0;
+
+      @include transition(opacity 0.25s ease);
+
+      @include media-breakpoint-down(sm) {
+        display: none;
+      }
+
+      .project-title {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
     }
   }
 }

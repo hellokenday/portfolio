@@ -1,0 +1,15 @@
+// Gutter on small devices
+.container {
+  position: relative;
+  @include media-breakpoint-down(sm) {
+    padding-left:  $spacing-sm;
+    padding-right: $spacing-sm;
+  }
+}
+
+.last-section {
+  margin-bottom: 196px;
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 144px;
+  }
+}
