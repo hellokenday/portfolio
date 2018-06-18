@@ -11,8 +11,10 @@
       font-size: 16px;
     }
     &:first-of-type {
-      color: $light-grey;
       margin-right: 4px;
+    }
+    &:last-of-type {
+      color: $light-grey;
     }
   }
   
