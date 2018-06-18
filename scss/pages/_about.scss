@@ -1,28 +1,30 @@
 // about.scss
 
-.about-block {
+.about {
   
-  @include media-breakpoint-down(sm) {
-    margin-bottom: $spacing-sm !important;
-  }
-  
-  h3 {
+  .block {
     @include media-breakpoint-down(sm) {
-      font-size: 16px;
+      margin-bottom: $spacing-sm !important;
     }
-    &:first-of-type {
-      margin-right: 4px;
-    }
-    &:last-of-type {
-      color: $light-grey;
-    }
-  }
-  
-  &.skills {
+
     h3 {
-      color: $headings-color;
-      @include media-breakpoint-up(md) {
-        margin-bottom: $spacing-sm;
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+      }
+      &:first-of-type {
+        margin-right: 4px;
+      }
+      &:last-of-type {
+        color: $light-grey;
+      }
+    }
+
+    &.skills {
+      h3 {
+        color: $headings-color;
+        @include media-breakpoint-up(md) {
+          margin-bottom: $spacing-sm;
+        }
       }
     }
   }
