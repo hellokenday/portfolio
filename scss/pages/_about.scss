@@ -1,0 +1,27 @@
+// about.scss
+
+.about-block {
+  
+  @include media-breakpoint-down(sm) {
+    margin-bottom: $spacing-sm !important;
+  }
+  
+  h3 {
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
+    &:first-of-type {
+      color: $light-grey;
+      margin-right: 4px;
+    }
+  }
+  
+  &.skills {
+    h3 {
+      color: $headings-color;
+      @include media-breakpoint-up(md) {
+        margin-bottom: $spacing-sm;
+      }
+    }
+  }
+}
