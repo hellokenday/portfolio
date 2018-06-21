@@ -8,3 +8,11 @@
     margin-bottom: 0;
   }
 }
+
+.carousel-indicators {
+  bottom: -32px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  display: none;
+}

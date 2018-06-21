@@ -1,9 +1,9 @@
 $( document ).ready(function() {
   
-  initCarousels();
+  pauseCarousels();
 });
 
-function initCarousels() {
+function pauseCarousels() {
   
-  $('.carousel').carousel();
+  $('.carousel').carousel('pause');
 }
