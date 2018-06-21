@@ -8,8 +8,8 @@
 }
 
 .last-section {
-  margin-bottom: 196px;
+  padding-bottom: 196px;
   @include media-breakpoint-down(sm) {
-    margin-bottom: 144px;
+    padding-bottom: 144px;
   }
 }
