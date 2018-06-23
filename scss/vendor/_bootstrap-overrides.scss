@@ -1,0 +1,14 @@
+// bootstrap-overrides.scss
+
+// carousel
+.carousel-indicators {
+  bottom: -32px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  display: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
