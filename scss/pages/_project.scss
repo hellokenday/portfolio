@@ -10,16 +10,9 @@
 }
 
 // lazyload images
-
-// TODO: styling for loading images
 .loading {
     content: "";
     width: 960px;
-    height: 480px;
-    background-color: red;
-  
-}
-// TODO: styling for loaded images.
-.loaded {
-  
+    height: auto;
+    background-color: $gray-100;
 }
