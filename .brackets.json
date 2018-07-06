@@ -8,9 +8,9 @@
                 "outputDir": "../css/",
                 "imagePath": null,
                 "sourceComments": false,
-                "outputStyle": "compressed"
+                "outputStyle": "nested"
             },
-            "linting.collapsed": true,
+            "linting.collapsed": false,
             "brackets-git.gitPath": "/usr/local/git/bin/git"
         }
     }
