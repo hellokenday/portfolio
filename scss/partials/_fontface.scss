@@ -1,49 +1,8 @@
-// fontface.scss
-
-@font-face {
-    font-family: 'ApercuLight';
-    src: url('../fonts/apercu-light-webfont.eot');
-    src: url('../fonts/apercu-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/apercu-light-webfont.svg#ApercuLight') format('svg'),
-         url('../fonts/apercu-light-webfont.woff') format('woff'),
-         url('../fonts/apercu-light-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'ApercuRegular';
-    src: url('../fonts/apercu-regular-webfont.eot');
-    src: url('../fonts/apercu-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/apercu-regular-webfont.svg#ApercuRegular') format('svg'),
-         url('../fonts/apercu-regular-webfont.woff') format('woff'),
-         url('../fonts/apercu-regular-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'ApercuMedium';
-    src: url('../fonts/apercu-medium-webfont.eot');
-    src: url('../fonts/apercu-medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/apercu-medium-webfont.svg#ApercuMedium') format('svg'),
-         url('../fonts/apercu-medium-webfont.woff') format('woff'),
-         url('../fonts/apercu-medium-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'ApercuBold';
-    src: url('../fonts/apercu-bold-webfont.eot');
-    src: url('../fonts/apercu-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/apercu-bold-webfont.svg#ApercuBold') format('svg'),
-         url('../fonts/apercu-bold-webfont.woff') format('woff'),
-         url('../fonts/apercu-bold-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
+@font-face{ 
+	font-family: 'Apecuru';
+	src: url('../fonts/apercu-webfont.eot');
+	src: url('../fonts/apercu-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('../fonts/apercu-webfont.woff') format('woff'),
+	     url('../fonts/apercu-webfont.ttf') format('truetype'),
+	     url('../fonts/apercu-webfont.svg#webfont') format('svg');
 }
