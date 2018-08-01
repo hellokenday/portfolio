@@ -3,7 +3,8 @@
 .homepage {
   
   .bio {
-    opacity: 0.78;
+    font-weight: 300;
+    max-width: 850px;
     @include media-breakpoint-down(sm) {
       font-size:     16px;
       line-height:   24px;
