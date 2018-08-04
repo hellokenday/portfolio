@@ -25,4 +25,16 @@
   .contact-link {
     padding-bottom: 48px;
   }
-}
+  
+  // zoom image on hover
+  .img-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    
+    img {
+      @include transition(all .4s ease);
+      &:hover {
+        @include transform(scale(1.1));
+      }
+    }
+  }

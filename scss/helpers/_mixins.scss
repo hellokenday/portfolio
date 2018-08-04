@@ -30,10 +30,20 @@
 
 // transitions 
 
-@mixin transition($args...) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
+@mixin transition($str) {
+  -webkit-transition: #{$str};
+  -moz-transition: #{$str};
+  -ms-transition: #{$str};
+  -o-transition: #{$str};
+  transition: #{$str};
+}
+
+// transform
+
+@mixin transform($str) {
+  -webkit-transform: #{$str};
+  -moz-transform: #{$str};
+  -ms-transform: #{$str};
+  -o-transform: #{$str};
+  transform: #{$str};      
 }
