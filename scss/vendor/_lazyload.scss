@@ -1,13 +1,28 @@
 // lazyload.scss
 
+// Fade in lazy loaded images
+.lazy-load {
+  display: block;
+  border: 0;
+  opacity: 0;
+}
+.lazy-load:not(.initial) {
+  transition: opacity 1s;
+}
+.lazy-load.initial,
+.lazy-load.loaded,
+.lazy-load.error {
+  opacity: 1;
+}
+
 // Prevents img without src to appear
-img:not([src]) {
-    visibility: hidden;
+.lazy-load:not([src]) {
+  visibility: hidden;
 }
 
 // Fixes Firefox anomaly during image load
 @-moz-document url-prefix() {
-  img:-moz-loading {
+  .lazy-load:-moz-loading {
     visibility: hidden;
   }
 }
