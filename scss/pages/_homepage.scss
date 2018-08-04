@@ -21,33 +21,8 @@
       margin-bottom: $spacing-sm;
     }
   }
-
-  .project {
-
-    position: relative;
-    display: block;
-    overflow: hidden;
-
-    &.project {
-      color: $white;
-    }
-
-    h3 {
-      @include media-breakpoint-down(sm) {
-        margin-top:    $spacing-sm;
-        margin-bottom: $spacing-sm;
-      }
-    }
-  }
   
   .contact-link {
     padding-bottom: 48px;
-  }
-  
-  .contact {
-    margin-bottom: 8px;
-    h3 {
-      margin-top: 0;
-    }
   }
 }
