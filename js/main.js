@@ -1,7 +1,13 @@
 $( document ).ready(function() {
   
+  fadeInPages();
   pauseCarousels();
 });
+
+function fadeInPages() {
+
+ $('body').fadeIn(700).removeClass('hidden');
+}
 
 // Bootstrap carousel
 function pauseCarousels() {
