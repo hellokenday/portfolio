@@ -5,19 +5,21 @@
   display: block;
   border: 0;
   opacity: 0;
-}
-.lazy-load:not(.initial) {
-  transition: opacity 1s;
-}
-.lazy-load.initial,
-.lazy-load.loaded,
-.lazy-load.error {
-  opacity: 1;
-}
-
-// Prevents img without src to appear
-.lazy-load:not([src]) {
-  visibility: hidden;
+  
+  &:not(.initial) {
+    transition: opacity 1s;
+  }
+  
+  &.initial,
+  &.loaded,
+  &.error {
+    opacity: 1;
+  }
+  
+  // Prevents img without src to appear
+  &:not([src]) {
+    visibility: hidden;
+  }
 }
 
 // Fixes Firefox anomaly during image load
