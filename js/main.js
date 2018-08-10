@@ -2,6 +2,7 @@ $( document ).ready(function() {
   
   fadeInPages();
   pauseCarousels();
+  hideNavbarOnScroll();
 });
 
 function fadeInPages() {
@@ -15,6 +16,12 @@ function pauseCarousels() {
   $('.carousel').carousel({   
     interval: false 
   });
+}
+
+// Hide nav on scroll down and show on scroll up
+function hideNavbarOnScroll() {
+  
+  $(".navbar.sticky-top").autoHidingNavbar();
 }
 
 // Lazyload images
