@@ -13,9 +13,14 @@ function fadeInPages() {
 // Bootstrap carousel
 function pauseCarousels() {
   
-  $('.carousel').carousel({   
-    interval: false 
-  });
+  // check if carousel exists
+  if ( $('.carousel').length ) {
+
+    // pause carousels
+    $('.carousel').carousel({   
+      interval: false 
+    });
+  }
 }
 
 // Hide nav on scroll down and show on scroll up
