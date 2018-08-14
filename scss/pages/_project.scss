@@ -7,11 +7,6 @@
   .list-unstyled {
     margin-bottom: 0;
   }
-  
-  .section {
-    margin: 0 auto;
-    max-width: 664px;
-  }
 }
 
 // lazyload images
@@ -20,4 +15,9 @@
     width: 960px;
     height: auto;
     background-color: $gray-100;
+}
+
+.section {
+  margin: 0 auto;
+  max-width: 664px;
 }
