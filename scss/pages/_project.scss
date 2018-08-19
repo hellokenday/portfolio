@@ -7,6 +7,10 @@
   .list-unstyled {
     margin-bottom: 0;
   }
+  
+  ol ol {
+    list-style: lower-alpha;
+  }
 }
 
 // lazyload images

@@ -4,9 +4,17 @@
 .carousel-indicators {
   bottom: -32px;
 }
+
 .carousel-control-prev,
 .carousel-control-next {
-  display: none;
+  visibility: hidden;
+}
+
+.carousel:hover {
+  .carousel-control-prev,
+  .carousel-control-next {
+    visibility: visible;
+  }
 }
 
 a:hover {
