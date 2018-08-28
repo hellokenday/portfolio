@@ -3,9 +3,6 @@
 .about {
   
   .block {
-    @include media-breakpoint-down(sm) {
-      margin-bottom: $spacing-sm !important;
-    }
 
     h4 {
       @include media-breakpoint-down(sm) {
