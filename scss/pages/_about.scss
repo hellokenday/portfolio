@@ -7,7 +7,7 @@
       margin-bottom: $spacing-sm !important;
     }
 
-    h3 {
+    h4 {
       @include media-breakpoint-down(sm) {
         font-size: 16px;
       }
@@ -20,7 +20,7 @@
     }
 
     &.skills {
-      h3 {
+      h4 {
         color: $headings-color;
         @include media-breakpoint-up(md) {
           margin-bottom: $spacing-sm;
