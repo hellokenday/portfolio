@@ -29,3 +29,26 @@
   margin: 0 auto;
   max-width: 664px;
 }
+
+.carousel-caption {
+  bottom: 15px;
+  font-size: 90%;
+  color: #6c757d;   
+}
+
+.figure {
+  
+  position: relative;
+  
+  .figure-caption {
+    
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+    
+    position: absolute;
+    bottom: 30px;
+    left: 15%;
+    right: 15%;
+  }
+}
