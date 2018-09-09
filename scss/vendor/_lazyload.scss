@@ -28,3 +28,11 @@
     visibility: hidden;
   }
 }
+
+// lazyload images
+.loading {
+    content: "";
+    width: 960px;
+    height: auto;
+    background-color: $gray-100;
+}
