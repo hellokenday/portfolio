@@ -1,9 +1,29 @@
 // carousel.scss
 
-.carousel-caption {
-  bottom: 15px;
-  font-size: 90%;
-  color: #6c757d;   
+.carousel {
+  
+  .carousel-caption {
+    bottom: 15px;
+    font-size: 90%;
+    color: #6c757d;   
+  }
+  
+  // make video carousel item same height as images
+  
+  .embed-responsive {
+    
+    @include media-breakpoint-up(lg) {
+      min-height: 696px;
+      border: 0;
+    }
+  }
+  
+  .embed-responsive-item {
+    
+    @include media-breakpoint-up(lg) {
+      padding: 90px;
+    }
+  }
 }
 
 .figure {

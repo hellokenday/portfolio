@@ -11,9 +11,10 @@
   
   // Hide next project on small devices
   &.sticky-top .next-project {
-    @include media-breakpoint-down(sm) {
-      display: none;
-    } 
+//    @include media-breakpoint-down(sm) {
+//      display: none;
+//    } 
+    display: none;
   }
 }
 
