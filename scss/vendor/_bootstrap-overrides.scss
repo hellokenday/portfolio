@@ -2,7 +2,11 @@
 
 // carousel
 .carousel-indicators {
-  bottom: -32px;
+  bottom: -40px;
+  
+  @include media-breakpoint-up(md) {
+    bottom: -56px;
+  }
 }
 
 .carousel-control-prev,
