@@ -15,9 +15,17 @@
   ol ol {
     list-style: lower-alpha;
   }
+  
+  .text-muted {
+    font-size: 1.2rem;
+    margin-top: 16px;
+  }
 }
 
 .section {
-  margin: 0 auto;
   max-width: 664px;
+  
+  p, li {
+    font-size: 20px;
+  }
 }

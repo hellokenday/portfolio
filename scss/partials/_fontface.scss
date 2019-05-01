@@ -1,10 +1,62 @@
 // fontface.scss
 
-@font-face { 
-	font-family: 'Apecuru';
-	src: url('../fonts/apercu-webfont.eot');
-	src: url('../fonts/apercu-webfont.eot?#iefix') format('embedded-opentype'),
-	     url('../fonts/apercu-webfont.woff') format('woff'),
-	     url('../fonts/apercu-webfont.ttf') format('truetype'),
-	     url('../fonts/apercu-webfont.svg#webfont') format('svg');
+
+// Apercru
+
+@font-face {
+    font-family: 'Apercu Regular';
+    src: local('☺'), url('../fonts/Apercu_Regular.woff') format('woff');
 }
+
+
+@font-face {
+    font-family: 'Apercu Italic';
+    src: local('☺'), url('../fonts/apercu/Apercu Italic.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Apercu Light';
+    src: local('☺'), url('../fonts/apercu/Apercu Light.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Apercu Light Italic';
+    src: local('☺'), url('../fonts/apercu/Apercu Light Italic.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Apercu Medium';
+    src: local('☺'), url('../fonts/apercu/Apercu Medium.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Apercu Medium Italic';
+    src: local('☺'), url('../fonts/apercu/Apercu Medium Italic.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Apercu Bold';
+    src: local('☺'), url('../fonts/apercu/Apercu Bold.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Apercu Bold Italic';
+    src: local('☺'), url('../fonts/apercu/Apercu Bold Italic.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Apercu Mono Regular';
+    src: local('☺'), url('../fonts/apercu/Apercu Mono.woff') format('woff');
+}
+
+
+// Crimson Text
+
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
