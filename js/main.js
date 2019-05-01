@@ -3,6 +3,7 @@ $( document ).ready(function() {
   fadeInPages();
   pauseCarousels();
   hideNavbarOnScroll();
+  showHideNavTitle();
   
   window.LazyLoad = new LazyLoad({
     elements_selector: ".lazy-load",
@@ -32,6 +33,21 @@ function pauseCarousels() {
 function hideNavbarOnScroll() {
   
   $(".navbar.sticky-top").autoHidingNavbar();
+}
+
+// Show or hide page title in navbar on scroll
+
+function showHideNavTitle() {
+
+  $(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 400) {
+        $(".nav-title").removeClass("invisible");
+    } else {
+        $(".nav-title").addClass("invisible");
+    }
+  });  
 }
 
 // Lazyload images
