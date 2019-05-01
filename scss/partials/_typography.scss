@@ -3,12 +3,10 @@
 
 h2 {
   font-size: 3rem;
-  line-height: 40px;
 }
 
 h3 {
   font-size: 40px;
-//  line-height: 32px;
 }
 
 h4 {
@@ -30,7 +28,8 @@ p, ol, ul {
 }
 
 body,
-p.text-muted {
+p.text-muted,
+.carousel-caption p {
   font-family: "Apercu";
 }
 

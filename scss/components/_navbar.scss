@@ -12,6 +12,14 @@
     font-size: 24px;
   }
   
+  .nav-title {
+    text-align: center;
+    @include media-breakpoint-down(xs) {
+      text-align: right;
+      float: right;
+    }
+  }
+  
   .breadcrumb {
     padding: 0.75rem 0rem;
     margin-bottom: 0;
@@ -62,10 +70,9 @@
 }
 
 .navbar-bottom {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 16px;
+  position: absolute;
+  font-weight: bold;
+  font-size: 24px;
+  width: 180px;
+  right: 0;
 }
