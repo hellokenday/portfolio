@@ -3,6 +3,13 @@
 .navbar {
   padding: 0;
   background: $white;
+  height: 56px;
+  
+  a {
+    display: inline-block;
+    position: absolute;
+    font-w: bold;
+  }
   
   .breadcrumb {
     padding: 0.75rem 0rem;
