@@ -4,9 +4,8 @@
   
   .carousel-caption {
     bottom: 15px;
-    color: #6c757d; 
-    font-weight: 400;
   }
+
   
   // make video carousel item same height as images
   
@@ -41,4 +40,10 @@
     left: 15%;
     right: 15%;
   }
+}
+
+.carousel-caption.carousel-caption,
+.figure-caption.figure-caption {
+    color: #6c757d; 
+    font-weight: 400;
 }
