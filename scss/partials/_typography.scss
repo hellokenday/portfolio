@@ -1,6 +1,5 @@
 // typography.scss
 
-
 h2 {
   font-size: 3rem;
 }
@@ -23,14 +22,20 @@ html {
 }
 
 p, ol, ul {
-  font-family: "Crimson Text";
+  font-family: $serif;
   color: rgba(0, 0, 0, 0.8);
 }
 
 body,
 p.text-muted,
 .carousel-caption p {
-  font-family: "Apercu";
+  font-family: $sans-serif;
+  font-weight: normal;
+}
+
+body { 
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px;
 }
 
 span {

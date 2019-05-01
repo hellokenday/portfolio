@@ -2,6 +2,35 @@
 
 .homepage {
   
+  .homepage-links {
+    display: inline-flex;
+    margin-left: auto;
+    
+    a {
+      vertical-align: middle;
+    }
+  }
+  
+  .inner {
+    display: flex;
+  }
+  
+  h1.headline {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #40563f;
+    
+    @include media-breakpoint-down(sm) {
+      font-size: 3rem;
+    }
+  }
+  
+  h4.font-serif {
+    font-family: "";
+    font-size: 24px;
+    font-weight: normal;
+  }
+  
   p {
     margin-bottom: 0;
   }
