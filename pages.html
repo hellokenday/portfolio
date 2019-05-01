@@ -19,26 +19,24 @@
   <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
+    
+  <!-- navbar -->
+  <nav class="navbar sticky-top navbar-light nav-fill w-100">
+    <div class="container">
+      <a href="../index.html">kenday.</a>
+      <span class="d-block w-100 nav-title invisible" aria-current="page">Pages</span>
+    </div>   
+  </nav>
 
   <div class="container project">
-
-    <!-- navbar -->
-    <nav class="navbar sticky-top navbar-light">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Pages</li>
-      </ol>
-      <a href="thenorthface.html" class="breadcrumb next-project">
-        Next project
-      </a>
-    </nav>
     
     <!-- intro -->
     <div class="mt-md-7 mt-5 196">
-        <h2 class="text-md-center">Pages</h2>
+        <h2>Pages</h2>
+        <p class="text-muted">Drag &amp; Drop Webpage Builder</p>
     </div>
     
-    <img data-src="images/pages/pages-showcase@2x.jpg" class="img-fluid mt-md-7 mt-6 lazy-load" alt="image">
+    <img data-src="images/pages/pages-showcase@2x.jpg" class="img-fluid mt-md-7 mt-6 lazy-load full-width" alt="image">
     
     <!-- introduction -->
     <div class="section mt-md-7 mt-6 mb-md-7">
@@ -48,7 +46,7 @@
       </p>
     </div>
      
-    <img data-src="images/pages/pages-introduction@2x.jpg" class="img-fluid mt-md-7 mt-6 lazy-load" alt="image">
+    <img data-src="images/pages/pages-introduction@2x.jpg" class="img-fluid mt-md-7 mt-6 lazy-load full-width" alt="image">
       
     <!-- my role -->
     <div class="section mt-md-7 mt-6 mb-md-7">
@@ -59,20 +57,20 @@
     </div>
     
     <!-- to do: trim image height -->
-    <img data-src="images/pages/pages-process@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load" alt="image">
+    <img data-src="images/pages/pages-process@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load full-width" alt="image">
     
     <!-- problem -->
     <div class="section mt-md-7 mt-6 mb-md-7">
       <h3 class="mb-3">Problem</h3>
       <p>
         We were customising versions of our core product to satisfy design requirements from different clients. With a growing client base, it became impossible to maintain our product as well as the custom variations. We also accumulated design/technical debt having a library of shared components with entirely different styles and code bases being used across our products.  
-        <br><br>
-        The goal: reduce design debt and stop creating custom versions of our product for different clients.
       </p>
+      <h4 class="mt-3">Goal</h4>
+      <p>Reduce design debt and stop creating custom versions of our product for different clients.</p>
     </div>
     
-    <figure class="figure">
-      <img data-src="images/pages/problem@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load" alt="image">
+    <figure class="figure full-width">
+      <img data-src="images/pages/problem@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load full-width" alt="image">
       <figcaption class="figure-caption text-center">News component design variations</figcaption>
     </figure>
     
@@ -84,7 +82,7 @@
       </p>
     </div>
     
-    <figure class="figure">
+    <figure class="figure full-width">
       <img data-src="images/pages/solution@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load" alt="image">
       <figcaption class="figure-caption text-center">Consistent component design patterns</figcaption>
     </figure>
@@ -97,7 +95,7 @@
       </p>
     </div>
   
-    <img data-src="images/pages/sprint-process@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load" alt="image">
+    <img data-src="images/pages/sprint-process@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load full-width" alt="image">
     
     <!-- design -->
     <div class="section mt-md-7 mt-6 mb-md-7">
@@ -108,7 +106,7 @@
     </div>
     
     <!-- carousel -->
-    <div id="carousel-pages-1" class="carousel slide mt-md-0 mt-6" data-ride="carousel">
+    <div id="carousel-pages-1" class="carousel slide mt-md-0 mt-6 full-width" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel-pages-1" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-pages-1" data-slide-to="1"></li>
@@ -151,7 +149,7 @@
       </p>
     </div>
 
-    <img data-src="images/pages/prototype@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load" alt="image">
+    <img data-src="images/pages/prototype@2x.jpg" class="img-fluid mt-md-0 mt-6 lazy-load full-width" alt="image">
     
     <!-- test -->
     <div class="section mt-md-7 mt-6 mb-md-7">
@@ -160,8 +158,16 @@
         We carried out usability testing on each of the designs to see which performed better and to test two assumptions. 
       </p>
       <ol class="mt-3">
-        <li>Would using drag &amp; drop to place components from a sidebar frustrate users?</li>
-        <li>Would users be able to find the component library in the contextual design?</li>
+        <li>
+          <span class="font-italic">
+            Would using drag &amp; drop to place components from a sidebar frustrate users?
+          </span>
+        </li>
+        <li>
+          <span class="font-italic">
+            Would users be able to find the component library in the contextual design?
+          </span>
+        </li>
       </ol>
       <p>
           Participants were asked to complete three tasks where success, speed, and satisfaction were measured.
@@ -171,7 +177,7 @@
     </div>
     
     <!-- carousel -->
-    <div id="carousel-pages-2" class="carousel slide mt-md-0 mt-6" data-ride="carousel">
+    <div id="carousel-pages-2" class="carousel slide mt-md-0 mt-6 full-width" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel-pages-2" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-pages-2" data-slide-to="1"></li>
@@ -208,7 +214,7 @@
       </p>
     </div>
     
-    <div class="embed-responsive embed-responsive-16by9 mt-md-0 mt-6">
+    <div class="embed-responsive embed-responsive-16by9 mt-md-0 mt-6 full-width">
       <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/276628797?autoplay=1&loop=1&autopause=0&muted=1" allowfullscreen></iframe>
     </div>
     
@@ -221,7 +227,7 @@
     </div>
     
     <!-- carousel -->
-    <div id="carousel-pages-3" class="carousel slide mt-md-0 mt-6" data-ride="carousel">
+    <div id="carousel-pages-3" class="carousel slide mt-md-0 mt-6 full-width" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel-pages-3" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-pages-3" data-slide-to="1"></li>
