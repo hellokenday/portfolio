@@ -15,7 +15,12 @@
 }
 
 .bust-out { 
-  margin: 0 calc(50% - 50vw);
+  @media (max-width: 2080px) {
+    min-width: 100vw;
+    max-height: 600px;
+    object-fit: cover;
+    margin: 0 calc(50% - 50vw);
+  }
 }
 
 .full-width {
