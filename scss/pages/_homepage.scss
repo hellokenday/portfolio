@@ -44,11 +44,28 @@
     }
   }
 
-  .projects h3 {
-    @include media-breakpoint-down(sm) {
-      margin-top:    $spacing-sm;
-      margin-bottom: $spacing-sm;
+  .projects {
+    
+    .wrapper {
+      background: #f8f8fa;
+      padding-top:  40px;
+      padding-left: 40px;
+      position: absolute;
+      top: 0;
+      z-index: 9;
     }
+  
+    h3 {
+      margin-bottom: 0 !important;
+      @include media-breakpoint-down(sm) {
+        margin-top:    $spacing-sm;
+        margin-bottom: $spacing-sm;
+      }
+    }
+  }
+  
+  .project {
+    position: relative;
   }
   
   .contact-link {
@@ -59,8 +76,16 @@
   .img-wrapper {
     display: inline-block;
     overflow: hidden;
+    padding-top: 132px;
+    height: 550px;
+    background: #f8f8fa;
     
     img {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+      
       @include transition(all .4s ease);
       &:hover {
         @include transform(scale(1.1));
