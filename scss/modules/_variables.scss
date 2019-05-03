@@ -1,15 +1,13 @@
 // variables.scss
 
-$font-family-sans-serif: "Apercu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-sans-serif: "Apercu", "Lato", sans-serif;
+$sans-serif:             "Apercu", "Lato", sans-serif;
+$headings-font-family:   "Apercu", "Lato", sans-serif;
 
-$headings-font-weight:        600;
+$serif: "Crimson Text", Georgia, sans-serif;
+
+$headings-font-weight:        900;
 $font-weight-normal:          300;
-
-$serif: "Crimson Text";
-$sans-serif: "Apercu";
-
-
-$headings-font-family:    "Apercu";
 
 // Grid containers
 

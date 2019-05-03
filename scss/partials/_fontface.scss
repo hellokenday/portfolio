@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'Apercu Regular';
-    src: local('☺'), url('../fonts/Apercu_Regular.woff') format('woff');
+    src: local('☺'), url('../fonts/apercu/Apercu_Regular.woff') format('woff');
 }
 
 
@@ -58,5 +58,10 @@
 
 
 // Crimson Text
-
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+
+// Merriweather Sans
+@import url('https://fonts.googleapis.com/css?family=Merriweather+Sans:700,800');
+
+// Lato
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
