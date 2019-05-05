@@ -44,8 +44,12 @@
 // Navbar bottom
 
 .next-project,
-.prev-project {
-  color: $dark-grey;
+.contact-link,
+.body-link {
+  color: $body-link-color;
+  &:hover {
+    color: darken( $body-link-color, 15% );
+  }
 }
 
 .next-project {
@@ -53,20 +57,8 @@
   &::after {
     display: inline-block; // Suppress underlining of the separator in modern browsers
     padding-left: .5rem;
-    content: $next-arrow;
+ // content: $next-arrow;
   }
-}
-
-.prev-project {
-  float: left;
-  &::before {
-    display: inline-block; // Suppress underlining of the separator in modern browsers
-    padding-right: .5rem;
-    content: $prev-arrow;
-  }
-  @include media-breakpoint-down(sm) {
-    display: none;
-  } 
 }
 
 .navbar-bottom {
