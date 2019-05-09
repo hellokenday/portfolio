@@ -1,0 +1,51 @@
+// tabs.scss
+
+// thanks to my dear friend, Joe Davies, for this wonderfal tab component: www.joedavies.me
+
+.imageTab {
+  
+    ul {
+      padding-left: 0;
+    }
+    
+    .mySlides{
+      display: none;
+    }
+
+    .image-tab {
+        cursor: pointer;
+        color: $gray-400;
+    }
+
+    .active, .image-tab:hover {
+      color: $black;
+    }
+
+    .image-tab-scroll {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+        display: none;
+        }
+    }
+    
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1s;
+      animation-name: fade;
+      animation-duration: 1s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+}
