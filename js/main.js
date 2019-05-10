@@ -104,6 +104,18 @@ function scrollToAnchor() {
     }
   });
 }
+
+// Lazyload images
+(function(w, d){
+	var b = d.getElementsByTagName('body')[0];
+	var s = d.createElement("script"); s.async = true;
+	var v = !("IntersectionObserver" in w) ? "8.15.2" : "10.17.0";
+	s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
+	w.lazyLoadOptions = {
+    elements_selector: ".lazy-load",
+  }; // Your options here. See "recipes" for more information about async.
+	b.appendChild(s);
+}(window, document));
  
 
 // Tabbed images
@@ -134,16 +146,3 @@ var slideIndex = 1;
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
   }
-
-
-// Lazyload images
-(function(w, d){
-	var b = d.getElementsByTagName('body')[0];
-	var s = d.createElement("script"); s.async = true;
-	var v = !("IntersectionObserver" in w) ? "8.15.2" : "10.17.0";
-	s.src = "https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/" + v + "/lazyload.min.js";
-	w.lazyLoadOptions = {
-    elements_selector: ".lazy-load",
-  }; // Your options here. See "recipes" for more information about async.
-	b.appendChild(s);
-}(window, document));
