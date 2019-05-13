@@ -15,7 +15,7 @@
 }
 
 .bust-out { 
-  @media (max-width: 2080px) {
+  @media (max-width: 1919px) {
     min-width: 100vw;
     max-height: 600px;
     object-fit: cover;
@@ -25,7 +25,7 @@
 
 .full-width {
   
-  @media (max-width:3000px) {
+  @media (max-width:1919px) {
     left: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
@@ -33,26 +33,22 @@
     position: relative;
     right: 50%;
     width: 100vw;
-  }
-  
-  @include media-breakpoint-up(xl) {
-    padding-left: 5vw;
-    padding-right: 5vw;
     background-color: #fafafa;
   }
+  
+//  @include media-breakpoint-up(xl) {
+//    padding-left: 5vw;
+//    padding-right: 5vw;
+//    background-color: #fafafa;
+//  }
   
   @media (min-width: 1440px) and (max-width: 1599px) {
     padding-left: 30%;
     padding-right: 30%;
   }
   
-  @media (min-width: 1600px) and (max-width: 1879px) {
+  @media (min-width: 1600px) and (max-width: 1919px) {
     padding-left: 40%;
     padding-right: 40%;
-  }
-  
-  @media (min-width: 2880px) and (max-width:2999px) {
-    padding-left: 80%;
-    padding-right: 80%;
   }
 }
