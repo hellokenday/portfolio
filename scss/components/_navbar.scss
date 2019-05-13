@@ -45,7 +45,8 @@
 
 .next-project,
 .contact-link,
-.body-link {
+.body-link,
+.section a {
   color: $body-link-color;
   &:hover {
     color: darken( $body-link-color, 15% );

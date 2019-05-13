@@ -28,7 +28,8 @@ p, ol, ul {
 
 body,
 p.text-muted,
-.carousel-caption p {
+.carousel-caption p,
+.section a {
   font-family: $sans-serif;
   font-weight: normal;
 }

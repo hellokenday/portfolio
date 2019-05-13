@@ -3,6 +3,7 @@ $( document ).ready(function() {
   checkComponents();
   fadeInPages();
   pauseCarousels();
+  initReadMoreLinks();
   
   window.LazyLoad = new LazyLoad({
     elements_selector: ".lazy-load",
@@ -63,6 +64,19 @@ function showHideNavTitle() {
         $(".nav-title").addClass("invisible");
     }
   });  
+}
+
+function initReadMoreLinks() {
+
+  $('.read-more').click(function(){
+      var $this = $(this);
+      $this.toggleClass('read-more');
+      if($this.hasClass('read-more')){
+          $this.text('Read more');         
+      } else {
+          $this.text('Read less');
+      }
+  });
 }
 
 
