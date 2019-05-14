@@ -36,11 +36,11 @@
     background-color: #fafafa;
   }
   
-//  @include media-breakpoint-up(xl) {
-//    padding-left: 5vw;
-//    padding-right: 5vw;
-//    background-color: #fafafa;
-//  }
+  @include media-breakpoint-up(xl) {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    background-color: #fafafa;
+  }
   
   @media (min-width: 1440px) and (max-width: 1599px) {
     padding-left: 30%;
