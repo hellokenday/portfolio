@@ -29,7 +29,15 @@
 
 .social-links {
   
-  a:hover {
-    opacity: 0.87;
+  .fab, .far {
+    font-size: 32px;
+  }
+  
+  a {
+    height: 40px;
+    width: 40px;
+    margin-right: 16px;
+    display: inline-block;
+    background-size: cover;
   }
 }
