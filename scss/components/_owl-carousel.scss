@@ -1,28 +1,32 @@
 // owl-carousel.scss
 
-.owl-stage { 
-//  overflow: visible !important;
+.project-carousel {
   
-  margin: 8px;
+  padding: 48px 0 96px 0;
+
+  .owl-stage { 
   
-  .owl-item {
-     opacity: 0;
-     transition: opacity 300ms;
+    margin: 8px;
 
-    &.active {
-      opacity: 1;
-    }
+    .owl-item {
+       opacity: 0;
+       transition: opacity 300ms;
 
-    .card {
-      width: 16rem;
-      border-radius: 3px;
-      border: 2px solid rgba(0,0,0,.04);
-      box-shadow: 0 1px 7px rgba(0,0,0,.05);
-      a {
-        transition: box-shadow 300ms;
-        &:hover {
-          box-shadow: 0 1px 7px rgba(0,0,0,.062);
-          color: inherit;
+      &.active {
+        opacity: 1;
+      }
+
+      .card {
+     // width: 16rem;
+        border-radius: 3px;
+        border: 2px solid rgba(0,0,0,.04);
+        box-shadow: 0 1px 7px rgba(0,0,0,.05);
+        a {
+          transition: box-shadow 300ms;
+          &:hover {
+            box-shadow: 0 1px 7px rgba(0,0,0,.062);
+            color: inherit;
+          }
         }
       }
     }

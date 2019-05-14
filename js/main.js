@@ -70,11 +70,24 @@ function showHideNavTitle() {
 function initOwlCarousels() {
 
   $('.owl-carousel').owlCarousel({
-      margin: 16,
-      loop: false,
-      autoWidth: true,
-      items: 4,
-      dots: false
+    margin: 16,
+    loop: false,
+    items: 4,
+    dots: false,
+    responsive:{
+      320: {
+          items:2
+      },
+      600: {
+          items:2
+      },
+      1000: {
+          items:3
+      },
+      1200: {
+          items:4
+      }
+    }
   })
 }
 
