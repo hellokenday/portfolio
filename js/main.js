@@ -4,7 +4,6 @@ $( document ).ready(function() {
   fadeInPages();
   pauseCarousels();
   initReadMoreLinks();
-//  setImageBackgroundColor();
   
   window.LazyLoad = new LazyLoad({
     elements_selector: ".lazy-load",
@@ -21,6 +20,7 @@ function checkComponents() {
     hideNavbarOnScroll();
     showHideNavTitle();
     initOwlCarousels();
+    insertIframeStyles();
   }
   
   if ($("body").hasClass("index")) {
@@ -62,8 +62,10 @@ function showHideNavTitle() {
 
     if (scroll >= 400) {
         $(".nav-title").removeClass("invisible");
+        $(".navbar").addClass("shadow-sm");
     } else {
         $(".nav-title").addClass("invisible");
+        $(".navbar").removeClass("shadow-sm");
     }
   });  
 }
@@ -105,20 +107,6 @@ function initReadMoreLinks() {
   });
 }
 
-function setImageBackgroundColor() {
-
-  $(".full-width").load(function(){
-    
-    var $this = $(this);
-
-    // Dominant Color
-    var dominantColor = getDominantColor($this);
-
-    //change background
-    $this.css("background-color", "rgb("+dominantColor+")");
-  }); 
-}
-
 function scrollToAnchor() {
 
   // Select all links with hashes
@@ -157,6 +145,17 @@ function scrollToAnchor() {
       }
     }
   });
+}
+
+function insertIframeStyles() {
+  
+  var head = $("iframe").contents().find("head");
+  var css = '<style type="text/css">' +
+            '.player.player{box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);margin-bottom: 5px;} ' +
+            '</style>';
+  $(head).append(css);
+  
+  console.log("insertIframeStyles");
 }
 
 // Lazyload images
