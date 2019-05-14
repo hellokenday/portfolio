@@ -4,6 +4,7 @@ $( document ).ready(function() {
   fadeInPages();
   pauseCarousels();
   initReadMoreLinks();
+//  setImageBackgroundColor();
   
   window.LazyLoad = new LazyLoad({
     elements_selector: ".lazy-load",
@@ -104,10 +105,21 @@ function initReadMoreLinks() {
   });
 }
 
+function setImageBackgroundColor() {
+
+  $(".full-width").load(function(){
+    
+    var $this = $(this);
+
+    // Dominant Color
+    var dominantColor = getDominantColor($this);
+
+    //change background
+    $this.css("background-color", "rgb("+dominantColor+")");
+  }); 
+}
 
 function scrollToAnchor() {
-  
-  console.log("scrollToAnchor");
 
   // Select all links with hashes
   $('a[href*="#"]')
