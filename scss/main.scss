@@ -14,6 +14,8 @@
 @import 'vendor/boilerplate';
 @import 'vendor/bootstrap-overrides';
 @import 'vendor/lazyload';
+@import 'vendor/owl.carousel';
+@import 'vendor/owl.theme.default';
 
 // Partials
 @import 'partials/layout';
@@ -27,6 +29,7 @@
 @import 'components/navbar';
 @import 'components/video';
 @import 'components/tabs';
+@import 'components/owl-carousel';
 
 // Helpers
 @import 'helpers/mixins';
@@ -35,4 +38,4 @@
 @import 'pages/homepage';
 @import 'pages/about';
 @import 'pages/project'; 
- 
+  

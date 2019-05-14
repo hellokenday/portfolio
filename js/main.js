@@ -19,6 +19,7 @@ function checkComponents() {
     
     hideNavbarOnScroll();
     showHideNavTitle();
+    initOwlCarousels();
   }
   
   if ($("body").hasClass("index")) {
@@ -64,6 +65,17 @@ function showHideNavTitle() {
         $(".nav-title").addClass("invisible");
     }
   });  
+}
+
+function initOwlCarousels() {
+
+  $('.owl-carousel').owlCarousel({
+      margin: 16,
+      loop: false,
+      autoWidth: true,
+      items: 4,
+      dots: false
+  })
 }
 
 function initReadMoreLinks() {
