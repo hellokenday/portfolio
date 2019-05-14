@@ -31,14 +31,22 @@
 .social-links {
   
   .fab, .far {
-    font-size: 32px;
+    font-size: 28px;
+    
+    @include media-breakpoint-down(sm) {
+      font-size: 32px; 
+    }
   }
   
   a {
     height: 40px;
     width: 40px;
-    margin-right: 16px;
     display: inline-block;
     background-size: cover;
+    margin-right: 8px;
+    
+    @include media-breakpoint-down(sm) {
+      margin-right: 16px;
+    }
   }
 }
