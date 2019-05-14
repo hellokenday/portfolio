@@ -73,7 +73,7 @@ function initOwlCarousels() {
     margin: 20,
     loop: false,
     items: 4,
-    dots: false,
+    dots: true,
     responsive:{
       320: {
           items:2

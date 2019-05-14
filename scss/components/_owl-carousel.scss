@@ -3,21 +3,18 @@
 .project-carousel {
   
   padding: 48px 0 96px 0;
+  
+  .owl-stage-outer {
+    margin-right: -10px;
+  }
 
   .owl-stage { 
   
     margin: 8px;
 
     .owl-item {
-       opacity: 0;
-       transition: opacity 300ms;
-
-      &.active {
-        opacity: 1;
-      }
 
       .card {
-     // width: 16rem;
         border-radius: 3px;
         border: 2px solid rgba(0,0,0,.04);
         box-shadow: 0 1px 7px rgba(0,0,0,.05);
@@ -26,13 +23,10 @@
           &:hover {
             box-shadow: 0 1px 7px rgba(0,0,0,.062);
             color: inherit;
+            cursor: pointer;
           }
         }
       }
     }
   }
 }
-
-//* {
-//  display: none !important;
-//}
