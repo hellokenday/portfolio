@@ -70,7 +70,7 @@ function showHideNavTitle() {
 function initOwlCarousels() {
 
   $('.owl-carousel').owlCarousel({
-    margin: 16,
+    margin: 20,
     loop: false,
     items: 4,
     dots: false,
@@ -84,7 +84,7 @@ function initOwlCarousels() {
       1000: {
           items:3
       },
-      1200: {
+      1600: {
           items:4
       }
     }
