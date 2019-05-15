@@ -5,7 +5,7 @@
   h1.headline {
     font-size: 5rem;
     font-weight: 900;
-    color: #40563f;
+    color: $green-ram;
     
     @include media-breakpoint-down(sm) {
       font-size: 3rem;
