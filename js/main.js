@@ -62,10 +62,8 @@ function showHideNavTitle() {
 
     if (scroll >= 400) {
         $(".nav-title").removeClass("invisible");
-        $(".navbar").addClass("shadow-sm");
     } else {
         $(".nav-title").addClass("invisible");
-        $(".navbar").removeClass("shadow-sm");
     }
   });  
 }

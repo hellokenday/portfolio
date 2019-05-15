@@ -10,7 +10,7 @@
                 "sourceComments": false,
                 "outputStyle": "compressed"
             },
-            "linting.collapsed": false,
+            "linting.collapsed": true,
             "brackets-git.gitPath": "/usr/local/git/bin/git"
         }
     }
