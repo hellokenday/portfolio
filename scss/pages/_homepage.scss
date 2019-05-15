@@ -38,7 +38,7 @@
       position: absolute;
       top: 0;
       z-index: 9;
-      padding-top:  40px;
+      padding-top:  24px;
       
       @include media-breakpoint-up(sm) {
         padding-left: 40px;
@@ -81,5 +81,10 @@
         @include transform(scale(1.1));
       }
     }
+  }
+  
+  .switchback .img-wrapper {
+    // align image
+    padding-top: 24px;
   }
 }
