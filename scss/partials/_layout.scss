@@ -72,7 +72,7 @@
 
 .index .full-width {
   
-  @include media-breakpoint-down(xl) {
+  @include media-breakpoint-down(md) {
   
     left: 50%;
     margin-left: -50vw;
@@ -83,7 +83,7 @@
     width: 100vw;
   }
   
-  @include media-breakpoint-up(xl) {
+  @include media-breakpoint-up(md) {
   
     left:         auto;
     right:        auto;

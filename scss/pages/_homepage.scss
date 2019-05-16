@@ -32,18 +32,6 @@
   }
 
   .projects {
-    
-//    .wrapper {
-//      background: #f8f8fa;
-//      position: absolute;
-//      top: 0;
-//      z-index: 9;
-//      padding-top:  24px;
-//      
-//      @include media-breakpoint-up(sm) {
-//        padding-left: 40px;
-//      }
-//    }
   
     h3 {
       margin-bottom: 0 !important;
@@ -66,12 +54,15 @@
   .img-wrapper {
     display: inline-block;
     overflow: hidden;
-//    padding-top: 132px;
-    height: 450px;
+    padding-top: 2px;
     background: #f8f8fa;
+    height: 450px;
+    
+    @include media-breakpoint-down(sm) {
+      height: 300px;
+    }
     
     img {
-//      max-width: 860px;
       margin: 0 auto;
       text-align: center;
       display: block;
@@ -82,4 +73,18 @@
       }
     }
   }
+//  .img-wrapper.mobile-project img {
+//    
+//    @include media-breakpoint-up(sm) {
+//      margin-top: -30px;
+//    }
+//    @include media-breakpoint-up(md) {
+//      margin-top: -70px;
+//    }
+//  }
 }
+
+
+//* {
+//  display: none;
+//}
