@@ -1,13 +1,15 @@
 // variables.scss
 
-$font-family-sans-serif: "Apercu", "Lato", sans-serif;
-$sans-serif:             "Apercu", "Lato", sans-serif;
-$headings-font-family:   "Apercu", "Lato", sans-serif;
+$sans-serif: "Apercu", Helvetica Neue, "Lato", sans-serif;
 
-$serif: "Crimson Text", Georgia, sans-serif;
+$serif: "Plantin Light", "Crimson Text", Georgia, serif;
+
+$font-family-sans-serif: $sans-serif;
+$headings-font-family:   $sans-serif;
 
 $headings-font-weight:        900;
 $font-weight-normal:          300;
+$font-weight-light:           200;
 
 // Grid containers
 
