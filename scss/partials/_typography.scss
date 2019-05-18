@@ -26,10 +26,22 @@ p, ol, ul {
   color: $off-black;
 }
 
+.section p a {
+    font-family: $serif;
+    border-bottom: 1px solid #00829A;
+    color: inherit;
+}
+
+.collapsible-link.collapsible-link {
+  border-bottom: none;
+  color: $light-blue;
+}
+
 body,
 p.text-muted,
 .carousel-caption p,
-.section a {
+.section a,
+.collapsible-link.collapsible-link {
   font-family: $sans-serif;
   font-weight: normal;
 }
