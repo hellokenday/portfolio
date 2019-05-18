@@ -26,7 +26,8 @@ p, ol, ul {
   color: $off-black;
 }
 
-.section p a {
+.section {
+   p a, li a 
     font-family: $serif;
     border-bottom: 1px solid #00829A;
     color: inherit;
