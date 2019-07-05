@@ -27,10 +27,11 @@ p, ol, ul {
 }
 
 .section {
-   p a, li a 
-    font-family: $serif;
-    border-bottom: 1px solid #00829A;
-    color: inherit;
+     p a, li a {
+      font-family: $serif;
+      border-bottom: 1px solid #00829A;
+      color: inherit;
+  }
 }
 
 .collapsible-link.collapsible-link {
@@ -63,6 +64,10 @@ span {
 .navbar,
 a {
   font-weight: 400;
+}
+
+.logo.logo {
+  font-size: 32px;
 }
 
 .logo,
