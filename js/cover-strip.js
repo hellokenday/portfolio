@@ -72,6 +72,7 @@ function initVisiblePreviewPlayback() {
 
   const visibleVideos = new Set();
   const playTimers = new Map();
+  const ratios = new Map();
   const mobileLayout = window.matchMedia("(max-width: 1100px)");
   const visibilityThreshold = mobileLayout.matches ? 0.2 : 0.65;
   const resetThreshold = mobileLayout.matches ? 0.1 : 0.2;
@@ -93,6 +94,8 @@ function initVisiblePreviewPlayback() {
     }
   };
 
+  // Desktop: the horizontal strip can show several tiles at once and the machine
+  // has decoders to spare, so play every visible tile in a staggered cascade.
   const queueVisibleVideos = () => {
     const orderedVisibleVideos = videos.filter((video) => visibleVideos.has(video));
 
@@ -113,39 +116,60 @@ function initVisiblePreviewPlayback() {
     });
   };
 
+  // Mobile: inline-video decoders are scarce (iOS plays only ~1–2 at a time), so
+  // play ONLY the single most-visible tile and pause the rest. The paused tiles
+  // keep showing their poster, which fixes "only the first video plays".
+  const playMostVisibleMobile = () => {
+    if (document.hidden) return;
+    let best = null;
+    let bestRatio = 0;
+    videos.forEach((video) => {
+      const r = ratios.get(video) || 0;
+      if (r > bestRatio) {
+        bestRatio = r;
+        best = video;
+      }
+    });
+    videos.forEach((video) => {
+      if (video === best && bestRatio >= 0.5) {
+        if (video.paused) {
+          if (video.ended) video.currentTime = 0;
+          void video.play().catch(() => {});
+        }
+      } else if (!video.paused) {
+        video.pause();
+      }
+    });
+  };
+
+  const updatePlayback = () => {
+    if (mobileLayout.matches) playMostVisibleMobile();
+    else queueVisibleVideos();
+  };
+
   const observer = new IntersectionObserver(
     (entries) => {
-      let didChange = false;
-
       entries.forEach((entry) => {
         const video = entry.target;
+        ratios.set(video, entry.intersectionRatio);
         const isVisible = entry.isIntersecting && entry.intersectionRatio >= visibilityThreshold;
 
         if (isVisible) {
-          if (!visibleVideos.has(video)) {
-            visibleVideos.add(video);
-            didChange = true;
+          visibleVideos.add(video);
+        } else {
+          visibleVideos.delete(video);
+          if (entry.intersectionRatio <= resetThreshold) {
+            pauseVideo(video, true);
           }
-          return;
-        }
-
-        if (visibleVideos.delete(video)) {
-          didChange = true;
-        }
-
-        if (entry.intersectionRatio <= resetThreshold) {
-          pauseVideo(video, true);
         }
       });
 
-      if (didChange) {
-        queueVisibleVideos();
-      }
+      updatePlayback();
     },
     {
       root: null,
       threshold: mobileLayout.matches
-        ? [0, 0.1, 0.25, 0.35, 0.5, 0.75]
+        ? [0, 0.1, 0.25, 0.35, 0.5, 0.75, 1]
         : [0, resetThreshold, visibilityThreshold, 0.9],
     }
   );
@@ -165,9 +189,7 @@ function initVisiblePreviewPlayback() {
       clearPlayTimer(video);
     });
     video.addEventListener("loadeddata", () => {
-      if (visibleVideos.has(video) && video.paused && !video.ended) {
-        void video.play().catch(() => {});
-      }
+      updatePlayback();
     });
     observer.observe(video);
   });
@@ -175,7 +197,7 @@ function initVisiblePreviewPlayback() {
   // iOS fallback: if autoplay was blocked (commonly Low Power Mode), the first
   // user gesture lifts the restriction — (re)start any in-view videos then.
   const kickOnGesture = () => {
-    queueVisibleVideos();
+    updatePlayback();
     ["touchstart", "pointerdown", "scroll", "keydown"].forEach((ev) =>
       window.removeEventListener(ev, kickOnGesture)
     );
@@ -190,7 +212,7 @@ function initVisiblePreviewPlayback() {
       return;
     }
 
-    queueVisibleVideos();
+    updatePlayback();
   });
 }
 
