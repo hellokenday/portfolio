@@ -116,9 +116,44 @@ function initVisiblePreviewPlayback() {
     });
   };
 
-  // Mobile: inline-video decoders are scarce (iOS plays only ~1–2 at a time), so
-  // play ONLY the single most-visible tile and pause the rest. The paused tiles
-  // keep showing their poster, which fixes "only the first video plays".
+  // Resolve the source URL a <video> would pick at the current width (mobile
+  // rendition ≤760px, else the desktop one).
+  const srcOf = (video) => {
+    const sources = video.querySelectorAll("source");
+    let fallback = null;
+    for (const s of sources) {
+      const m = s.getAttribute("media");
+      if (!m) {
+        fallback = s.getAttribute("src");
+        continue;
+      }
+      if (window.matchMedia(m).matches) return s.getAttribute("src");
+    }
+    return fallback || video.getAttribute("src") || "";
+  };
+
+  // Mobile decoder-teardown: iOS keeps only ONE inline video alive and won't
+  // hand that decoder to a second element via pause/play. So we give a source to
+  // ONLY the centered tile and strip it from the rest — there's never more than
+  // one live video, so the centered clip always gets the decoder. Inactive tiles
+  // fall back to their poster (CSS background).
+  const activateMobile = (video) => {
+    const want = video.getAttribute("data-mobile-src") || "";
+    if (want && video.getAttribute("src") !== want) {
+      video.setAttribute("src", want);
+      video.load();
+    }
+    if (video.paused) void video.play().catch(() => {});
+  };
+
+  const deactivateMobile = (video) => {
+    video.pause();
+    if (video.hasAttribute("src")) {
+      video.removeAttribute("src");
+      video.load(); // tear down → release the single decoder for the next tile
+    }
+  };
+
   const playMostVisibleMobile = () => {
     if (document.hidden) return;
     let best = null;
@@ -130,15 +165,10 @@ function initVisiblePreviewPlayback() {
         best = video;
       }
     });
-    // Pause every other tile FIRST so its decoder is released, then start the
-    // winner — iOS won't start a second clip while another still holds a decoder.
     videos.forEach((video) => {
-      if (video !== best && !video.paused) video.pause();
+      if (video === best && bestRatio >= 0.4) activateMobile(video);
+      else deactivateMobile(video);
     });
-    if (best && bestRatio >= 0.4 && best.paused) {
-      if (best.ended) best.currentTime = 0;
-      void best.play().catch(() => {});
-    }
   };
 
   const updatePlayback = () => {
@@ -178,9 +208,16 @@ function initVisiblePreviewPlayback() {
     // autoplay, and playsinline so it doesn't go fullscreen.
     video.muted = true;
     video.setAttribute("playsinline", "");
-    // Don't force preload="auto" on every clip — on iOS that makes all five load
-    // at once and trips the concurrent-load limit, so some never appear. Leave
-    // preload="metadata"; the in-view play() below loads each one on demand.
+
+    if (mobileLayout.matches) {
+      // Decoder-teardown setup: remember the source this tile would use, then
+      // strip the <source> elements so the video starts empty (poster shows).
+      // Only the centered tile gets its source back, via activateMobile().
+      video.setAttribute("data-mobile-src", srcOf(video));
+      video.querySelectorAll("source").forEach((s) => s.remove());
+      video.removeAttribute("src");
+      video.load();
+    }
 
     pauseVideo(video);
     video.currentTime = 0;
