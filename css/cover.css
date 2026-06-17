@@ -15,7 +15,7 @@
   /* Cover media height. Caps at 640px on tall screens; on short laptops it
      subtracts enough (footer text-block + caption + stage padding) that the
      case-study TITLE below each tile is never clipped by the strip's overflow. */
-  --cover-media-h: min(640px, calc(100dvh - 420px));
+  --cover-media-h: max(220px, min(640px, calc(100dvh - 420px)));
 
   /* Tokens theme.css expects but that live in portfolio.css (not linked here) */
   --ease-out-soft: cubic-bezier(.2,.7,.2,1);
@@ -38,7 +38,11 @@ body {
   margin: 0;
   background: var(--canvas);
   color: var(--body);
-  overflow: hidden;
+  /* Don't hard-lock scroll: when content outgrows the viewport (e.g. 400% zoom),
+     allow vertical scroll so nothing is clipped/unreachable (WCAG 1.4.10 reflow).
+     Horizontal stays hidden so the off-stage carousel never bleeds a scrollbar. */
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -60,7 +64,10 @@ a { color: inherit; }
 /* ---- Cover stage ---------------------------------------------------------- */
 .cover-stage {
   position: relative;
-  height: 100dvh;
+  /* min-height (not fixed height) so the stage can grow past one screen when the
+     content needs it (high zoom / short viewport) — flex-grow still fills a full
+     screen when there's room, so the normal one-screen cover is unchanged. */
+  min-height: 100dvh;
   width: 100vw;
   overflow: hidden;
   display: flex;

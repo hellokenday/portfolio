@@ -83,8 +83,6 @@
 .pg-sheet.is-success .pg-submit { background: var(--accent-success, #1f7a52); }
 .pg-sheet.is-success .pg-submit-label { opacity: 1; }
 
-.pg-demo { font: var(--caption); color: var(--muted-soft); margin: 18px 0 0; }
-
 /* visually-hidden live region (screen readers only) */
 .pg-live {
   position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;

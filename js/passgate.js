@@ -55,7 +55,6 @@ window.PassGate = (function () {
             '</button>' +
           '</div>' +
         '</form>' +
-        '<p class="pg-demo">Demo password: <strong>hellokenday</strong></p>' +
         '<span class="pg-live" aria-live="polite"></span>' +
       '</div>';
     document.body.appendChild(root);
