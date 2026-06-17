@@ -1,0 +1,557 @@
+/* ============================================================================
+   COVER — single-page portfolio cover.
+   Structure/layout/behaviour reproduced 1:1 from the source (styles.css),
+   re-skinned onto the Clay design-system tokens (clay-tokens.css):
+   cream canvas, ink/body text, Inter type. Dark mode comes for free via
+   theme.css (everything reads the same tokens).
+   Import order:  clay-tokens.css → cover.css → theme.css
+   ========================================================================== */
+
+:root {
+  /* Layout rhythm (verbatim from source) */
+  --carousel-image-h: 60vh;
+  --carousel-caption-space: 40px;
+
+  /* Cover media height. Caps at 640px on tall screens; on short laptops it
+     subtracts enough (footer text-block + caption + stage padding) that the
+     case-study TITLE below each tile is never clipped by the strip's overflow. */
+  --cover-media-h: max(220px, min(640px, calc(100dvh - 420px)));
+
+  /* Tokens theme.css expects but that live in portfolio.css (not linked here) */
+  --ease-out-soft: cubic-bezier(.2,.7,.2,1);
+  --accent:      var(--clay-peach);
+  --accent-text: var(--ink);
+
+  /* Case-study card hover springs (ported verbatim from portfolio.css):
+     lift spring(300,26) · zoom spring(120,22). */
+  --spring-lift: linear(0,.0176,.0631,.1262,.203,.2846,.3703,.4531,.5342,.6085,.678,.7391,.7944,.8414,.8825,.9163,.9449,.9676,.986,.9999,1.0106,1.018,1.0232,1.0262,1.0276,1.0278,1.027,1.0256,1.0237,1.0215,1.0191,1.0168,1.0145,1.0123,1.0103,1.0084,1.0067,1.0053,1.004,1.003,1.0021,1.0013,1.0007,1.0003,.9999,.9996,.9994,.9993,.9993,1);
+  --spring-lift-dur: 545ms;
+  --spring-zoom: linear(0,.0261,.0877,.1682,.2564,.3452,.4303,.509,.5802,.6434,.6994,.7474,.7886,.8237,.8534,.8785,.8996,.9171,.9318,.9439,.9541,.9624,.9693,.9749,.9795,.9833,.9864,.9889,.991,.9927,.9941,.9952,.9961,.9968,.9974,.9979,.9983,.9986,.9989,.9991,.9993,.9994,.9995,.9996,.9997,.9998,.9998,.9998,.9999,1);
+  --spring-zoom-dur: 1091ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--body);
+  /* Don't hard-lock scroll: when content outgrows the viewport (e.g. 400% zoom),
+     allow vertical scroll so nothing is clipped/unreachable (WCAG 1.4.10 reflow).
+     Horizontal stays hidden so the off-stage carousel never bleeds a scrollbar. */
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color .4s ease, color .4s ease;
+}
+
+button, input, textarea, select { font: inherit; color: inherit; }
+
+a { color: inherit; }
+
+.skip-link {
+  position: absolute; left: 12px; top: -48px; z-index: 200;
+  background: var(--ink); color: var(--canvas);
+  padding: 10px 16px; border-radius: var(--rounded-md);
+  font: var(--title-sm); text-decoration: none; transition: top .15s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---- Cover stage ---------------------------------------------------------- */
+.cover-stage {
+  position: relative;
+  /* min-height (not fixed height) so the stage can grow past one screen when the
+     content needs it (high zoom / short viewport) — flex-grow still fills a full
+     screen when there's room, so the normal one-screen cover is unchanged. */
+  min-height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 0;
+  box-sizing: border-box;
+  background: var(--canvas);
+}
+
+/* ---- Headline ------------------------------------------------------------- */
+.headline-item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  height: var(--cover-media-h);
+}
+
+.headline {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-size: 54px;
+  line-height: 1.05;                       /* Clay display rhythm */
+  letter-spacing: var(--tracking-display-lg);
+  color: var(--ink);
+}
+
+.headline-name {
+  font-weight: 500; /* Clay display caps at 500 — never bolder */
+  white-space: nowrap;
+}
+
+/* Word-by-word reveal (staggered rise on load) — like the previous homepage. */
+.headline .hl-word { display: inline-block; }
+@media (prefers-reduced-motion: no-preference) {
+  /* Hide the whole headline from first paint (before JS wraps words) so the
+     full text never flashes in before the staggered reveal runs. */
+  .headline:not(.is-ready) { opacity: 0; }
+  .headline .hl-word {
+    opacity: 0;
+    transform: translateY(0.42em);
+    transition: opacity .6s var(--ease-out-soft), transform .6s var(--ease-out-soft);
+  }
+  .headline.is-ready { opacity: 1; }
+  .headline.is-ready .hl-word { opacity: 1; transform: none; }
+
+  /* Intro choreography — the copy + footer fade up first, then lead into the
+     headline ("bio text") and the thumbnails. Driven by classes on #main from
+     headline-reveal.js (with a failsafe so nothing can stay hidden). */
+  #main .copy,
+  #main .contact,
+  #main .meta {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .6s var(--ease-out-soft), transform .6s var(--ease-out-soft);
+  }
+  #main .contact { transition-delay: .07s; }
+  #main .meta { transition-delay: .12s; }
+  #main.intro-ready .copy,
+  #main.intro-ready .contact,
+  #main.intro-ready .meta { opacity: 1; transform: none; }
+
+  #main .preview {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .55s var(--ease-out-soft), transform .55s var(--ease-out-soft);
+  }
+  #main.hero-ready .preview { opacity: 1; transform: none; }
+}
+
+.headline-title {
+  font-weight: 400;
+  width: 620px;
+  white-space: normal;
+}
+
+/* ---- Scrollable strip ----------------------------------------------------- */
+.strip-wrap {
+  position: relative;
+  flex: 1 1 calc(var(--carousel-image-h) + var(--carousel-caption-space));
+}
+
+.strip {
+  --strip-gap: 12px;
+  position: absolute;
+  inset: -16px 0 0 0;       /* extend clip region up so the hover-lift isn't cropped */
+  display: flex;
+  align-items: flex-start;
+  gap: var(--strip-gap);
+  padding: 16px 0 0;        /* ...and push content back down to its original spot */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.strip::before {
+  content: "";
+  flex: 0 0 32px;
+  width: 32px;
+  height: 1px;
+}
+
+.strip::after {
+  content: "";
+  flex: 0 0 var(--strip-gap);
+  width: var(--strip-gap);
+  height: 1px;
+}
+
+.strip::-webkit-scrollbar { display: none; }
+
+.strip-prev,
+.strip-next {
+  position: absolute;
+  top: calc(var(--cover-media-h) / 2);
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 3;
+  padding: 0;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.strip-prev { left: 20px; }
+.strip-next { right: 20px; }
+
+.strip-prev[hidden],
+.strip-next[hidden] { display: none; }
+
+.strip-prev img,
+.strip-next img {
+  display: block;
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 1px 8px rgba(0, 0, 0, 0.18));
+  transition: filter 160ms ease;
+}
+
+.strip-prev img { transform: rotate(180deg); }
+
+.strip-prev:hover,
+.strip-next:hover {
+  transform: translateY(-50%) scale(1.03);
+  opacity: 1;
+}
+
+.strip-prev:hover img,
+.strip-next:hover img {
+  filter: drop-shadow(0 1px 10px rgba(0, 0, 0, 0.22));
+}
+
+.strip-prev:focus-visible,
+.strip-next:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  outline-offset: 3px;
+}
+
+/* ---- Preview tiles -------------------------------------------------------- */
+.preview {
+  flex: 0 0 auto;
+  margin: 0;
+  width: auto;
+}
+
+.preview-media {
+  position: relative;
+  width: auto;
+  height: var(--cover-media-h);
+  aspect-ratio: 830 / 640;
+  border-radius: var(--rounded-xl);   /* match the case-study covers / work cards */
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 8%, var(--canvas));
+}
+
+.preview img,
+.preview-media video {
+  display: block;
+  object-fit: cover;
+  border-radius: var(--rounded-xl);
+  background: transparent;
+}
+
+.preview-media video {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;          /* parent's overflow:hidden clips it — avoids a 1px edge seam */
+}
+
+.preview-label {
+  margin-top: 8px;
+  font: var(--caption);            /* Clay caption: 13px/1.4 @500 */
+  color: var(--muted);
+}
+
+/* ---- Clay placeholder tile (stands in for the project media) -------------- */
+.ph {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  background-color: var(--surface-card);
+  background-image: repeating-linear-gradient(135deg, transparent 0 11px, color-mix(in srgb, var(--muted) 9%, transparent) 11px 12px);
+}
+.ph span {
+  font: var(--code); font-size: 12px; color: var(--muted);
+  background: var(--canvas); padding: 4px 10px;
+  border-radius: var(--rounded-pill); border: 1px solid var(--hairline);
+}
+
+/* ---- Text block (copy + meta + contact) ----------------------------------- */
+.text-block {
+  position: relative;
+  margin: 0;
+  margin-top: auto;
+  width: 100%;
+  padding-top: 40px;
+  padding-left: 44px;
+  padding-right: 44px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-end;
+}
+
+.text-left {
+  flex: 1 1 auto;
+  max-width: 486px;
+}
+
+.copy {
+  font: var(--title-md);           /* Clay lead: 18px/1.4 ... */
+  font-weight: 400;                /* ...at 400 (not 600) */
+  color: var(--body-strong);
+}
+
+.copy p { margin: 0 0 10px; }
+.copy p:last-child { margin-bottom: 0; }
+
+.meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 12px 24px;
+  font: var(--body-md);            /* Clay body: 16px/1.55 */
+  color: var(--ink);
+  flex-shrink: 0;
+}
+
+.contact {
+  margin-top: 88px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font: var(--body-md);            /* Clay body: 16px/1.55 */
+  color: var(--ink);
+}
+
+.contact-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--ink) 40%, transparent);
+  transition: text-decoration-color .15s ease, color .15s ease;
+}
+.contact-link:hover {
+  text-decoration-color: var(--ink);
+  color: var(--accent-text);
+}
+
+/* ============================================================================
+   RESPONSIVE  (≤1100px): strip becomes a vertical stack, arrows hidden,
+   previews go full-width, text stacks copy → meta → contact. (Verbatim.)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  body { overflow-x: hidden; overflow-y: auto; }
+
+  .cover-stage {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+    padding: 24px 0;
+  }
+  .headline-item {
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+  }
+  .headline {
+    gap: 8px;
+    font-size: 34px;
+    letter-spacing: -1.61px;
+  }
+  .headline-title {
+    width: 100%;
+    max-width: 740px;
+    line-height: 38px;
+  }
+  .preview {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+  }
+  .preview-media {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 830 / 640;
+  }
+  .preview img,
+  .preview-media video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+  .strip-wrap {
+    position: relative;
+    height: auto;
+    flex: 0 0 auto;
+    padding: 0;
+  }
+  .strip {
+    position: relative;
+    inset: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    padding: 0;
+    overflow: visible;
+  }
+  .strip::before,
+  .strip::after { display: none; }
+  .strip-prev,
+  .strip-next { display: none; }
+
+  .text-block {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    margin: 0;
+    margin-top: auto;
+    padding: 16px 20px 24px;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .text-left {
+    max-width: 100%;
+    display: contents;
+  }
+  .copy { order: 1; margin-top: 24px; }
+  .meta {
+    order: 2;
+    margin-left: 0;
+    justify-content: flex-start;
+    gap: 8px 16px;
+  }
+  .contact {
+    order: 3;
+    margin-top: 0;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .contact-cta { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-stage { animation: none; }
+}
+
+/* ============================================================================
+   CAROUSEL LINKS — each preview links to its case study. Hover = the old
+   index .work-card system: spring lift + warm fade-in shadow + 1.04 media zoom.
+   ========================================================================== */
+.preview-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Lift the tile (matches .work-card__inner) + fade the warm shadow in.
+   box-shadow lives OUTSIDE the frame's clip, so the lift reads with depth. */
+.preview-link .preview-media {
+  transform: translateY(0);
+  box-shadow: 0 0 0 0 rgba(58,50,30,0);
+  transition: transform var(--spring-lift-dur) var(--spring-lift),
+              box-shadow var(--spring-lift-dur) var(--spring-lift);
+}
+.preview-link:hover .preview-media,
+.preview-link:focus-visible .preview-media {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px -16px rgba(58,50,30,.18), 0 6px 14px -6px rgba(58,50,30,.10);
+}
+
+/* Media zoom (matches .work-media__frame img / .ph), clipped by the frame. */
+.preview-media .ph,
+.preview-media video,
+.preview-media img {
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform var(--spring-zoom-dur) var(--spring-zoom);
+  will-change: transform;
+}
+.preview-link:hover .preview-media .ph,
+.preview-link:hover .preview-media video,
+.preview-link:hover .preview-media img,
+.preview-link:focus-visible .preview-media .ph,
+.preview-link:focus-visible .preview-media video,
+.preview-link:focus-visible .preview-media img { transform: scale(1.04); }
+
+/* Video at rest gets a hair of overscan so its black backdrop never peeks
+   through the rounded clip as a 1px seam. Hover (scale 1.04) still wins. */
+.preview-media video { transform: scale(1.012); }
+
+.preview-link:hover .preview-label { color: var(--ink); }
+.preview-link:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ink) 55%, transparent);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+/* Dark mode — deepen the warm shadow so the lift still registers on teal
+   (mirrors theme.css's .work-media__shadow override). */
+:root[data-theme="dark"] .preview-link:hover .preview-media,
+:root[data-theme="dark"] .preview-link:focus-visible .preview-media {
+  box-shadow: 0 20px 44px -16px rgba(0,0,0,.55), 0 6px 16px -6px rgba(0,0,0,.4);
+}
+
+/* ============================================================================
+   CUSTOM CURSOR  (dot + trailing ring; fine-pointer devices only)
+   Ported from portfolio.css so this standalone page keeps the same behaviour.
+   ========================================================================== */
+.has-custom-cursor,
+.has-custom-cursor a,
+.has-custom-cursor button,
+.has-custom-cursor .preview-link,
+.has-custom-cursor .theme-toggle,
+.has-custom-cursor .strip-prev,
+.has-custom-cursor .strip-next,
+.has-custom-cursor input,
+.has-custom-cursor textarea,
+.has-custom-cursor label,
+.has-custom-cursor summary { cursor: none; }
+
+.cursor-dot, .cursor-ring {
+  position: fixed; top: 0; left: 0; z-index: 9999;
+  pointer-events: none; border-radius: 50%;
+  opacity: 0; mix-blend-mode: difference;
+  will-change: transform;
+}
+.cursor-active .cursor-dot, .cursor-active .cursor-ring { opacity: 1; }
+
+.cursor-dot {
+  width: 8px; height: 8px; background: #fff;
+  transition: opacity .2s ease, width .25s var(--ease-out-soft), height .25s var(--ease-out-soft);
+}
+.cursor-ring {
+  width: 40px; height: 40px;
+  border: 1.5px solid #fff; background: transparent;
+  transition: opacity .25s ease, width .3s var(--ease-out-soft),
+              height .3s var(--ease-out-soft), background-color .3s var(--ease-out-soft),
+              border-color .3s var(--ease-out-soft);
+}
+.cursor-hover .cursor-ring {
+  width: 64px; height: 64px;
+  background: rgba(255,255,255,.18);
+  border-color: transparent;
+}
+.cursor-hover .cursor-dot { width: 0; height: 0; }
+.cursor-down .cursor-ring { width: 30px; height: 30px; }
+.cursor-down.cursor-hover .cursor-ring { width: 54px; height: 54px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot, .cursor-ring { transition: opacity .2s ease; }
+}

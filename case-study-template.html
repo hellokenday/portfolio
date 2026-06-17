@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- ▼ DUPLICATE THIS FILE per project. Replace: <title>, hero, facts, sections, figures, metrics, next project. -->
+  <title>Project title — Ken Day</title>
+  <meta name="description" content="Case study — placeholder content for review.">
+  <link rel="stylesheet" href="css/clay-tokens.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/media.css">
+  <script>(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body>
+  <!-- Floating dark-mode toggle -->
+  <div class="theme-fab">
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+      <span class="tt-knob">
+        <span class="tt-icon tt-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+        <span class="tt-icon tt-moon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></span>
+      </span>
+    </button>
+  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== BACK PILL (replaces nav on case studies) ===================== -->
+
+  <header class="cs-nav">
+    <div class="shell">
+      <a class="back-pill" href="index.html">
+        <span class="back-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg></span>
+        Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO + FACTS ===================== -->
+    <section class="band-tight">
+      <div class="shell cs-hero">
+        <div class="cs-hero-grid" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>2025 · Project type</p>
+            <h1 class="display-xl" style="margin-top:16px" data-reveal>Project title goes here</h1>
+            <p class="cs-intro" data-reveal style="margin-top:24px">One or two sentences on what this project was and the outcome
+              it drove. Keep it plain and confident. <span class="muted">[Placeholder summary.]</span></p>
+          </div>
+          <div class="cs-facts" data-reveal>
+            <div class="cs-fact"><p class="k">Role</p><p class="v">Lead Product Designer</p></div>
+            <div class="cs-fact"><p class="k">Team</p><p class="v">PM · Eng · Research</p></div>
+            <div class="cs-fact"><p class="k">Timeline</p><p class="v">6 months, 2025</p></div>
+            <div class="cs-fact"><p class="k">Platform</p><p class="v">Web &amp; iOS</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COVER ===================== -->
+    <section class="band-tight">
+      <div class="shell">
+        <div class="cs-cover" data-reveal><span class="ph"><span>cover image · 16:9</span></span></div>
+      </div>
+    </section>
+
+    <!-- ===================== BODY (700px reading measure) ===================== -->
+    <div class="shell">
+      <article class="cs-prose">
+
+        <!-- ▼ REPEATABLE SECTION: heading + prose. Copy this block per section. -->
+        <section class="cs-section" data-reveal>
+          <h2>Problem</h2>
+          <p>Frame the problem and why it mattered. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare. <span class="muted">[Placeholder.]</span></p>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Role &amp; team</h2>
+          <p>What you led and who you worked with. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut
+            sem vitae risus tristique posuere. <span class="muted">[Placeholder.]</span></p>
+          <!-- ▼ OPTIONAL FIGURE -->
+          <figure class="cs-figure">
+            <div class="frame"><span class="ph"><span>diagram · team / process</span></span></div>
+            <figcaption>Caption describing the image. [Placeholder.]</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Approach</h2>
+          <p>How you got to a direction — research, framing, exploration. <span class="muted">[Placeholder.]</span></p>
+          <!-- ▼ OPTIONAL WIDE FIGURE (breaks out past the reading measure) -->
+          <figure class="cs-figure wide">
+            <div class="frame" style="aspect-ratio:16/7"><span class="ph"><span>storyboard · wide · 16:7</span></span></div>
+            <figcaption>A wide figure for storyboards, flows or comparisons. [Placeholder.]</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Solution</h2>
+          <p>Summarise what shipped, then let the visuals carry it.</p>
+          <ul>
+            <li>Key capability one — what it does for the user. <span class="muted">[Placeholder.]</span></li>
+            <li>Key capability two — the decision behind it.</li>
+            <li>Key capability three — how it was personalised or scaled.</li>
+          </ul>
+          <figure class="cs-figure">
+            <div class="frame"><span class="ph"><span>product screen · 16:10</span></span></div>
+            <figcaption>Primary flow. [Placeholder.]</figcaption>
+          </figure>
+          <figure class="cs-figure">
+            <div class="frame"><span class="ph"><span>product screen · 16:10</span></span></div>
+            <figcaption>Supporting detail. [Placeholder.]</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Key decisions</h2>
+          <ul>
+            <li>Decision and the rationale behind it. <span class="muted">[Placeholder.]</span></li>
+            <li>A trade-off you made and why.</li>
+            <li>Something you tested in a real journey.</li>
+          </ul>
+        </section>
+
+        <!-- ▼ RESULTS: metric grid + pullquotes -->
+        <section class="cs-section" data-reveal>
+          <h2>Results &amp; impact</h2>
+          <p>Open with the headline outcome in one sentence. <span class="muted">[Placeholder.]</span></p>
+          <div class="cs-metrics">
+            <div class="cs-metric"><p class="big">72%</p><p class="lbl">adoption across users</p></div>
+            <div class="cs-metric"><p class="big">4.4/5</p><p class="lbl">usefulness rating</p></div>
+            <div class="cs-metric"><p class="big">-38%</p><p class="lbl">support tickets</p></div>
+            <div class="cs-metric"><p class="big">60k+</p><p class="lbl">interactions to date</p></div>
+          </div>
+          <div class="pullquote"><p>"A short, real quote that captures the impact in the user's own words."</p></div>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Next steps</h2>
+          <p>Where the work goes next. <span class="muted">[Placeholder.]</span></p>
+        </section>
+
+      </article>
+    </div>
+
+    <!-- ===================== NEXT PROJECT (bubble) ===================== -->
+    <section class="band">
+      <div class="shell">
+        <div class="next-bubble-row" data-reveal>
+          <a class="next-bubble" href="atlas-ai-guide.html">
+            <span class="next-bubble__text">
+              <span class="next-bubble__label">Next project</span>
+              <span class="next-bubble__title">Atlas — an AI guide</span>
+            </span>
+            <span class="next-bubble__chip" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER (shared) ===================== -->
+  <footer class="cover-footer">
+    <nav class="cover-footer__contact" aria-label="Contact">
+      <a href="about.html" class="contact-link">About</a>
+      <a href="mailto:hello@kenday.me" class="contact-link">Email</a>
+      <a href="https://www.linkedin.com/in/hellokenday/" class="contact-link" target="_blank" rel="noreferrer">LinkedIn</a>
+    </nav>
+    <ul class="cover-footer__meta" aria-label="Highlights">
+      <li>0-1 products</li>
+      <li>AI products</li>
+      <li>10+ years experience</li>
+      <li>Ex-Multiverse</li>
+    </ul>
+  </footer>
+  <script src="js/theme.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/lazy-media.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+/* ============================================================================
+   THEME — Clay dark mode + floating toggle + circular reveal transition
+   Linked AFTER portfolio.css. Dark palette re-skins everything by overriding
+   the semantic tokens; components read them via var() so nothing else changes.
+   ========================================================================== */
+
+/* ---- Dark palette (Clay deep-teal / warm near-black) ---------------------- */
+:root[data-theme="dark"] {
+  --canvas:                #14201e;  /* warm near-black teal floor */
+  --surface-soft:          #1a2825;  /* footer + soft bands */
+  --surface-card:          #1e2e2b;  /* cards */
+  --surface-cream-strong:  #25393500;
+  --surface-cream-strong:  #243734;  /* nav track, banners */
+  --surface-dark:          #22403d;  /* teal feature bands — lifted off canvas */
+  --surface-dark-elevated: #2c4b47;
+  --surface-dark-soft:     #1c3633;
+
+  --ink:          #f7f3e9;  /* cream text */
+  --body-strong:  #ece6d8;
+  --body:         #cdd6d2;
+  --muted:        #94a39e;
+  --muted-soft:   #6f807b;
+
+  --hairline:      rgba(247,243,233,.13);
+  --hairline-soft: rgba(247,243,233,.07);
+
+  /* Invert the primary CTA so it stays visible on a dark floor:
+     cream fill + dark text (back-pill & .btn--primary read these). */
+  --primary:      #f7f3e9;
+  --primary-active:#ffffff;
+  --on-primary:   #0a0a0a;
+}
+
+/* A couple of component nudges that can't be expressed purely by tokens ----- */
+:root[data-theme="dark"] .pill-nav { box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.45); }
+:root[data-theme="dark"] .pill-link.is-active { background: var(--surface-dark-elevated); color: var(--clay-mint); box-shadow: none; }
+:root[data-theme="dark"] .ph { background-color: var(--surface-card); background-image: repeating-linear-gradient(135deg, transparent 0 11px, rgba(247,243,233,.05) 11px 12px); }
+:root[data-theme="dark"] .ph span { background: var(--surface-soft); color: var(--muted); border-color: var(--hairline); }
+:root[data-theme="dark"] .callout .btn--cream { background: var(--surface-dark); color: #fff; }
+:root[data-theme="dark"] .work-media__frame,
+:root[data-theme="dark"] .cs-cover { border-color: var(--hairline); }
+:root[data-theme="dark"] .cs-tablist { background: var(--surface-dark-soft); }
+:root[data-theme="dark"] .cs-tab.is-active { background: var(--surface-dark-elevated); color: var(--clay-mint); box-shadow: none; }
+:root[data-theme="dark"] .about-section--white { background: var(--surface-card); }
+/* Black frame border disappears on the dark teal floor — soften to a light hairline. */
+:root[data-theme="dark"] .screen-frame { border-color: var(--hairline); }
+:root[data-theme="dark"] .cs-figure .frame { border-color: var(--hairline); }
+:root[data-theme="dark"] .cs-video__frame { border-color: var(--hairline); }
+:root[data-theme="dark"] .process-step { background: var(--surface-card); }
+:root[data-theme="dark"] .process-step .step-n { background: var(--surface-dark-elevated); color: var(--clay-mint); }
+:root[data-theme="dark"] .cs-duo .frame { border-color: var(--hairline); }
+:root[data-theme="dark"] .cs-gallery .frame { border-color: var(--hairline); background: var(--surface-dark-elevated); }
+:root[data-theme="dark"] .cs-tab-figure { border-color: var(--hairline); background: var(--surface-dark-elevated); }
+:root[data-theme="dark"] .cs-screen { border-color: var(--hairline); }
+:root[data-theme="dark"] .cs-figure .frame--bare { box-shadow: none; }
+/* Warm shadow reads as muddy on the teal floor — deepen it so the lift still registers. */
+:root[data-theme="dark"] .work-media__shadow { box-shadow: 0 20px 44px -16px rgba(0,0,0,.55), 0 6px 16px -6px rgba(0,0,0,.4); }
+:root[data-theme="dark"] { --accent-text: var(--ink); }
+:root[data-theme="dark"] .zo-arrow { color: var(--clay-mint); }
+:root[data-theme="dark"] .brand-logo { color: var(--ink); }
+
+/* Smooth tint change when NOT doing the circular reveal (e.g. system pages) */
+body, .site-footer, .band--card, .band--dark, .work-media, .cs-cover {
+  transition: background-color .4s ease, color .4s ease, border-color .4s ease;
+}
+
+/* ============================================================================
+   FLOATING TOGGLE  (top-right, sticky, matches the reference)
+   ========================================================================== */
+.theme-fab {
+  position: fixed; top: 18px; right: 24px; z-index: 120; height: 52px;
+  display: flex; align-items: center;
+  transition: transform .42s var(--ease-out-soft), opacity .42s var(--ease-out-soft);
+}
+/* logo + toggle slide up out of view on scroll-down, return on scroll-up.
+   The main pill navbar (.site-nav) is unaffected and stays put. */
+.brand-logo { transition: transform .42s var(--ease-out-soft), opacity .42s var(--ease-out-soft); }
+:root.chrome-up .brand-logo,
+:root.chrome-up .theme-fab { transform: translateY(-160%); opacity: 0; pointer-events: none; }
+
+/* ---- Entrance: top bar fades in + drops down on page load ----------------- */
+@keyframes chrome-in {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.brand-logo { animation: chrome-in .6s var(--ease-out-soft) backwards; }
+.site-nav   { animation: chrome-in .6s var(--ease-out-soft) .08s backwards; }
+.theme-fab  { animation: chrome-in .6s var(--ease-out-soft) .16s backwards; }
+@media (prefers-reduced-motion: reduce) {
+  .brand-logo, .site-nav, .theme-fab { animation: none; }
+}
+.theme-toggle {
+  appearance: none; border: 0; cursor: pointer; padding: 0;
+  width: 76px; height: 40px; border-radius: var(--rounded-pill);
+  background: var(--surface-cream-strong);
+  box-shadow: inset 0 0 0 1px var(--hairline), 0 6px 18px rgba(10,10,10,.10);
+  display: inline-flex; align-items: center; position: relative;
+  transition: background .45s ease, box-shadow .3s ease;
+}
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.tt-knob {
+  position: absolute; top: 4px; left: 4px; width: 32px; height: 32px;
+  border-radius: 50%; background: var(--clay-ochre);
+  display: grid; place-items: center; color: #fff;
+  /* light = knob on the RIGHT (sun), per the reference */
+  transform: translateX(36px);
+  transition: transform .5s cubic-bezier(.5,1.4,.4,1), background .45s ease;
+  box-shadow: 0 2px 6px rgba(10,10,10,.22);
+}
+.tt-icon { position: absolute; width: 18px; height: 18px; display: grid; place-items: center;
+  transition: opacity .35s ease, transform .5s cubic-bezier(.5,1.4,.4,1); }
+.tt-sun  { opacity: 1; transform: rotate(0deg) scale(1); }
+.tt-moon { opacity: 0; transform: rotate(-90deg) scale(.4); }
+
+:root[data-theme="dark"] .theme-toggle { background: var(--surface-dark); box-shadow: inset 0 0 0 1px var(--hairline), 0 6px 18px rgba(0,0,0,.4); }
+:root[data-theme="dark"] .tt-knob { transform: translateX(0); background: var(--clay-mint); color: #0a2522; }
+:root[data-theme="dark"] .tt-sun  { opacity: 0; transform: rotate(90deg) scale(.4); }
+:root[data-theme="dark"] .tt-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+/* ============================================================================
+   CIRCULAR REVEAL  (View Transitions API)
+   Replace the default cross-fade with a clip-path circle the JS animates.
+   ========================================================================== */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-old(root) { z-index: 0; }
+::view-transition-new(root) { z-index: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tt-knob, .tt-icon, .theme-toggle,
+  body, .site-footer, .band--card { transition: none; }
+}
+
+@media (max-width: 767px) {
+  .theme-fab { top: 18px; right: 16px; }
+}

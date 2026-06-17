@@ -1,0 +1,124 @@
+/* ============================================================================
+   CLAY DESIGN SYSTEM — token bridge for the portfolio
+   Clay's real foundations (clay.com brand) expressed on the variable contract
+   the portfolio pages already use, so swapping this file in re-skins everything.
+   Source: Clay design system (project 18d33ba0…). Plain Black (display) is
+   licensed → substituted with Inter 500 + negative tracking, per Clay's spec.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* ---- Font families : Clay is ALL Inter (display @500, body 400–600) ---- */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ===========================================================================
+     COLORS
+     ========================================================================= */
+  /* ---- Brand & accent --------------------------------------------------- */
+  --primary:        #0a0a0a;  /* near-black — primary CTAs + display ink */
+  --primary-active: #000000;
+  --primary-disabled: #d8d2c4;
+  --accent-teal:    #a4d4c5;  /* mint — status dots, soft accents */
+  --accent-amber:   #e8b94a;  /* ochre */
+
+  /* Clay's six saturated feature-card colors (cycled, never repeated in a row) */
+  --clay-pink:     #ff4d8b;
+  --clay-teal:     #1a3a3a;
+  --clay-lavender: #b8a4ed;
+  --clay-peach:    #ffb084;
+  --clay-ochre:    #e8b94a;
+  --clay-mint:     #a4d4c5;
+  --clay-coral:    #ff6b5a;
+
+  /* ---- Surfaces --------------------------------------------------------- */
+  --canvas:                #fffaf0;  /* cream page floor — never cool gray */
+  --surface-soft:          #faf5e8;  /* footer + soft bands */
+  --surface-card:          #f5f0e0;  /* cream content/feature cards */
+  --surface-cream-strong:  #ebe6d6;  /* emphasized cream bands, selected tabs */
+  --surface-dark:          #1a3a3a;  /* Clay deep-teal "dark" — used sparingly */
+  --surface-dark-elevated: #234a4a;  /* elevated inside teal */
+  --surface-dark-soft:     #16302f;
+  --hairline:              #e5e5e5;  /* single 1px hairline */
+  --hairline-soft:         #efece4;  /* barely-there same-band divider */
+
+  /* ---- Text ------------------------------------------------------------- */
+  --ink:          #0a0a0a;
+  --body-strong:  #1a1a1a;
+  --body:         #3a3a3a;
+  --muted:        #6a6a6a;
+  --muted-soft:   #9a9a9a;
+  --on-primary:   #ffffff;
+  --on-dark:      #ffffff;
+  --on-dark-soft: #b9ccc8;  /* muted text on teal */
+
+  /* ---- Semantic --------------------------------------------------------- */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error:   #ef4444;
+
+  /* ===========================================================================
+     SPACING  (4px base)
+     ========================================================================= */
+  --space-xxs: 4px;
+  --space-xs:  8px;
+  --space-sm:  12px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-xxl: 48px;
+  --space-section: 96px;
+
+  /* ===========================================================================
+     RADII  (Clay runs generous — bigger surface, bigger radius)
+     ========================================================================= */
+  --rounded-xs:   6px;
+  --rounded-sm:   8px;
+  --rounded-md:   12px;  /* buttons, inputs, tabs */
+  --rounded-lg:   16px;  /* content / product / pricing cards */
+  --rounded-xl:   24px;  /* saturated feature cards, hero artifacts */
+  --rounded-pill: 9999px;
+  --rounded-full: 9999px;
+
+  /* ===========================================================================
+     ELEVATION  (almost none — depth is color contrast, not shadow)
+     ========================================================================= */
+  --shadow-hover: 0 8px 24px rgba(10, 10, 10, 0.06);
+  /* Framed product/case-study screenshots — soft ambient drop shadow. */
+  --frame-shadow: 0 32px 64px -28px rgba(10,10,10,.42), 0 12px 26px -14px rgba(10,10,10,.24);
+  /* Lighter variant for in-body case-study figures (less prominent than the hero). */
+  --frame-shadow-soft: 0 16px 34px -22px rgba(10,10,10,.26), 0 6px 14px -10px rgba(10,10,10,.14);
+  --ring-focus:   0 0 0 3px rgba(255, 77, 139, 0.22);  /* pink @ 22% */
+
+  /* ===========================================================================
+     TYPE SCALE  — Display = Inter 500 + strong negative tracking. Body = Inter.
+     Never go bolder than 500 on display; the rounded warmth flattens at 700.
+     ========================================================================= */
+  --display-xl: 500 72px/1.0  var(--font-display);
+  --display-lg: 500 56px/1.05 var(--font-display);
+  --display-md: 500 40px/1.1  var(--font-display);
+  --display-sm: 500 32px/1.15 var(--font-display);
+  --title-lg:   600 24px/1.3  var(--font-body);
+  --title-md:   600 18px/1.4  var(--font-body);
+  --title-sm:   600 16px/1.4  var(--font-body);
+  --body-md:    400 16px/1.55 var(--font-body);
+  --body-sm:    400 14px/1.55 var(--font-body);
+  --caption:    500 13px/1.4  var(--font-body);
+  --code:       400 13px/1.5  var(--font-mono);
+
+  --tracking-display-xl: -2.5px;
+  --tracking-display-lg: -2px;
+  --tracking-display-md: -1px;
+  --tracking-display-sm: -0.5px;
+  --tracking-caps:        1.5px;
+}
+
+/* ----------------------------------------------------------------------------
+   A few opt-in semantic helpers reused by the pages.
+   -------------------------------------------------------------------------- */
+.ds-p   { font: var(--body-md); color: var(--body); margin: 0; text-wrap: pretty; }
+.ds-lead{ font: var(--title-md); font-weight: 400; color: var(--body-strong); margin: 0; }
+.ds-link{ color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.ds-link:hover { color: var(--accent-text); }

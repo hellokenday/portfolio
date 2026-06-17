@@ -1,0 +1,195 @@
+/* ============================================================================
+   ABOUT PAGE — centred narrative column (danielamuntyan layout, Clay system)
+   ========================================================================== */
+
+.about-col { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+/* screen-reader-only (visually hidden but announced) — WCAG name for the covers */
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+/* clear the floating top bar (logo + nav + toggle) above the portrait */
+.about-top { margin-top: 40px; }
+
+/* Portrait */
+/* Portrait card — cream wrapper, title above, image flush to the bottom.
+   Breaks out wider than the 820px column (centred on the viewport via margin,
+   not transform — the reveal animation owns transform). */
+.about-hero {
+  --w: min(1136px, calc(100vw - 48px));
+  width: var(--w); margin-left: calc(50% - var(--w) / 2); box-sizing: border-box;
+  background: var(--surface-card); border-radius: var(--rounded-xl);
+  padding: 44px 80px 0; overflow: hidden;
+}
+.about-hero__title {
+  font: var(--display-md); letter-spacing: var(--tracking-display-md);
+  color: var(--ink); text-align: center; margin: 8px 0 36px;
+}
+.about-portrait {
+  border-radius: 14px 14px 0 0; overflow: hidden;
+  aspect-ratio: 16 / 9; position: relative; background: var(--surface-card);
+}
+.about-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 30%; }
+.about-portrait .ph { position: absolute; inset: 0; }
+
+/* Narrative bio */
+.about-bio { margin-top: 40px; }
+.about-bio p {
+  font: var(--body-md); font-size: 18px; color: var(--muted); margin: 0 0 22px; line-height: 1.66;
+}
+.about-bio p:last-child { margin-bottom: 0; }
+.about-bio strong { color: var(--ink); font-weight: 600; }
+
+/* Section heading inside the column */
+.about-h2 { font: var(--display-sm); letter-spacing: var(--tracking-display-sm); color: var(--ink); margin: 0 0 32px; }
+.about-section { margin-top: 80px; }
+/* Teal card variant — edges align with the image (which sits 80px inside the
+   hero card above). Centred on the viewport via margin, not transform. */
+.about-section--card {
+  --w: calc(min(1136px, 100vw - 48px) - 160px);
+  --colcontent: calc(min(820px, 100vw) - 48px);
+  width: var(--w); margin-left: calc(50% - var(--w) / 2); box-sizing: border-box;
+  background: var(--surface-dark); border-radius: var(--rounded-xl);
+  /* Horizontal padding sized so the inner text matches the page's body measure
+     (both the card and the column are centred, so equal padding aligns them). */
+  padding: 52px max(28px, calc((var(--w) - var(--colcontent)) / 2));
+}
+.about-section--card .about-h2 { color: var(--on-dark); }
+.about-section--card .xp-item h3 { color: var(--on-dark); }
+.about-section--card .xp-item .xp-date { color: var(--on-dark-soft); }
+.about-section--card .xp-item p { color: var(--on-dark-soft); }
+.about-section--card .xp-item strong { color: var(--on-dark); }
+.about-section--card .xp-cert-link { color: var(--on-dark); border-color: color-mix(in srgb, var(--on-dark) 28%, transparent); }
+.about-section--card .xp-cert-link:hover { color: var(--clay-mint); border-color: var(--on-dark); }
+/* White card variant — same image-aligned breakout, white fill, dark text. */
+.about-section--white {
+  --w: calc(min(1136px, 100vw - 48px) - 160px);
+  --colcontent: calc(min(820px, 100vw) - 48px);
+  width: var(--w); margin-left: calc(50% - var(--w) / 2); box-sizing: border-box;
+  background: var(--surface-card); border-radius: var(--rounded-xl);
+  padding: 44px max(28px, calc((var(--w) - var(--colcontent)) / 2));
+}
+
+/* Experience list */
+.xp-item { margin-bottom: 34px; }
+.xp-item:last-child { margin-bottom: 0; }
+.xp-item .xp-date { font: var(--body-sm); color: var(--muted); margin: 0 0 6px; }
+.xp-item h3 { font: var(--title-lg); color: var(--ink); margin: 0 0 8px; font-weight: 600; }
+.xp-item p { font: var(--body-md); font-size: 18px; color: var(--muted); margin: 0; line-height: 1.6; }
+.xp-item strong { color: var(--body-strong); font-weight: 600; }
+.xp-cert-link {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: 14px;
+  font: var(--body-sm); font-weight: 500; color: var(--ink); text-decoration: none;
+  border: 1px solid var(--hairline); border-radius: var(--rounded-pill);
+  padding: 8px 16px; transition: border-color .15s, color .15s;
+}
+.xp-cert-link:hover { border-color: var(--ink); color: var(--accent-text); }
+.xp-cert-icon { flex: none; transition: transform .15s; }
+.xp-cert-link:hover .xp-cert-icon { transform: translate(2px, -2px); }
+
+/* Intro line above a collection */
+.collection-intro { font: var(--title-md); font-weight: 500; color: var(--ink); margin: 0 0 36px; line-height: 1.45; }
+.about-section--white .collection-intro { text-align: center; }
+
+/* ============================================================================
+   ALBUMS — vinyl record slides out from behind the sleeve on hover
+   ========================================================================== */
+.album-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 32px; }
+.album { position: relative; }
+.album-art { position: relative; }
+
+/* the vinyl disc, tucked behind the cover, peeks out on hover */
+.album-disc {
+  position: absolute; z-index: 1; top: 6%; right: 0; width: 88%; height: 88%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,.16) 0 12%, rgba(0,0,0,0) 12.5%),
+    repeating-radial-gradient(circle at 50% 50%, #111 0 1.5px, #1d1d1d 1.5px 3px),
+    #0a0a0a;
+  box-shadow: 0 14px 30px -10px rgba(0,0,0,.6);
+  transform: translateX(0) rotate(0deg);
+  transition: transform .55s cubic-bezier(.4,.1,.2,1);
+}
+.album-disc::after {              /* centre label */
+  content: ""; position: absolute; left: 50%; top: 50%; width: 30%; height: 30%;
+  transform: translate(-50%,-50%); border-radius: 50%;
+  background: var(--disc-label, var(--clay-peach));
+  box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+}
+.album-disc::before {             /* spindle hole */
+  content: ""; position: absolute; left: 50%; top: 50%; width: 5%; height: 5%;
+  transform: translate(-50%,-50%); border-radius: 50%; background: var(--canvas); z-index: 2;
+}
+.album:hover .album-disc, .album:focus-within .album-disc {
+  transform: translateX(42%) rotate(40deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .album:hover .album-disc, .album:focus-within .album-disc { animation: disc-spin 4.5s linear .55s infinite; }
+}
+@keyframes disc-spin { from { transform: translateX(42%) rotate(0deg); } to { transform: translateX(42%) rotate(360deg); } }
+
+/* cover sleeve */
+.album-cover {
+  position: relative; z-index: 2; aspect-ratio: 1; border-radius: 6px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 16px; overflow: hidden; color: #fff;
+  background: var(--cover-bg, var(--clay-teal));
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  transition: transform .45s cubic-bezier(.4,.1,.2,1), box-shadow .45s ease;
+  text-decoration: none;
+}
+.album:hover .album-cover, .album:focus-within .album-cover {
+  transform: translate(-3%, -3%); box-shadow: 0 22px 40px -16px rgba(0,0,0,.5);
+}
+.album-cover .ac-artist { font: var(--code); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
+.album-cover .ac-title { font: var(--display-sm); font-size: 24px; line-height: 1.05; letter-spacing: -.3px; }
+/* when real cover art loads, drop the text overlay + show the image */
+.album-cover.has-art { background-size: cover; background-position: center; padding: 0; }
+.album-cover.has-art .ac-artist, .album-cover.has-art .ac-title { display: none; }
+.album-meta { margin-top: 16px; }
+.album-meta .am-title { font: var(--title-sm); color: var(--ink); display: block; }
+.album-meta .am-artist { font: var(--body-sm); color: var(--muted); }
+
+/* ============================================================================
+   BOOKS — covers tilt up off the shelf on hover
+   ========================================================================== */
+.book-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; perspective: 900px; }
+.book { position: relative; }
+.book-cover {
+  position: relative; aspect-ratio: 2 / 3; border-radius: 3px 6px 6px 3px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 14px 12px 14px 16px; color: #fff; overflow: hidden;
+  background: var(--cover-bg, var(--clay-teal));
+  box-shadow: 0 1px 2px rgba(0,0,0,.25);
+  transform-style: preserve-3d; transform-origin: left center;
+  transition: transform .5s cubic-bezier(.34,1.2,.4,1), box-shadow .5s ease;
+}
+.book-cover::before {             /* spine shading */
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+  background: linear-gradient(90deg, rgba(0,0,0,.28), rgba(0,0,0,0));
+}
+.book:hover .book-cover, .book:focus-within .book-cover {
+  transform: rotateY(-22deg) translateY(-8px); box-shadow: 14px 20px 34px -14px rgba(0,0,0,.5);
+}
+.book-cover .bc-title { font: var(--title-sm); font-weight: 600; line-height: 1.15; }
+.book-cover .bc-author { font: var(--code); font-size: 10px; letter-spacing: .05em; text-transform: uppercase; opacity: .82; margin-top: 6px; }
+/* when real cover art loads, drop the text overlay + show the image */
+.book-cover.has-art { background-size: cover; background-position: center; padding: 0; }
+.book-cover.has-art::before { display: none; }
+.book-cover.has-art .bc-title, .book-cover.has-art .bc-author { display: none; }
+
+/* ============================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 600px) {
+  .about-section { margin-top: 64px; }
+  .about-hero { padding: 28px 16px 0; margin-top: 80px; }
+  /* Full column width on mobile (drop the desktop image-aligned breakout) */
+  .about-section--card, .about-section--white { width: auto; margin-left: 0; padding: 32px 20px; }
+  .album-grid { gap: 32px 32px; }
+  .book-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
+  .album-cover .ac-title { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .album:hover .album-disc, .album:focus-within .album-disc { transform: translateX(30%) rotate(18deg); animation: none; }
+}

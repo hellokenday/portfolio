@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <title>Atlas — an AI guide · Ken Day</title>
+  <meta name="description" content="Atlas — an AI guide for learners at Multiverse. Real-time, in-context support that scaled help without scaling the team.">
+  <link rel="stylesheet" href="css/clay-tokens.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/media.css">
+  <script>(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body>
+  <!-- Floating dark-mode toggle -->
+  <div class="theme-fab">
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+      <span class="tt-knob">
+        <span class="tt-icon tt-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+        <span class="tt-icon tt-moon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></span>
+      </span>
+    </button>
+  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== BACK PILL (replaces nav on case studies) ===================== -->
+
+  <header class="cs-nav">
+    <div class="shell">
+      <a class="back-pill" href="index.html">
+        <span class="back-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg></span>
+        Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO + FACTS ===================== -->
+    <section class="band-tight">
+      <div class="shell cs-hero">
+        <div class="cs-hero-grid" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>2025 · 0-1 AI product</p>
+            <h1 class="display-xl" style="margin-top:16px" data-reveal>Atlas, the AI learning coach</h1>
+            <p class="cs-intro" data-reveal style="margin-top:24px">Built to give learners instant support, whenever they need it. I led the 0-1 design, cutting the wait for help and reducing reliance on coaches, while making sure learners progress using their own thinking.</p>
+          </div>
+          <div class="cs-facts" data-reveal>
+            <div class="cs-fact"><p class="k">Role</p><p class="v">Lead Product Designer</p></div>
+            <div class="cs-fact"><p class="k">Company</p><p class="v">Multiverse</p></div>
+            <div class="cs-fact"><p class="k">Timeline</p><p class="v">2024 – 2025</p></div>
+            <div class="cs-fact"><p class="k">Team</p><ul class="v cs-team"><li>Product Manager</li><li>Head of Learning</li><li>Researcher</li><li>Learning Engineer</li><li>Tech Lead</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COVER (product screens) ===================== -->
+    <section class="band-tight">
+      <div class="shell">
+        <figure class="cs-figure" style="margin-top:0">
+          <div class="frame cs-frame--video" style="aspect-ratio:16/9"><video src="videos/atlas-spotlight.mp4" poster="videos/posters/atlas-spotlight.jpg" data-autoplay muted loop playsinline preload="metadata" aria-label="Atlas product walkthrough — Spotlight surfacing contextual guidance across the Multiverse learning experience."></video></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== BODY (700px reading measure) ===================== -->
+    <div class="shell">
+      <article class="cs-prose">
+
+        <section class="cs-section" data-reveal>
+          <h2>Problem</h2>
+          <p>There was a critical gap in providing timely, scalable, and personalised support to thousands of learners.</p>
+          <h3 class="cs-subhead--minor">Learners</h3>
+          <p>Often felt lost or unsupported when studying independently, struggling to find answers across various systems and channels. They experienced frustration and delays, even for simple or urgent questions, which hindered their progress and confidence.</p>
+          <h3 class="cs-subhead--minor">Coaches</h3>
+          <p>Were overwhelmed by growing caseloads and a high concentration of complex, ad-hoc 1-1 coaching requests. They spent time answering routine questions that Atlas could handle, slowing down learners and increasing coach load.</p>
+          <h3 class="cs-subhead--minor">Opportunity</h3>
+          <p>How mighy we scale personalised, on-demand support for every learner, enabling them to move forward independently while empowering coaches to focus on their most impactful work?</p>
+        </section>
+
+        <section class="cs-section cs-section--card cs-section--reading" data-reveal>
+          <h2>Goal</h2>
+          <p>Improve learner outcomes while reducing coach time per learner. We set three targets for Atlas users:</p>
+          <div class="cs-metrics cs-metrics--three">
+            <div class="cs-metric"><p class="big">&gt;85%</p><p class="lbl">apprenticeship pass rate</p></div>
+            <div class="cs-metric"><p class="big">20%</p><p class="lbl">reduction in coach queries</p></div>
+            <div class="cs-metric"><p class="big">5%</p><p class="lbl">higher learner retention</p></div>
+          </div>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Shaping the brief</h2>
+          <p>Leadership wanted to launch the boldest part of our long-term vision first. This was an agentic, always-on Atlas in a guidance side-panel that read a learner's context and offered support proactively.</p>
+          <p>I pushed back, as Atlas needed a foundation of proven features and evidence it could deliver. An always-on panel that promised agentic help and under-delivered would damage the product's credibility. I proposed we should prove the core features and product-market fit first, then iterate towards the side-panel. Leadership agreed. We shipped and validated the foundation, and the agentic version followed later.</p>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Approach</h2>
+          <p>I set the product-market-fit vision and strategy with the product trio and our product director, then ran a lean build-test-learn sprint with close UXR partnership to get something testable quickly.</p>
+          <p>Because AI was new, I worked with UXR on a research roadmap tracking AI advances and shifting consumer expectations, so we solved problems in an AI-first way and avoided building features that AI vendors would soon build natively.</p>
+          <p>I also led the information architecture for how Atlas would work, and use data, across multiple products on the platform.</p>
+          <figure class="cs-figure cs-figure--inline" style="--iw: 600px">
+            <div class="frame"><img src="images/atlas-ai-research.jpg" alt="Competitive AI research board “Co-Pilot vs. Chatbot”, comparing Microsoft Copilot and GitHub Copilot against chatbots, with annotated screenshots and implications for Multiverse." loading="lazy"></div>
+            <figcaption>Competitive research on what makes an AI a proactive copilot</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Discovery</h2>
+          <p>I focused on where learners got stuck, usually around next steps or an unclear concept. Support logs showed coaches answering the same questions from learners related to what they should do next to succeed. I used AI to analyse user research findings, support logs, and coach conversations into insights.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1728/766"><img src="images/user-journey-map.svg" alt="Learner journey map showing where support broke down across stages." /></div>
+            <figcaption>Where support broke down across the learner journey</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Mapping product–market fit</h2>
+          <p>I used the Value Proposition Canvas to map Atlas against real learner needs. From our research I built a
+            profile of the jobs learners were doing, the pains slowing them down, and the gains they wanted, then designed
+            Atlas to address them directly.</p>
+          <figure class="cs-figure">
+            <div class="frame frame--bare" style="aspect-ratio:1460/622"><img src="images/value-prop-canvas.svg" alt="Value Proposition Canvas mapping learner jobs, pains, and gains against what Atlas offers." /></div>
+            <figcaption>Mapping learner jobs, pains, and gains against Atlas</figcaption>
+          </figure>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Solution</h2>
+          <p>I framed Atlas as a guidance layer woven into the learning experience, not a standalone chatbot, which shaped when and how it should show up. We launched Atlas Chat and Spotlight, designed around three how might we questions.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1740/765"><img src="images/atlas-story-mapping.svg" alt="Atlas story map: the learner journey broken into stages with the Atlas Chat, next-step guidance, and project-idea moments mapped across it." loading="lazy"></div>
+            <figcaption>Story mapping Atlas features across the learner journey &amp; defining releases</figcaption>
+          </figure>
+        </section>
+
+        <!-- ===================== HYPOTHESIS 01 ===================== -->
+        <section class="cs-section" data-reveal>
+          <p class="cs-hyp-num" data-n="01">How might we</p>
+          <h2>Provide instant, contextual, and non-judgmental support</h2>
+          <h3 class="cs-subhead--minor">Problem</h3>
+          <p>Learners got stuck mid-task and couldn't get help fast enough, with answers scattered across Slack, WhatsApp, and email.</p>
+          <h3 class="cs-subhead--minor">Hypothesis</h3>
+          <p>We believe that giving learners instant, grounded answers in one place, with a coach handoff when needed, will help them get unstuck quickly without waiting.</p>
+          <h3 class="cs-subhead--minor">Designs</h3>
+          <p>Learners message Atlas for clarity on a concept, getting help, or how to apply a skill. Answers are grounded in our own material with sources shown, and Atlas hands over to a coach when a question needs more than information. It also catches questions directed at a coach that it can answer itself.</p>
+          <figure class="cs-figure cs-figure--screens">
+            <div class="cs-screens cs-screens--triptych">
+              <div class="screen-frame screen-frame--phone"><img src="images/atlas-chat-otj.svg" alt="Atlas Chat answering a learner's question about their off-the-job (OTJ) hours, with the answer grounded in source material." /></div>
+              <div class="screen-frame screen-frame--phone"><img src="images/coach-chat-otj.jpg" alt="The coach chat, where Atlas hands the learner over to a coach when a question needs more than information." /></div>
+              <div class="screen-frame screen-frame--phone screen-frame--video"><video src="videos/atlas-to-coach-handover.mp4" poster="videos/posters/atlas-to-coach-handover.jpg" data-autoplay muted loop playsinline preload="metadata" aria-label="Atlas handing a learner's conversation over to their coach, sharing an AI-written summary so the learner doesn't have to recap." style="aspect-ratio: 440 / 743;"></video></div>
+            </div>
+            <figcaption>Atlas answering a learner's question based on real content, intercepting coach questions, and handing over to a coach.</figcaption>
+          </figure>
+          <div class="cs-impact-card cs-impact-card--cream">
+            <p class="cs-impact-card__k">Impact</p>
+            <div class="cs-metrics cs-metrics--three">
+              <div class="cs-metric"><p class="big">79%</p><p class="lbl">monthly active adoption (target 75%)</p></div>
+              <div class="cs-metric"><p class="big">85%</p><p class="lbl">helpfulness (target 80%)</p></div>
+              <div class="cs-metric"><p class="big">28%</p><p class="lbl">reduction in routine coach queries (target 25%)</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== HYPOTHESIS 02 ===================== -->
+        <section class="cs-section" data-reveal>
+          <p class="cs-hyp-num" data-n="02">How might we</p>
+          <h2>Guide learners to their next step</h2>
+          <h3 class="cs-subhead--minor">Problem</h3>
+          <p>Learners often didn't know their most important next task and felt lost, while coaches answered the same “what should I do next?” question on repeat.</p>
+          <h3 class="cs-subhead--minor">Hypothesis</h3>
+          <p>We believe that a guidance panel with Atlas-recommended next steps will help learners stay on track and feel less lost.</p>
+          <h3 class="cs-subhead--minor">Designs</h3>
+          <p>Atlas surfaces the single most important task on the learner's home page, tied to real deadlines and live sessions, highlighting the priority so progress doesn't depend on knowing the right question to ask.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:3840/2208"><video src="videos/atlas-agentic.mp4" poster="videos/posters/atlas-agentic.jpg" data-autoplay muted loop playsinline preload="metadata" aria-label="The learner asks Atlas “what should I work on next?” from the home Guidance panel; Atlas names the Module 2 project as the priority and the first move."></video></div>
+            <figcaption>The home guidance panel beside Atlas answering “what should I work on next?” </figcaption>
+          </figure>
+          <div class="cs-impact-card cs-impact-card--cream">
+            <p class="cs-impact-card__k">Impact</p>
+            <div class="cs-metrics cs-metrics--two">
+              <div class="cs-metric"><p class="big">81%</p><p class="lbl">module completion (target 75%)</p></div>
+              <div class="cs-metric"><p class="big">28%</p><p class="lbl">contribution to the reduction in routine coach queries</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================== HYPOTHESIS 03 ===================== -->
+        <section class="cs-section" data-reveal>
+          <p class="cs-hyp-num" data-n="03">How might we</p>
+          <h2>Help learners deliver relevant projects</h2>
+          <h3 class="cs-subhead--minor">Problem</h3>
+          <p>Learners struggled to scope an apprenticeship project relevant to their role, unsure how to turn learning into impactful work, which stalled project starts and weakened submissions.</p>
+          <h3 class="cs-subhead--minor">Hypothesis</h3>
+          <p>We believe that Atlas generating personalised, role-relevant project ideas, learners will start projects with greater clarity, leading to more impactful submissions.</p>
+          <h3 class="cs-subhead--minor">Designs</h3>
+          <p>Atlas runs a short guided conversation to shape an idea around the learner's actual role and business goals, returning a brief with the problem, deliverable, and a realistic plan that the learner owns and can refine.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:16/9"><video src="videos/atlas-project-copilot.mp4" data-hls="videos/hls/atlas-project-copilot/master.m3u8" poster="videos/posters/atlas-project-copilot.jpg" data-autoplay muted loop playsinline preload="metadata" aria-label="Atlas running a guided conversation that shapes a role-relevant project idea and returns a tailored brief — the Customer Churn Prevention Model."></video></div>
+            <figcaption>The project-idea generator producing the role-tailored brief</figcaption>
+          </figure>
+          <div class="cs-impact-card cs-impact-card--cream">
+            <p class="cs-impact-card__k">Impact</p>
+            <div class="cs-metrics cs-metrics--three">
+              <div class="cs-metric"><p class="big">51%</p><p class="lbl">of projects used Atlas ideas (target 40%)</p></div>
+              <div class="cs-metric"><p class="big">72%</p><p class="lbl">early submission (target 70%)</p></div>
+              <div class="cs-metric"><p class="big">4/5</p><p class="lbl">project quality (target 4.0/5)</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Challenges</h2>
+          <h3 class="cs-subhead--minor">Over-reliance</h3>
+          <p>An assistant that answers everything trains dependence and undermines the learning itself. On conceptual problems Atlas asked guiding questions and nudges like “what would you do next?” rather than giving them the answer, and flagged learners who looked stuck.</p>
+          <h3 class="cs-subhead--minor">Hallucinations</h3>
+          <p>A confident wrong answer is expensive in a learning product. System messages used verified knowledge-base data, we collected and analysed data from coach conversations, and we refined responses through ongoing evaluations.</p>
+          <h3 class="cs-subhead--minor">Safeguarding</h3>
+          <p>Atlas triaged safeguarding issues and routed learners to human support, handing off to a coach with an AI-generated summary so they didn't have to re-explain. Personal data was never shared outside for model training.</p>
+          <figure class="cs-figure cs-figure--screens">
+            <div class="cs-screens">
+              <div class="screen-frame screen-frame--phone"><img src="images/atlas-collecting-coach-responses.jpg" alt="A learner's chat with their coach, David Nguyen, working through a data-analysis question." /></div>
+              <div class="screen-frame screen-frame--phone"><img src="images/atlas-response-feedback.jpg" alt="A learner marking an Atlas answer unhelpful with a thumbs-down, opening a “why was this response unhelpful?” feedback box." /></div>
+            </div>
+            <figcaption>Coach conversations are collected to train Altas answers, and learners rate each response to refine evals.</figcaption>
+          </figure>
+        </section>
+
+        <!-- ▼ RESULTS: metric grid + pullquotes -->
+        <section class="cs-section cs-section--card cs-section--center cs-section--teal" data-reveal>
+          <h2>Outcome</h2>
+          <p>Boosted learner outcomes and cut  coach time.</p>
+          <div class="cs-tabs" data-tabs>
+            <div class="cs-tablist" role="tablist" aria-label="Results">
+              <button class="cs-tab is-active" type="button" role="tab" aria-selected="true" data-tab="impact">Impact</button>
+              <button class="cs-tab" type="button" role="tab" aria-selected="false" data-tab="exp">Learner experience</button>
+            </div>
+            <div class="cs-tabpanel" data-panel="impact" role="tabpanel">
+              <div class="cs-metrics">
+                <div class="cs-metric"><p class="big">89%</p><p class="lbl">pass rate for Atlas users (vs 85%)</p></div>
+                <div class="cs-metric"><p class="big">−28%</p><p class="lbl">reduction in coach queries</p></div>
+                <div class="cs-metric"><p class="big">+7%</p><p class="lbl">higher learner retention</p></div>
+                <div class="cs-metric"><p class="big">1.5M</p><p class="lbl">questions sent to date</p></div>
+              </div>
+            </div>
+            <div class="cs-tabpanel is-hidden" data-panel="exp" role="tabpanel">
+              <div class="cs-metrics">
+                <div class="cs-metric"><p class="big">94%</p><p class="lbl">say Atlas is helpful</p></div>
+                <div class="cs-metric"><p class="big">4.43<span class="cs-metric-unit">/5</span></p><p class="lbl">usefulness</p></div>
+                <div class="cs-metric"><p class="big">4.17<span class="cs-metric-unit">/5</span></p><p class="lbl">accuracy</p></div>
+                <div class="cs-metric"><p class="big">8.17<span class="cs-metric-unit">/10</span></p><p class="lbl">satisfaction</p></div>
+              </div>
+            </div>
+          </div>
+          <div class="pullquote-row">
+            <div class="pullquote pullquote--card"><p>"It helped me solve 90% of my issues without having to wait."</p><p class="pullquote-by">Multiverse learner</p></div>
+            <div class="pullquote pullquote--card"><p>"It's like having support in your back pocket."</p><p class="pullquote-by">Multiverse learner</p></div>
+          </div>
+        </section>
+        <script>
+          (function () {
+            document.querySelectorAll('[data-tabs]').forEach(function (root) {
+              var tabs = root.querySelectorAll('[data-tab]');
+              var panels = root.querySelectorAll('[data-panel]');
+              tabs.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                  var key = btn.getAttribute('data-tab');
+                  tabs.forEach(function (b) {
+                    var on = b === btn;
+                    b.classList.toggle('is-active', on);
+                    b.setAttribute('aria-selected', on ? 'true' : 'false');
+                  });
+                  panels.forEach(function (p) {
+                    p.classList.toggle('is-hidden', p.getAttribute('data-panel') !== key);
+                  });
+                });
+              });
+            });
+          })();
+        </script>
+
+        <section class="cs-section cs-section--wide" data-reveal>
+          <h2>Reflection</h2>
+          <div class="reflect-row">
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Design leads alignment</h3>
+              <p>We had to shift the focus from building a chatbot to solving real learning problems. Risked delivering novelty instead of value.</p>
+            </div>
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Safeguarding is a UX problem</h3>
+              <p>We embedded risk escalation paths and built graceful fallbacks that encouraged learners to speak to a coach when uncertainty was high.</p>
+            </div>
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Trust mattered more than the technology</h3>
+              <p>Learners didn't care that Atlas was AI. They cared that it felt personal, relevant, and trustworthy.</p>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+
+    <!-- ===================== NEXT PROJECT (bubble) ===================== -->
+    <section class="band" style="padding-top:76px">
+      <div class="shell">
+        <div class="next-bubble-row" data-reveal>
+          <a class="next-bubble" href="signup-friction.html">
+            <span class="next-bubble__text">
+              <span class="next-bubble__label">Next project</span>
+              <span class="next-bubble__title">Reducing friction in sign-up</span>
+            </span>
+            <span class="next-bubble__chip" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER (shared) ===================== -->
+  <footer class="cover-footer">
+    <nav class="cover-footer__contact" aria-label="Contact">
+      <a href="about.html" class="contact-link">About</a>
+      <a href="mailto:hello@kenday.me" class="contact-link">Email</a>
+      <a href="https://www.linkedin.com/in/hellokenday/" class="contact-link" target="_blank" rel="noreferrer">LinkedIn</a>
+    </nav>
+    <ul class="cover-footer__meta" aria-label="Highlights">
+      <li>0-1 products</li>
+      <li>AI products</li>
+      <li>10+ years experience</li>
+      <li>Ex-Multiverse</li>
+    </ul>
+  </footer>
+  <script src="js/theme.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/reduced-motion-video.js" defer></script>
+  <script src="js/mobile-carousels.js" defer></script>
+  <script src="js/vendor/hls.min.js" defer></script>
+  <script src="js/hls-video.js" defer></script>
+  <script src="js/lazy-media.js" defer></script>
+</body>
+</html>
