@@ -130,16 +130,15 @@ function initVisiblePreviewPlayback() {
         best = video;
       }
     });
+    // Pause every other tile FIRST so its decoder is released, then start the
+    // winner — iOS won't start a second clip while another still holds a decoder.
     videos.forEach((video) => {
-      if (video === best && bestRatio >= 0.5) {
-        if (video.paused) {
-          if (video.ended) video.currentTime = 0;
-          void video.play().catch(() => {});
-        }
-      } else if (!video.paused) {
-        video.pause();
-      }
+      if (video !== best && !video.paused) video.pause();
     });
+    if (best && bestRatio >= 0.4 && best.paused) {
+      if (best.ended) best.currentTime = 0;
+      void best.play().catch(() => {});
+    }
   };
 
   const updatePlayback = () => {
