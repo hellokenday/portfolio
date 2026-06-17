@@ -12,6 +12,17 @@
   <link rel="stylesheet" href="css/portfolio.css">
   <link rel="stylesheet" href="css/theme.css">
   <link rel="stylesheet" href="css/media.css">
+  <link rel="stylesheet" href="css/passgate.css">
+  <!-- ▼ ACCESS GUARD: hide the page until unlocked. If locked, the password overlay
+       opens in-context on load (no redirect to a separate page). -->
+  <style>html.is-locked body > *:not(.pg-root){visibility:hidden}</style>
+  <script>
+    (function () {
+      var ok = false;
+      try { ok = sessionStorage.getItem('unlocked:atlas-ai-guide.html') === '1'; } catch (e) {}
+      if (!ok) { document.documentElement.className += ' is-locked'; }
+    })();
+  </script>
   <script>(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 </head>
 <body>
@@ -338,6 +349,24 @@
   <script src="js/theme.js"></script>
   <script src="js/cursor.js"></script>
   <script src="js/reveal.js"></script>
+  <script src="js/passgate.js"></script>
+  <script>
+    // Deep-link gate: if this page was opened directly while locked, open the
+    // overlay in-context. On success, reveal the page (no navigation).
+    (function () {
+      if (!document.documentElement.classList.contains('is-locked')) return;
+      PassGate.gate({
+        target: 'atlas-ai-guide.html',
+        title: 'Confidential project',
+        message: 'This case study is under NDA. Enter the password to view the full project.',
+        cancelHref: 'index.html',
+        onSuccess: function () {
+          document.documentElement.classList.remove('is-locked');
+          PassGate.close('success');
+        }
+      });
+    })();
+  </script>
   <script src="js/reduced-motion-video.js" defer></script>
   <script src="js/mobile-carousels.js" defer></script>
   <script src="js/vendor/hls.min.js" defer></script>
