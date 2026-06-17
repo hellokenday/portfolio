@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- DUPLICATE of the case study template, gated. See PASSWORD.md. -->
+  <title>Protected case study · Ken Day</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Password-protected case study — Monetising an AI wellbeing app.">
+  <link rel="stylesheet" href="css/clay-tokens.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/passgate.css">
+  <!-- ▼ ACCESS GUARD: hide the page until unlocked. If locked, the password overlay
+       opens in-context on load (no redirect to a separate page). -->
+  <style>html.is-locked body > *:not(.pg-root){visibility:hidden}</style>
+  <script>
+    (function () {
+      var ok = false;
+      try { ok = sessionStorage.getItem('unlocked:protected.html') === '1'; } catch (e) {}
+      if (!ok) { document.documentElement.className += ' is-locked'; }
+    })();
+  </script>
+  <script>(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body>
+  <!-- Floating dark-mode toggle -->
+  <div class="theme-fab">
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+      <span class="tt-knob">
+        <span class="tt-icon tt-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+        <span class="tt-icon tt-moon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></span>
+      </span>
+    </button>
+  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== BACK PILL (replaces nav on case studies) ===================== -->
+
+  <header class="cs-nav">
+    <div class="shell">
+      <a class="back-pill" href="index.html">
+        <span class="back-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg></span>
+        Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO + FACTS ===================== -->
+    <section class="band-tight">
+      <div class="shell cs-hero">
+        <div class="cs-hero-grid" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>2025 · IOS &amp; ANDROID</p>
+            <h1 class="display-xl" style="margin-top:16px" data-reveal>Monetising an AI wellbeing app</h1>
+            <p class="cs-intro" data-reveal style="margin-top:24px">Clary is an AI emotional companion built by Unobravo, Europe's largest online therapy platform. I led the design of payments, which involved determining what users were paying for and how to charge without breaking trust in a product they used during vulnerable moments.</p>
+          </div>
+          <div class="cs-facts" data-reveal>
+            <div class="cs-fact"><p class="k">Role</p><p class="v">Lead Product Designer</p></div>
+            <div class="cs-fact"><p class="k">Company</p><p class="v">Unobravo</p></div>
+            <div class="cs-fact"><p class="k">Timeline</p><p class="v">December 2025 – March 2026</p></div>
+            <div class="cs-fact"><p class="k">Team</p><ul class="v cs-team"><li>Product Manager</li><li>Data</li><li>User Researcher</li><li>Lead Engineer</li><li>Product Designer</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COVER ===================== -->
+    <section class="band-tight">
+      <div class="shell">
+        <div class="cs-screens cs-screens--hero" data-reveal>
+          <div class="cs-screen"><img src="images/clary-hero-01.svg" alt="Clary app — onboarding hero screen 1" loading="lazy"></div>
+          <div class="cs-screen cs-screen--video">
+            <video src="videos/clary-onboarding.mp4" data-autoplay muted loop playsinline preload="metadata" aria-label="Clary app onboarding walkthrough."></video>
+          </div>
+          <div class="cs-screen"><img src="images/clary-hero-02.svg" alt="Clary app — onboarding hero screen 2" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BODY (700px reading measure) ===================== -->
+    <div class="shell">
+      <article class="cs-prose">
+
+        <!-- ===================== THE PROBLEM ===================== -->
+        <section class="cs-section" data-reveal>
+          <h2>The problem</h2>
+          <h3 class="cs-subhead--minor">The emotional context made payment risky</h3>
+          <p>People came during difficult moments, so asking for money at the wrong point would cause friction and could feel exploitative.</p>
+          <h3 class="cs-subhead--minor">Users couldn't say what they were paying for</h3>
+          <p>They understood how Clary worked but not what it was <em>for</em>, and with ChatGPT doing something similar for free, many were already asking why they'd pay.</p>
+          <h3 class="cs-subhead--minor">The cost left almost no margin</h3>
+          <p>AI token costs of €2–7 per user each month against a €4.99 price meant every wrong-fit download was costly, and many early installs came from people who thought Clary was a dating app.</p>
+          <figure class="cs-figure cs-figure--inline">
+            <div class="frame frame--bare"><img src="images/clary-margin-diagram.svg" alt="Bar chart of the €2–7 monthly cost to serve one user against the €4.99 price. A loss zone sits above the €4.99 line, where serving a user costs more than they pay." loading="lazy"></div>
+          </figure>
+        </section>
+
+        <!-- ===================== SHAPING THE BRIEF ===================== -->
+        <section class="cs-section" data-reveal>
+          <h2>Shaping the brief</h2>
+          <p>Those costs made a free product unviable, and the C-suite's wanted us to prioritise monetisation over retention. UXR had shown onboarding wasn't landing the value proposition, which pulled in the wrong users and fed the acquisition problem, so I proposed a campsite rule, that while we were rebuilding onboarding to add payments we'd leave it better than we found it. Clearer positioning would serve monetisation directly and recover the part of retention that comes from getting the right people in, and leadership agreed.</p>
+        </section>
+
+        <!-- ===================== GOAL ===================== -->
+        <section class="cs-section cs-section--card cs-section--reading" data-reveal>
+          <h2>Goal</h2>
+          <p>The sprint had to answer two questions. What were users actually paying for, and could payment be introduced without breaking trust or crossing into clinical territory?</p>
+          <div class="cs-goal-lede">
+            <p class="cs-goal-lede__k">Success</p>
+            <p>A paid experience clear enough that around 80% would try it, engaging enough that 50% would return, and valuable enough that 10% would subscribe.</p>
+          </div>
+        </section>
+
+        <!-- ===================== PROCESS ===================== -->
+        <section class="cs-section" data-reveal>
+          <h2>Process</h2>
+          <p>I worked with leadership and the product trio to set the strategy, then facilitated a four-day workshop leading the team on direction, content, and prototyping. We ran three rounds of user testing, mapped MVP scope, and shipped a month ahead of schedule. I used AI to synthesise test session findings into themes between rounds and to draft onboarding copy we could use as a starting point.</p>
+          <figure class="cs-figure cs-figure--wide-natural">
+            <div class="frame"><img src="images/clary-sprint-map.jpg" alt="Four-column sprint map (Discover, Learn, Using, Goal) with a User actor row and clusters of blue How-Might-We sticky notes covering value clarity, trust, data safety, and fair payment timing." loading="lazy"></div>
+            <figcaption>Design sprint artefact: Map showing user journey and key opportunities</figcaption>
+          </figure>
+        </section>
+
+        <!-- ===================== HYPOTHESIS 01 ===================== -->
+        <section class="cs-section" data-reveal>
+          <p class="cs-hyp-num" data-n="01">Hypothesis</p>
+          <h2>Filtering for the right users</h2>
+          <h3 class="cs-subhead--minor">Problem</h3>
+          <p>Tight margins meant every wrong-fit download was money lost, and too many people arrived expecting a dating app.</p>
+          <h3 class="cs-subhead--minor">Hypothesis</h3>
+          <p>Leading with an intent question rather than a sign-up form would let wrong-fit users drop-off before we paid to onboard them.</p>
+          <h3 class="cs-subhead--minor">What we designed</h3>
+          <p>The initial release put account creation first. We moved an intent question to the start, asking what kind of support someone wanted before anything else, so people who'd misread the product would see the mismatch early while the right users understood the product's intent.</p>
+          <figure class="cs-figure cs-figure--wide-natural">
+            <div class="cs-tabs cs-screen-tabs" data-tabs>
+              <div class="cs-tablist" role="tablist" aria-label="Onboarding flow">
+                <button class="cs-tab" type="button" role="tab" aria-selected="false" data-tab="before">Before</button>
+                <button class="cs-tab is-active" type="button" role="tab" aria-selected="true" data-tab="after">After</button>
+              </div>
+              <div class="cs-tabpanel is-hidden" data-panel="before" role="tabpanel">
+                <div class="cs-screens">
+                  <div class="cs-screen"><img src="images/clary-before-01.svg" alt="Clary onboarding, account-first flow — screen 1" loading="lazy"></div>
+                  <div class="cs-screen"><img src="images/clary-before-02.svg" alt="Clary onboarding, account-first flow — screen 2" loading="lazy"></div>
+                  <div class="cs-screen"><img src="images/clary-before-03.svg" alt="Clary onboarding, account-first flow — screen 3" loading="lazy"></div>
+                  <div class="cs-screen"><img src="images/clary-before-04.svg" alt="Clary onboarding, account-first flow — screen 4" loading="lazy"></div>
+                </div>
+                <p class="cs-screen-cap">Before: account-first onboarding flow.</p>
+              </div>
+              <div class="cs-tabpanel" data-panel="after" role="tabpanel">
+                <div class="cs-screens cs-screens--three">
+                  <div class="cs-screen"><img src="images/clary-after-splash.svg" alt="Clary onboarding, intent-first flow — value-statement splash screen" loading="lazy"></div>
+                  <div class="cs-screen"><img src="images/clary-after-01.svg" alt="Clary onboarding, intent-first flow — screen 2" loading="lazy"></div>
+                  <div class="cs-screen"><img src="images/clary-after-02.svg" alt="Clary onboarding, intent-first flow — screen 3" loading="lazy"></div>
+                </div>
+                <p class="cs-screen-cap">After: opening with an intent question.</p>
+              </div>
+            </div>
+          </figure>
+          <div class="cs-learn-card">
+            <h3 class="cs-subhead--minor">What we learned</h3>
+            <p>Intent became the first filter in the funnel rather than something we discovered after paying to acquire someone, so wrong-fit users could opt out before they cost us anything.</p>
+          </div>
+        </section>
+
+        <!-- ===================== HYPOTHESIS 02 ===================== -->
+        <section class="cs-section" data-reveal>
+          <p class="cs-hyp-num" data-n="02">Hypothesis</p>
+          <h2>Making the value clear</h2>
+          <h3 class="cs-subhead--minor">Problem</h3>
+          <p>Users understood how Clary worked but couldn't say what it was for, which made a price hard to justify.</p>
+          <h3 class="cs-subhead--minor">Hypothesis</h3>
+          <p>Explaining what Clary is, and what it is not, before asking for an account would mean people committed knowing what they were getting.</p>
+          <h3 class="cs-subhead--minor">What we designed</h3>
+          <p>After the intent question, the flow led with the value proposition and “What Clary is/is not” screens. When the CEO pushed to shorten onboarding after an early review, I held the line, since the length covered AI safety, data usage, and clearly defined the scope of the product.</p>
+          <figure class="cs-figure cs-figure--wide-natural">
+            <div class="cs-screens cs-screens--pair">
+              <div class="cs-screen"><img src="images/clary-is.svg" alt="“Before we start — Clary is” screen explaining what Clary offers" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-is-not.svg" alt="“Before we start — Clary is not” screen setting boundaries on what Clary won't do" loading="lazy"></div>
+            </div>
+            <figcaption>“Clary is” and “Clary is not” screens during onboarding</figcaption>
+          </figure>
+          <div class="cs-learn-card">
+            <h3 class="cs-subhead--minor">What we learned</h3>
+            <p>Testing made the “What Clary is not” screen the most reassuring moment in the flow, with users saying the transparency built more trust than any other AI product they'd seen. The 89% completion rate after launch justified us keeping the onboarding length.</p>
+          </div>
+        </section>
+
+        <!-- ===================== HYPOTHESIS 03 ===================== -->
+        <section class="cs-section" data-reveal>
+          <p class="cs-hyp-num" data-n="03">Hypothesis</p>
+          <h2>A reason to pay over free AI tools</h2>
+          <h3 class="cs-subhead--minor">Problem</h3>
+          <p>With ChatGPT doing something similar for free, Clary needed a reason to charge for its service that a general AI couldn't match.</p>
+          <h3 class="cs-subhead--minor">Hypothesis</h3>
+          <p>Positioning Clary on what general AI can't offer, the psychologist grounding plus its own features, would give users a reason to pay.</p>
+          <h3 class="cs-subhead--minor">What we designed</h3>
+          <p>We explained that psychologists shaped the guardrails and reflection frameworks but couldn't access conversations. We also put Clary's own features front and centre, like Reflections and the Gratitude journal, so the reason to pay rested on product differentiators.</p>
+          <figure class="cs-figure cs-figure--wide-natural">
+            <div class="cs-screens cs-screens--quad">
+              <div class="cs-screen"><img src="images/clary-valueprop-01.svg" alt="Clary value-proposition screen — designed by psychologists" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-valueprop-02.svg" alt="Clary value-proposition screen — how the psychologist-shaped guardrails work" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-valueprop-03.svg" alt="Clary value-proposition screen — crisis-helpline surfacing" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-valueprop-04.jpg" alt="Clary gratitude-garden screen — “Notice what supports you”" loading="lazy"></div>
+            </div>
+            <figcaption>Value-prop carousel: introducing the features that set Clary apart</figcaption>
+          </figure>
+          <div class="cs-learn-card">
+            <h3 class="cs-subhead--minor">What we learned</h3>
+            <p>It worked to a point. Users read the psychologist grounding as a real differentiator that built trust, but the phrase still promised more than the product delivered. Some expected structured, therapist-led content like guided exercises, which was beyond what this sprint could ship.</p>
+          </div>
+        </section>
+
+        <!-- ===================== HYPOTHESIS 04 ===================== -->
+        <section class="cs-section" data-reveal>
+          <p class="cs-hyp-num" data-n="04">Hypothesis</p>
+          <h2>Charging without breaking trust</h2>
+          <h3 class="cs-subhead--minor">Problem</h3>
+          <p>People opened Clary in difficult moments, so a conventional paywall risked feeling exploitative.</p>
+          <h3 class="cs-subhead--minor">Hypothesis</h3>
+          <p>Being transparent about the trial and the timing of the first charge would make payment feel safe.</p>
+          <h3 class="cs-subhead--minor">What we designed</h3>
+          <p>We made the trial explicit, with 14 days free, a day 13 reminder before the first charge, and easy cancellation. The 14 days were deliberate, since users needed around 11 messages in a first session to find value, and the day 13 reminder meant the charge never arrived as a surprise during a difficult moment.</p>
+          <figure class="cs-figure cs-figure--wide-natural">
+            <div class="cs-screens cs-screens--three">
+              <div class="cs-screen"><img src="images/clary-payment-01.svg" alt="Clary payment flow — “How your 14-day trial works” screen" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-payment-02.svg" alt="Clary payment flow — day 13 reminder before the first charge" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-payment-03.svg" alt="Clary payment flow — easy cancellation screen" loading="lazy"></div>
+            </div>
+            <figcaption>The trial made explicit: 14 days free, a day-13 reminder before the first charge.</figcaption>
+          </figure>
+          <div class="cs-learn-card">
+            <h3 class="cs-subhead--minor">What we learned</h3>
+            <p>In testing, participants named the payment reminder as the reason they'd start the trial, and for a product built on trust, fewer accidental renewals were worth losing some paying users.</p>
+          </div>
+        </section>
+
+        <!-- ===================== OUTCOME ===================== -->
+        <section class="cs-section cs-section--card cs-section--center cs-section--teal" data-reveal>
+          <h2>Outcome</h2>
+          <p>Onboarding and conversion beat target, but retention did not.</p>
+          <div class="cs-tabs" data-tabs>
+            <div class="cs-tablist" role="tablist" aria-label="Outcome">
+              <button class="cs-tab is-active" type="button" role="tab" aria-selected="true" data-tab="conversion">Conversion</button>
+              <button class="cs-tab" type="button" role="tab" aria-selected="false" data-tab="engagement">Retention</button>
+            </div>
+            <div class="cs-tabpanel" data-panel="conversion" role="tabpanel">
+              <div class="cs-metrics cs-metrics--three">
+                <div class="cs-metric"><p class="big">89%</p><p class="lbl">onboarding completion (vs 80% target)</p></div>
+                <div class="cs-metric"><p class="big">16%</p><p class="lbl">conversion to paid (vs 10% target)</p></div>
+                <div class="cs-metric"><p class="big">36%</p><p class="lbl">return rate at 11+ messages (4× the baseline)</p></div>
+              </div>
+            </div>
+            <div class="cs-tabpanel is-hidden" data-panel="engagement" role="tabpanel">
+              <div class="cs-metrics cs-metrics--three">
+                <div class="cs-metric"><p class="big">~9%</p><p class="lbl">week-1 retention, all users (target was 50%)</p></div>
+                <div class="cs-metric"><p class="big">41%</p><p class="lbl">Sean Ellis PMF score (borderline threshold)</p></div>
+                <div class="cs-metric"><p class="big">24</p><p class="lbl">NPS (positive)</p></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Outcome context (back in the reading measure) -->
+        <section class="cs-section" data-reveal>
+          <h3 class="cs-subhead--minor">The product worked for the people who stayed</h3>
+          <p>Users who sent 11 or more messages wrote seven times as much and stayed nine times longer, which was evident from the product-market-fit score. Clary worked for the people got that far. The problem was that 85% of around 11,000 installs left before they reached their aha moment.</p>
+        </section>
+
+        <!-- ===================== WHAT HAPPENED NEXT ===================== -->
+        <section class="cs-section" data-reveal>
+          <h2>What happened next</h2>
+          <p>Conversion and onboarding beat target but retention didn't, so we recommended bringing Clary inside Unobravo, where patients were already engaged, rather than keep paying to acquire users the standalone product couldn't hold. That became the February 2026 decision to integrate it as a between-session companion for therapy patients. I led the integration sprint, where the challenge was cannibalisation, since an AI companion that substitutes for therapy risks undercutting the product it sits inside. That shaped the design contraints:</p>
+          <ul>
+            <li>No access to therapy session data, architecturally separate</li>
+            <li>No therapy imitation, with crisis detection redirecting to emergency services or the patient's therapist</li>
+            <li>Cannibalisation rate tracked as a primary KPI alongside session retention</li>
+          </ul>
+          <figure class="cs-figure cs-figure--wide-natural">
+            <div class="cs-screens cs-screens--quad">
+              <div class="cs-screen"><img src="images/clary-unobravo-01.svg" alt="Clary inside the Unobravo app — screen 1" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-unobravo-02.jpg" alt="Clary inside the Unobravo app — Tools screen" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-unobravo-03.jpg" alt="Clary inside the Unobravo app — Gratitude screen" loading="lazy"></div>
+              <div class="cs-screen"><img src="images/clary-unobravo-04.svg" alt="Clary inside the Unobravo app — screen 4" loading="lazy"></div>
+            </div>
+            <figcaption>Clary integrated into Unobravo as a between-session companion for therapy patients.</figcaption>
+          </figure>
+        </section>
+
+        <!-- ===================== REFLECTION ===================== -->
+        <section class="cs-section cs-section--wide" data-reveal>
+          <h2>Reflection</h2>
+          <div class="reflect-row">
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Meeting the brief didn't mean the product worked</h3>
+              <p>We hit targets and still recommended moving Clary into Unobravo. People would pay but getting them to come back depended on the first conversation with Clary, and onboarding couldn't solve that.</p>
+            </div>
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Designing the wrong users out can be the goal</h3>
+              <p>The intent question and the "What Clary is not" screen were built to turn some people away. A user who misread the product cost us money every month, so more drop-off early showed the designs were working.</p>
+            </div>
+            <div class="reflect-card">
+              <h3 class="cs-subhead">What I'd do differently</h3>
+              <p>Engagement was the team's original focus, but high AI token costs made them hard to justify, so we shifted to monetisation. We tried a few conversation changes and couldn't fit them into the sprint. Next time I'd run two streams at once, one improving the first chat and one bringing the token cost down.</p>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+
+    <!-- ===================== NEXT PROJECT (bubble) ===================== -->
+    <section class="band">
+      <div class="shell">
+        <div class="next-bubble-row" data-reveal>
+          <a class="next-bubble" href="atlas-ai-guide.html">
+            <span class="next-bubble__text">
+              <span class="next-bubble__label">Next project</span>
+              <span class="next-bubble__title">Atlas, the AI learning coach</span>
+            </span>
+            <span class="next-bubble__chip" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER (shared) ===================== -->
+  <footer class="cover-footer">
+    <nav class="cover-footer__contact" aria-label="Contact">
+      <a href="about.html" class="contact-link">About</a>
+      <a href="mailto:hello@kenday.me" class="contact-link">Email</a>
+      <a href="https://www.linkedin.com/in/hellokenday/" class="contact-link" target="_blank" rel="noreferrer">LinkedIn</a>
+    </nav>
+    <ul class="cover-footer__meta" aria-label="Highlights">
+      <li>0-1 products</li>
+      <li>AI products</li>
+      <li>10+ years experience</li>
+      <li>Ex-Multiverse</li>
+    </ul>
+  </footer>
+  <script src="js/theme.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/passgate.js"></script>
+  <script>
+    // Deep-link gate: if this page was opened directly while locked, open the
+    // overlay in-context. On success, reveal the page (no navigation).
+    (function () {
+      if (!document.documentElement.classList.contains('is-locked')) return;
+      PassGate.gate({
+        target: 'protected.html',
+        title: 'Confidential project',
+        message: 'This case study is under NDA. Enter the password to view the full project.',
+        cancelHref: 'index.html',
+        onSuccess: function () {
+          document.documentElement.classList.remove('is-locked');
+          PassGate.close('success');
+        }
+      });
+    })();
+  </script>
+  <script>
+    // Tabbed metric groups (Outcome section)
+    (function () {
+      document.querySelectorAll('[data-tabs]').forEach(function (root) {
+        var tabs = root.querySelectorAll('[data-tab]');
+        var panels = root.querySelectorAll('[data-panel]');
+        tabs.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var key = btn.getAttribute('data-tab');
+            tabs.forEach(function (b) {
+              var on = b === btn;
+              b.classList.toggle('is-active', on);
+              b.setAttribute('aria-selected', on ? 'true' : 'false');
+            });
+            panels.forEach(function (p) {
+              p.classList.toggle('is-hidden', p.getAttribute('data-panel') !== key);
+            });
+          });
+        });
+      });
+    })();
+  </script>
+  <script src="js/reduced-motion-video.js" defer></script>
+  <script src="js/mobile-carousels.js" defer></script>
+</body>
+</html>

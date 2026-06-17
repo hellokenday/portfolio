@@ -1,0 +1,137 @@
+/* ============================================================================
+   PASSWORD GATE OVERLAY
+   Centred modal dialog (desktop) ⇄ modal bottom sheet (mobile ≤600px).
+   Material 3 dialog/bottom-sheet structure, dressed in Clay tokens.
+   ========================================================================== */
+
+.pg-root { position: fixed; inset: 0; z-index: 1000; }
+.pg-root[hidden] { display: none; }
+.pg-open { overflow: hidden; }   /* lock background scroll while open */
+
+/* ---- Scrim ---------------------------------------------------------------- */
+.pg-scrim {
+  position: absolute; inset: 0;
+  background: color-mix(in srgb, var(--surface-dark) 56%, transparent);
+  opacity: 0; transition: opacity .32s var(--ease-out-soft);
+  backdrop-filter: blur(2px);
+}
+.pg-root.is-open .pg-scrim { opacity: 1; }
+
+/* ---- Surface (shared) ----------------------------------------------------- */
+.pg-sheet {
+  position: absolute; z-index: 1; background: var(--canvas);
+  color: var(--body); box-shadow: 0 24px 60px -12px rgba(20,16,14,.4);
+  display: flex; flex-direction: column;
+}
+.pg-handle { display: none; }   /* only shown in bottom-sheet mode */
+
+/* Lock badge */
+.pg-lock {
+  width: 44px; height: 44px; border-radius: var(--rounded-pill);
+  display: grid; place-items: center; color: var(--ink);
+  background: var(--surface-card); margin-bottom: 20px;
+}
+.pg-title { font: var(--display-sm); letter-spacing: var(--tracking-display-sm, -0.4px); color: var(--ink); margin: 0 0 10px; }
+.pg-msg { font: var(--body-md); color: var(--body); margin: 0 0 24px; max-width: 42ch; }
+
+/* ---- Field + show/hide ---------------------------------------------------- */
+.pg-label { display: block; font: var(--caption); color: var(--muted); margin-bottom: 8px; }
+.pg-field { position: relative; }
+.pg-input {
+  width: 100%; height: 52px; padding: 0 52px 0 16px; font: var(--body-md);
+  background: var(--canvas); color: var(--ink);
+  border: 1.5px solid var(--hairline); border-radius: var(--rounded-md);
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.pg-input::placeholder { color: var(--muted-soft); }
+.pg-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 26%, transparent); }
+.pg-eye {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border: 0; background: transparent; cursor: pointer;
+  display: grid; place-items: center; color: var(--muted); border-radius: var(--rounded-sm);
+}
+.pg-eye:hover { color: var(--ink); }
+.pg-eye:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pg-eye .pg-eye-off { display: none; }
+.pg-eye.is-shown .pg-eye-on { display: none; }
+.pg-eye.is-shown .pg-eye-off { display: block; }
+
+/* error state */
+.pg-error { font: var(--body-sm); color: var(--error, #c0392b); margin: 10px 0 0; min-height: 1.2em; }
+.pg-sheet.is-error .pg-input { border-color: var(--error, #c0392b); }
+.pg-sheet.is-error .pg-input:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--error, #c0392b) 22%, transparent); }
+@media (prefers-reduced-motion: no-preference) {
+  .pg-sheet.is-error .pg-field { animation: pg-shake .32s ease; }
+}
+@keyframes pg-shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+
+/* ---- Actions -------------------------------------------------------------- */
+.pg-actions { display: flex; gap: 8px; align-items: center; justify-content: flex-end; margin-top: 24px; }
+.pg-submit { position: relative; min-width: 150px; }
+.pg-submit-label { transition: opacity .15s ease; }
+.pg-sheet.is-loading .pg-submit-label { opacity: 0; }
+.pg-spinner {
+  position: absolute; left: 50%; top: 50%; width: 18px; height: 18px; margin: -9px 0 0 -9px;
+  border: 2px solid color-mix(in srgb, var(--on-primary) 40%, transparent);
+  border-top-color: var(--on-primary); border-radius: 50%;
+  opacity: 0; animation: pg-spin .7s linear infinite;
+}
+.pg-sheet.is-loading .pg-spinner { opacity: 1; }
+@keyframes pg-spin { to { transform: rotate(360deg); } }
+
+/* success: morph CTA to a check */
+.pg-sheet.is-success .pg-submit { background: var(--accent-success, #1f7a52); }
+.pg-sheet.is-success .pg-submit-label { opacity: 1; }
+
+.pg-demo { font: var(--caption); color: var(--muted-soft); margin: 18px 0 0; }
+
+/* visually-hidden live region (screen readers only) */
+.pg-live {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ============================================================================
+   DESKTOP — centred dialog (Material 3 basic dialog)
+   ========================================================================== */
+.pg-sheet {
+  left: 50%; top: 50%; transform: translate(-50%, calc(-50% + 12px));
+  width: min(456px, calc(100vw - 48px));
+  border-radius: 28px; padding: 32px;
+  opacity: 0; transition: opacity .3s var(--ease-out-soft), transform .34s var(--ease-out-soft);
+}
+.pg-root.is-open .pg-sheet { opacity: 1; transform: translate(-50%, -50%); }
+
+/* ============================================================================
+   MOBILE ≤600px — modal bottom sheet (Material 3 bottom sheet)
+   ========================================================================== */
+@media (max-width: 600px) {
+  .pg-sheet {
+    left: 0; right: 0; bottom: 0; top: auto; width: 100%;
+    transform: translateY(100%);
+    border-radius: 28px 28px 0 0;
+    padding: 12px 22px calc(28px + env(safe-area-inset-bottom, 0));
+    max-height: 92vh; overflow-y: auto;
+  }
+  .pg-root.is-open .pg-sheet { transform: translateY(0); }
+  .pg-handle {
+    display: block; width: 32px; height: 4px; border-radius: 4px;
+    background: var(--hairline); margin: 0 auto 20px;
+  }
+  .pg-lock { margin-bottom: 16px; }
+  /* large touch targets + comfortable keyboard ergonomics */
+  .pg-input { height: 56px; font-size: 16px; }   /* 16px avoids iOS zoom */
+  .pg-actions { flex-direction: column-reverse; gap: 10px; margin-top: 28px; }
+  .pg-actions .btn { width: 100%; height: 52px; }
+  .pg-submit { min-width: 0; }
+  .pg-eye { width: 44px; height: 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pg-scrim, .pg-sheet { transition: opacity .2s ease; }
+  .pg-root.is-open .pg-sheet { transform: translate(-50%, -50%); }
+  @media (max-width: 600px) {
+    .pg-sheet { transform: translateY(0); }
+    .pg-root:not(.is-open) .pg-sheet { display: none; }
+  }
+}

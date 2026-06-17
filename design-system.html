@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <title>Creating a design system · Ken Day</title>
+  <meta name="description" content="Creating a lightweight design system and pattern library at HeyBryan — uniting teams around a shared visual language to build faster and more consistently.">
+  <link rel="stylesheet" href="css/clay-tokens.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <script>(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body>
+  <!-- Floating dark-mode toggle -->
+  <div class="theme-fab">
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+      <span class="tt-knob">
+        <span class="tt-icon tt-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+        <span class="tt-icon tt-moon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></span>
+      </span>
+    </button>
+  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== BACK PILL ===================== -->
+  <header class="cs-nav">
+    <div class="shell">
+      <a class="back-pill" href="index.html">
+        <span class="back-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg></span>
+        Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO + FACTS ===================== -->
+    <section class="band-tight">
+      <div class="shell cs-hero">
+        <div class="cs-hero-grid" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>2020 · Design system</p>
+            <h1 class="display-xl" style="margin-top:16px" data-reveal>Creating a design system</h1>
+            <p class="cs-intro" data-reveal style="margin-top:24px">HeyBryan is a home-services app connecting people with trusted local experts. As the product grew, we felt the absence of a shared design language — components were inconsistent, velocity slowed, and we kept solving the same problems multiple ways.</p>
+          </div>
+          <div class="cs-facts" data-reveal>
+            <div class="cs-fact"><p class="k">Role</p><p class="v">Founding Product Designer</p></div>
+            <div class="cs-fact"><p class="k">Company</p><p class="v">HeyBryan</p></div>
+            <div class="cs-fact"><p class="k">Team</p><ul class="v cs-team"><li>Engineering</li><li>Marketing</li><li>CEO</li></ul></div>
+            <div class="cs-fact"><p class="k">Focus</p><ul class="v cs-team"><li>Design principles</li><li>Pattern audit</li><li>Pattern library</li><li>Documentation</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COVER ===================== -->
+    <section class="band-tight">
+      <div class="shell">
+        <div data-reveal>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:3840/2160"><img src="images/design-system/hero.jpg" alt="The HeyBryan design system — components, switches, and type specimens shown together." /></div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BODY ===================== -->
+    <div class="shell">
+      <article class="cs-prose">
+
+        <section class="cs-section" data-reveal>
+          <h2>Problem</h2>
+          <p>Three main issues were slowing us down:</p>
+          <div class="reflect-row reflect-row--wide">
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Inefficient patterns</h3>
+              <p>Multiple design patterns used to solve the same problem.</p>
+            </div>
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Reduced velocity</h3>
+              <p>Design and technical debt slowing down delivery.</p>
+            </div>
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Inconsistencies</h3>
+              <p>Visual and interaction inconsistencies weakening the brand.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Role &amp; team</h2>
+          <p>As the founding product designer, I partnered with engineering to identify which components our roadmap needed first, prioritising them by impact over effort. With the CEO, I made the business case for investing early so we could ship faster and cut design and technical debt before it compounded. This kept the system tied to real product needs.</p>
+        </section>
+
+        <section class="cs-section cs-section--card cs-section--reading" data-reveal>
+          <h2>Goal</h2>
+          <p>Unite departments around a common visual language, deliver consistent user experiences across products, and increase development speed.</p>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>The design system</h2>
+          <p>I followed the framework from Alla Kholmatova's <a class="book-ref" href="https://www.smashingmagazine.com/printed-books/design-systems/" target="_blank" rel="noopener noreferrer" data-hover-img="https://m.media-amazon.com/images/I/81jM9rFdkGL._UF1000,1000_QL80_.jpg"><em>Design Systems</em></a>, breaking the work into four parts:</p>
+
+          <h3 class="cs-subhead">1 · Design principles</h3>
+          <p>To guide the system, I defined principles aligned with the product's purpose:</p>
+          <div class="reflect-row reflect-row--stack">
+            <div class="reflect-card">
+              <h4 class="cs-subhead cs-subhead--minor">Empowering</h4>
+              <p>Nothing makes you feel uncomfortable or like you can't trust the system. The system aids you when needed.</p>
+            </div>
+            <div class="reflect-card">
+              <h4 class="cs-subhead cs-subhead--minor">Inclusive</h4>
+              <p>Everything we design should be as usable, legible, and readable as possible. We prioritise accessibility over beauty.</p>
+            </div>
+            <div class="reflect-card">
+              <h4 class="cs-subhead cs-subhead--minor">Conversational</h4>
+              <p>The system speaks the user's language. Our use of copy and interactions breathes personality into our product and allows us to communicate with users in easily understood ways.</p>
+            </div>
+          </div>
+
+          <h3 class="cs-subhead">2 · Functional patterns</h3>
+          <p>I audited the UI, grouped similar components, and defined reusable patterns for inputs, lists, navigation and pricing.</p>
+
+          <h4 class="cs-subhead cs-subhead--minor">Interface audit</h4>
+          <p>Auditing all interface elements allowed me to uncover inconsistencies and expose redundancies.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1345/1009"><img src="images/design-system/interface-audit-2x.png" alt="An audit of all interface elements, laid out to expose inconsistencies." /></div>
+            <figcaption>Auditing patterns and components across the app</figcaption>
+          </figure>
+
+          <h4 class="cs-subhead cs-subhead--minor">Defining functional patterns</h4>
+          <p>After collecting and grouping all elements by purpose, I decided whether to merge patterns or keep them separate by mapping out each component's content structure. Typically, elements that share the same underlying structure can be merged into one pattern.</p>
+          <div class="cs-tabs" data-tabs>
+            <div class="cs-tablist" role="tablist" aria-label="Defining functional patterns">
+              <button class="cs-tab is-active" type="button" role="tab" aria-selected="true" data-tab="group">Group elements</button>
+              <button class="cs-tab" type="button" role="tab" aria-selected="false" data-tab="merge">Merge elements</button>
+              <button class="cs-tab" type="button" role="tab" aria-selected="false" data-tab="define">Define pattern</button>
+            </div>
+            <div class="cs-tabpanel" data-panel="group" role="tabpanel">
+              <figure class="cs-figure" style="margin-top:0">
+                <div class="frame" style="aspect-ratio:3626/2040"><img src="https://www.kenday.me/assets/img/design-system/similar-patterns@2x.jpg" alt="Several similar interface elements used to display task pricing, shown side by side." loading="lazy" /></div>
+                <figcaption>Similar elements used to show task pricing</figcaption>
+              </figure>
+            </div>
+            <div class="cs-tabpanel is-hidden" data-panel="merge" role="tabpanel">
+              <figure class="cs-figure" style="margin-top:0">
+                <div class="frame" style="aspect-ratio:4032/3024"><img src="images/design-system/cost-list-2x.jpg" alt="Different payment-card elements being merged into a single pattern." loading="lazy" /></div>
+                <figcaption>Merging elements into one pattern</figcaption>
+              </figure>
+            </div>
+            <div class="cs-tabpanel is-hidden" data-panel="define" role="tabpanel">
+              <figure class="cs-figure" style="margin-top:0">
+                <div class="frame" style="aspect-ratio:1060/596"><img src="https://www.kenday.me/assets/img/design-system/define-pattern@2x.jpg" alt="The finished cost-list pattern and its variants used to show task pricing." loading="lazy" /></div>
+                <figcaption>Cost list pattern and variants used to show task pricing</figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <h3 class="cs-subhead">3 · Perceptual patterns</h3>
+          <p>I standardised typography, colour, spacing and tone of voice to create a unified feel.</p>
+
+          <h4 class="cs-subhead cs-subhead--minor">Identifying signature patterns</h4>
+          <p>Pinning down distinct elements that convey the brand.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:3766/2690"><img src="images/design-system/signature-patterns-2x.png" alt="Pinning down the aesthetic qualities and signature patterns that convey the brand." /></div>
+            <figcaption>Aesthetic qualities and signature patterns</figcaption>
+          </figure>
+
+          <h4 class="cs-subhead cs-subhead--minor">Style inventory</h4>
+          <p>I then grouped individual style elements by purpose, then defined patterns.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1274/800"><img src="images/design-system/style-inventory-2x.png" alt="A style inventory of links and buttons captured in a Google Doc." /></div>
+            <figcaption>An audit of links and buttons in a Google Doc</figcaption>
+          </figure>
+
+          <h3 class="cs-subhead">4 · Pattern library</h3>
+          <p>I documented the system in a shared Google Doc with naming, usage, and structure guidelines so the team could easily understand and apply it.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:2880/1800"><img src="images/design-system/pattern-library-2x.png" alt="Patterns documented in Google Docs with naming and usage guidelines." /></div>
+            <figcaption>Documenting patterns in a shared Google Doc</figcaption>
+          </figure>
+        </section>
+
+        <!-- ▼ IMPACT: before/after tabs -->
+        <section class="cs-section cs-section--card cs-section--center cs-section--teal" data-reveal>
+          <h2>Impact</h2>
+          <p>In the next sprint we delivered faster and with fewer handover issues. The system gave us a shared design vocabulary and a foundation for future work.</p>
+          <div class="cs-tabs" data-tabs>
+            <div class="cs-tablist" role="tablist" aria-label="Before and after">
+              <button class="cs-tab" type="button" role="tab" aria-selected="false" data-tab="before">Before</button>
+              <button class="cs-tab is-active" type="button" role="tab" aria-selected="true" data-tab="after">After</button>
+            </div>
+            <div class="cs-tabpanel is-hidden" data-panel="before" role="tabpanel">
+              <div class="cs-screens">
+                <div class="screen-frame screen-frame--phone"><img src="images/design-system/before-1.jpg" alt="Before — Handyman Services booking screen with inconsistent styling." /></div>
+                <div class="screen-frame screen-frame--phone"><img src="images/design-system/before-2.jpg" alt="Before — map and book-a-task screen." /></div>
+              </div>
+            </div>
+            <div class="cs-tabpanel" data-panel="after" role="tabpanel">
+              <div class="cs-screens">
+                <div class="screen-frame screen-frame--phone"><img src="images/design-system/after-1.jpg" alt="After — service selection built from the shared pattern library." /></div>
+                <div class="screen-frame screen-frame--phone"><img src="images/design-system/after-2.jpg" alt="After — task booking screen using the consistent system." /></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <script>
+          (function () {
+            document.querySelectorAll('[data-tabs]').forEach(function (root) {
+              var tabs = root.querySelectorAll('[data-tab]');
+              var panels = root.querySelectorAll('[data-panel]');
+              tabs.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                  var key = btn.getAttribute('data-tab');
+                  tabs.forEach(function (b) {
+                    var on = b === btn;
+                    b.classList.toggle('is-active', on);
+                    b.setAttribute('aria-selected', on ? 'true' : 'false');
+                  });
+                  panels.forEach(function (p) {
+                    p.classList.toggle('is-hidden', p.getAttribute('data-panel') !== key);
+                  });
+                });
+              });
+            });
+          })();
+        </script>
+
+        <section class="cs-section" data-reveal>
+          <h2>Outcome</h2>
+          <p>The system helped us work more consistently, build faster, and reduce design debt, making future design work easier to scale.</p>
+          <div class="cs-gallery" data-reveal>
+            <div class="frame"><img src="images/design-system/outcome-1.jpg" alt="Design system documentation page." /></div>
+            <div class="frame"><img src="images/design-system/outcome-2.jpg" alt="Utilities — form elements and selection controls." /></div>
+            <div class="frame"><img src="images/design-system/outcome-3.jpg" alt="Design system documentation page." /></div>
+            <div class="frame"><img src="images/design-system/outcome-4.jpg" alt="Design system documentation page." /></div>
+          </div>
+          <a class="cs-doc-link" href="https://docs.google.com/document/d/150-YJcMoUi9OFQD-moLy1pFf8LAJTF1BMivJ4pU1sYE/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="margin-top:36px">
+            <span class="cs-doc-link__icon" aria-hidden="true">🎨</span>
+            <span class="cs-doc-link__text">
+              <span class="cs-doc-link__title">Toolbox design system</span>
+              <span class="cs-doc-link__sub">Read the MVP design system documentation</span>
+            </span>
+            <span class="cs-doc-link__arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+          </a>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Learnings</h2>
+          <p>Collaboration was essential as it ensured the system embodied the right values and solved user problems that directly impact business goals.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1800/1013"><img src="images/design-system/group-work.jpg" alt="The team in a workshop, prioritising solutions to implement as patterns." /></div>
+            <figcaption>Workshop prioritising solutions to implement as patterns</figcaption>
+          </figure>
+        </section>
+
+      </article>
+    </div>
+
+    <!-- ===================== NEXT PROJECT (bubble) ===================== -->
+    <section class="band" style="padding-top:76px">
+      <div class="shell">
+        <div class="next-bubble-row" data-reveal>
+          <a class="next-bubble" href="protected.html">
+            <span class="next-bubble__text">
+              <span class="next-bubble__label">Next project</span>
+              <span class="next-bubble__title">Monetising an AI wellbeing app</span>
+            </span>
+            <span class="next-bubble__chip" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER (shared) ===================== -->
+  <footer class="cover-footer">
+    <nav class="cover-footer__contact" aria-label="Contact">
+      <a href="about.html" class="contact-link">About</a>
+      <a href="mailto:hello@kenday.me" class="contact-link">Email</a>
+      <a href="https://www.linkedin.com/in/hellokenday/" class="contact-link" target="_blank" rel="noreferrer">LinkedIn</a>
+    </nav>
+    <ul class="cover-footer__meta" aria-label="Highlights">
+      <li>0-1 products</li>
+      <li>AI products</li>
+      <li>10+ years experience</li>
+      <li>Ex-Multiverse</li>
+    </ul>
+  </footer>
+  <script src="js/theme.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    /* Cursor-following cover preview for [data-hover-img] links (fine-pointer only). */
+    (function () {
+      if (!window.matchMedia || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      var links = document.querySelectorAll('[data-hover-img]');
+      if (!links.length) return;
+      var pop = document.createElement('div');
+      pop.className = 'hover-preview';
+      var img = document.createElement('img');
+      img.alt = '';
+      img.decoding = 'async';
+      pop.appendChild(img);
+      document.body.appendChild(pop);
+      var failed = {};
+      function place(e) {
+        var pad = 20, w = pop.offsetWidth || 168, h = pop.offsetHeight || 230;
+        var x = e.clientX + pad, y = e.clientY + pad;
+        if (x + w > window.innerWidth - 10) x = e.clientX - pad - w;
+        if (y + h > window.innerHeight - 10) y = e.clientY - pad - h;
+        if (y < 10) y = 10;
+        if (x < 10) x = 10;
+        pop.style.left = x + 'px';
+        pop.style.top = y + 'px';
+      }
+      img.addEventListener('error', function () { failed[img.getAttribute('src')] = true; pop.classList.remove('is-visible'); });
+      links.forEach(function (el) {
+        var src = el.getAttribute('data-hover-img');
+        el.addEventListener('mouseenter', function (e) {
+          if (failed[src]) return;
+          if (img.getAttribute('src') !== src) img.setAttribute('src', src);
+          place(e);
+          requestAnimationFrame(function () { pop.classList.add('is-visible'); });
+        });
+        el.addEventListener('mousemove', place);
+        el.addEventListener('mouseleave', function () { pop.classList.remove('is-visible'); });
+      });
+    })();
+  </script>
+  <script src="js/mobile-carousels.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <title>Designing trust into onboarding · Ken Day</title>
+  <meta name="description" content="Redesigning sitter onboarding at TrustedHousesitters — guiding new members to build trustworthy profiles so they get picked, complete their first sit, and stay.">
+  <link rel="stylesheet" href="css/clay-tokens.css">
+  <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <script>(function(){try{var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body>
+  <!-- Floating dark-mode toggle -->
+  <div class="theme-fab">
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+      <span class="tt-knob">
+        <span class="tt-icon tt-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></span>
+        <span class="tt-icon tt-moon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></span>
+      </span>
+    </button>
+  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== BACK PILL ===================== -->
+  <header class="cs-nav">
+    <div class="shell">
+      <a class="back-pill" href="index.html">
+        <span class="back-arrow" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg></span>
+        Back to Home
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== HERO + FACTS ===================== -->
+    <section class="band-tight">
+      <div class="shell cs-hero">
+        <div class="cs-hero-grid" data-reveal-group>
+          <div>
+            <p class="eyebrow" data-reveal>2018 · iOS &amp; Android</p>
+            <h1 class="display-xl" style="margin-top:16px" data-reveal>Designing trust into onboarding</h1>
+            <p class="cs-intro" data-reveal style="margin-top:24px">TrustedHousesitters connects pet owners with a global network of sitters who exchange pet care for free accommodation. I led the design of sitter onboarding — guiding new members to build strong, trustworthy profiles so they could get picked for their first stay.</p>
+          </div>
+          <div class="cs-facts" data-reveal>
+            <div class="cs-fact"><p class="k">Role</p><p class="v">Product Designer</p></div>
+            <div class="cs-fact"><p class="k">Company</p><p class="v">TrustedHousesitters</p></div>
+            <div class="cs-fact"><p class="k">Team</p><ul class="v cs-team"><li>Product Manager</li><li>Engineering</li><li>Marketing</li><li>Customer Support</li></ul></div>
+            <div class="cs-fact"><p class="k">Focus</p><ul class="v cs-team"><li>Interaction</li><li>Visual</li><li>Prototyping</li><li>User testing</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COVER (onboarding screens) ===================== -->
+    <section class="band-tight">
+      <div class="shell">
+        <div class="cs-screens cs-screens--triptych" data-reveal>
+          <div class="screen-frame screen-frame--phone"><img src="images/trust-onboarding/cover-1.jpg" alt="Onboarding welcome screen — “Welcome to the TrustedHousesitters community.”" /></div>
+          <div class="screen-frame screen-frame--phone screen-frame--embed"><iframe src="https://player.vimeo.com/video/294478399?background=1" title="TrustedHousesitters onboarding prototype" allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+          <div class="screen-frame screen-frame--phone"><img src="images/trust-onboarding/cover-3.jpg" alt="Onboarding completion step — a strong, trustworthy sitter profile." /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BODY (700px reading measure) ===================== -->
+    <div class="shell">
+      <article class="cs-prose">
+
+        <section class="cs-section" data-reveal>
+          <h2>Problem</h2>
+          <p>Around <strong>30% of new sitters</strong> weren't securing a house sit in their first three months. That early drop-off was causing:</p>
+          <ul>
+            <li>A sharp rise in refund requests</li>
+            <li>Low trust in the platform</li>
+            <li>A growing load for our support team</li>
+          </ul>
+        </section>
+
+        <section class="cs-section cs-section--card cs-section--reading" style="--cardw: calc(1.682 * clamp(380px, 44vw, 560px) + 90px)" data-reveal>
+          <h2>Goal</h2>
+          <p>Help sitters succeed early by building strong, trustworthy profiles so they could get picked, complete sits, and stay on the platform.</p>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Process</h2>
+          <p>We kicked off with a <strong>5-day design sprint</strong> to understand the blockers and move fast on a testable solution.</p>
+          <div class="sprint-grid" data-reveal>
+            <div class="sprint-card"><p class="sprint-day">Mon</p><h4>Map</h4><p>Make a map of the problem and choose a target to focus on for the week.</p></div>
+            <div class="sprint-card"><p class="sprint-day">Tue</p><h4>Sketch</h4><p>Sketch competing solutions, with everyone working up their own ideas independently.</p></div>
+            <div class="sprint-card"><p class="sprint-day">Wed</p><h4>Decide</h4><p>Decide on the best solution and turn it into a testable plan.</p></div>
+            <div class="sprint-card"><p class="sprint-day">Thu</p><h4>Prototype</h4><p>Build a realistic prototype that's just real enough to test.</p></div>
+            <div class="sprint-card"><p class="sprint-day">Fri</p><h4>Test</h4><p>Test with target customers and learn what works before building for real.</p></div>
+          </div>
+
+          <h3 class="cs-subhead">Day 1: Understand</h3>
+          <p>We mapped the sitter journey and clustered the opportunities we found. The key user research insight: new sitters weren't adding enough quality detail to their profiles to appeal to homeowners. This surfaced three opportunities:</p>
+          <ol>
+            <li>How might we ensure sitters complete their profiles to a strong standard?</li>
+            <li>How might we get sitters verified?</li>
+            <li>How might we break onboarding into clear, manageable steps?</li>
+          </ol>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1536/1152"><img src="images/trust-onboarding/day1-map.jpg" alt="Whiteboard covered in How-Might-We sticky notes, grouped by theme." /></div>
+            <figcaption>Mapping the journey and clustering How-Might-We questions</figcaption>
+          </figure>
+
+          <h3 class="cs-subhead">Day 2: Ideate</h3>
+          <p>To spark ideas, I ran an inspiration exercise where each member showcased a favourite product while others sketched. We explored ways to guide and motivate sitters with progress indicators, tips, and examples focusing on showing what a "good" profile looks like. </p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1536/1152"><img src="images/trust-onboarding/day2-insights.jpg" alt="Synthesising insights from support logs and sitter interviews." /></div>
+            <figcaption>Synthesising what we heard from support and interviews</figcaption>
+          </figure>
+
+          <h3 class="cs-subhead">Day 3: Decide</h3>
+          <p>We strung the winning sketches into a storyboard around five key moments, a welcome screen leading into verification, personal information, pet preferences, and a profile preview, which informed both the prototype and the user-interview script.</p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1536/1152"><img src="images/trust-onboarding/day3-sketch.jpg" alt="Sketches exploring progress indicators, tips, and profile examples." /></div>
+            <figcaption>Sketching guidance, motivation, and worked examples</figcaption>
+          </figure>
+
+          <h3 class="cs-subhead">Day 4: Prototyping</h3>
+          <p>Drawing on our design system and pattern library, I quickly turned the storyboard into an interactive prototype covering the five key moments, ready to put in front of sitters for testing.</p>
+          <div class="cs-video">
+            <div class="cs-video__frame">
+              <video src="images/trust-onboarding/onboarding-proto.mp4" data-autoplay muted loop playsinline controls preload="metadata"></video>
+            </div>
+          </div>
+          <figcaption class="cs-video-cap">The sprint prototype — a guided checklist with reasons and examples.</figcaption>
+
+          <h3 class="cs-subhead">Day 5: Testing with users</h3>
+          <p>New sitters found the checklist super helpful. They felt clearer on what to do, why it mattered, and were more motivated to finish their profiles.</p>
+          <p class="cs-callout-card">"I didn't realise I was missing so much, but now I feel like I know how to stand out." <span class="cs-callout-by">Testing participant</span></p>
+          <figure class="cs-figure">
+            <div class="frame" style="aspect-ratio:1536/1152"><img src="images/trust-onboarding/day5-testing.jpg" alt="Testing the prototype with new sitters and capturing feedback." /></div>
+            <figcaption>Testing with new sitters on day five of the sprint</figcaption>
+          </figure>
+        </section>
+
+        <!-- ▼ IMPACT: teal metric card -->
+        <section class="cs-section cs-section--card cs-section--center cs-section--teal" data-reveal>
+          <h2>Impact</h2>
+          <p>Improved quality of sitter profiles led to more secured sits and reduced churn</p>
+          <div class="cs-metrics">
+            <div class="cs-metric"><p class="big">+18%</p><p class="lbl">sitters securing their first sit within 3 months</p></div>
+            <div class="cs-metric"><p class="big">−11%</p><p class="lbl">early churn &amp; refund requests</p></div>
+            <div class="cs-metric"><p class="big">72%</p><p class="lbl">upload 4+ photos (up from 46%)</p></div>
+            <div class="cs-metric"><p class="big">65%</p><p class="lbl">write trust-building bios (up from 38%)</p></div>
+          </div>
+        </section>
+
+        <section class="cs-section cs-section--wide" data-reveal>
+          <h2>Learnings</h2>
+          <div class="reflect-row">
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Completion drives success</h3>
+              <p>Sitters who completed more of their profile were <strong>3× more likely</strong> to get their first sit.</p>
+            </div>
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Clarity was key</h3>
+              <p>The biggest blockers were clarity and confidence. People didn't know what was expected.</p>
+            </div>
+            <div class="reflect-card">
+              <h3 class="cs-subhead">Early nudges add up</h3>
+              <p>Nudging the right behaviours early (photos, a warm, detailed bio) had large impact.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" data-reveal>
+          <h2>Outcome</h2>
+          <p>We continued to iterate the designs based on the observed patterns and validated new ideas using remote user testing. Results have been very positive with users so far as we have ironed out most issues highlighted form the sprint testing phase.</p>
+        </section>
+
+      </article>
+    </div>
+
+    <!-- ===================== OUTCOME SCREENS ===================== -->
+    <section class="band-tight" style="padding-top:8px">
+      <div class="shell">
+        <div class="cs-screens cs-screens--triptych" data-reveal>
+          <div class="screen-frame screen-frame--phone"><img src="images/trust-onboarding/profile-photo-step.jpg" alt="Final onboarding screen — ‘Add a profile photo’ step, prompting sitters to upload a photo so owners can get to know them." /></div>
+          <div class="screen-frame screen-frame--phone"><img src="images/trust-onboarding/profile-details-checklist.jpg" alt="Final onboarding screen — ‘Bring your profile to life’ checklist with completed steps (about you, headline, why you want to sit, pet experience) each marked done." /></div>
+          <div class="screen-frame screen-frame--phone"><img src="images/trust-onboarding/profile-preview.jpg" alt="Final onboarding screen — the completed sitter profile preview for Phoebe Hill, with photo, headline, and location ready to browse sits." /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NEXT PROJECT (bubble) ===================== -->
+    <section class="band" style="padding-top:76px">
+      <div class="shell">
+        <div class="next-bubble-row" data-reveal>
+          <a class="next-bubble" href="design-system.html">
+            <span class="next-bubble__text">
+              <span class="next-bubble__label">Next project</span>
+              <span class="next-bubble__title">Creating a design system</span>
+            </span>
+            <span class="next-bubble__chip" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER (shared) ===================== -->
+  <footer class="cover-footer">
+    <nav class="cover-footer__contact" aria-label="Contact">
+      <a href="about.html" class="contact-link">About</a>
+      <a href="mailto:hello@kenday.me" class="contact-link">Email</a>
+      <a href="https://www.linkedin.com/in/hellokenday/" class="contact-link" target="_blank" rel="noreferrer">LinkedIn</a>
+    </nav>
+    <ul class="cover-footer__meta" aria-label="Highlights">
+      <li>0-1 products</li>
+      <li>AI products</li>
+      <li>10+ years experience</li>
+      <li>Ex-Multiverse</li>
+    </ul>
+  </footer>
+  <script src="js/theme.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/reduced-motion-video.js" defer></script>
+  <script src="js/mobile-carousels.js" defer></script>
+</body>
+</html>
