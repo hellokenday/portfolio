@@ -25,7 +25,10 @@
       return;
     }
 
-    var hls = new HlsLib({ capLevelToPlayerSize: true, autoStartLoad: false });
+    // No capLevelToPlayerSize: let ABR climb to the highest rung the connection
+    // sustains (up to the clip's native res, 4K for some), even when the on-page
+    // frame is small. startLevel:-1 = auto, so slow starts still ramp up safely.
+    var hls = new HlsLib({ autoStartLoad: false, startLevel: -1 });
     hls.loadSource(src);
     hls.attachMedia(v);
 
