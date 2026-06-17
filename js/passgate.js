@@ -35,7 +35,7 @@ window.PassGate = (function () {
           '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>' +
         '</div>' +
         '<h2 class="pg-title" id="pg-title">Protected project</h2>' +
-        '<p class="pg-msg" id="pg-msg">This case study is confidential and protected. Enter the password to view it.</p>' +
+        '<p class="pg-msg" id="pg-msg">Enter the password to view the full project.</p>' +
         '<form class="pg-form" novalidate>' +
           '<label class="pg-label" for="pg-input">Password</label>' +
           '<div class="pg-field">' +
@@ -148,7 +148,7 @@ window.PassGate = (function () {
     lastFocus = document.activeElement;
     titleEl.textContent = opts.title || 'Protected project';
     msgEl.textContent = opts.message ||
-      'This case study is confidential and protected. Enter the password to view it.';
+      'Enter the password to view the full project.';
     cancelBtn.textContent = opts.cancelLabel || 'Cancel';
     // reset state
     sheet.classList.remove('is-error', 'is-success', 'is-loading');
