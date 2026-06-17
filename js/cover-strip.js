@@ -193,16 +193,21 @@ function initVisiblePreviewPlayback() {
     observer.observe(video);
   });
 
-  // iOS fallback: if autoplay was blocked (commonly Low Power Mode), the first
-  // user gesture lifts the restriction — (re)start any in-view videos then.
-  const kickOnGesture = () => {
-    updatePlayback();
-    ["touchstart", "pointerdown", "scroll", "keydown"].forEach((ev) =>
-      window.removeEventListener(ev, kickOnGesture)
-    );
+  // iOS blocks a programmatic play() unless it runs close to a user gesture, so
+  // the IntersectionObserver alone can't start later clips. Re-drive playback
+  // from the scroll/touch handlers themselves (rAF-throttled) — this keeps each
+  // play() within the gesture's activation window, so the centered clip starts.
+  let kickScheduled = false;
+  const kick = () => {
+    if (kickScheduled) return;
+    kickScheduled = true;
+    requestAnimationFrame(() => {
+      kickScheduled = false;
+      updatePlayback();
+    });
   };
-  ["touchstart", "pointerdown", "scroll", "keydown"].forEach((ev) =>
-    window.addEventListener(ev, kickOnGesture, { passive: true })
+  ["scroll", "touchstart", "touchmove", "touchend", "pointerdown"].forEach((ev) =>
+    window.addEventListener(ev, kick, { passive: true })
   );
 
   document.addEventListener("visibilitychange", () => {
