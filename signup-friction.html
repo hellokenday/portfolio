@@ -61,7 +61,7 @@
       <div class="shell">
         <div class="cs-screens cs-screens--triptych" data-reveal>
           <div class="screen-frame screen-frame--phone"><img src="images/signup-friction/cover-get-paid.jpg" alt="HeyBryan onboarding — “Get paid with confidence”, explaining Stripe-secured deposits." /></div>
-          <div class="screen-frame screen-frame--phone screen-frame--video"><video src="images/signup-friction/skip-banking.mp4" data-autoplay muted loop playsinline preload="metadata" aria-label="The redesigned flow lets experts skip banking setup and keep going."></video></div>
+          <div class="screen-frame screen-frame--phone screen-frame--video"><video src="images/signup-friction/skip-banking.mp4" data-hls="videos/hls/skip-banking/master.m3u8" poster="videos/posters/skip-banking.jpg" data-autoplay muted loop playsinline preload="metadata" aria-label="The redesigned flow lets experts skip banking setup and keep going."></video></div>
           <div class="screen-frame screen-frame--phone"><img src="images/signup-friction/cover-accept.jpg" alt="HeyBryan onboarding — accept a task step." /></div>
         </div>
       </div>
@@ -136,7 +136,7 @@
           <h3 class="cs-subhead">Prototype</h3>
           <p>I used our design system to build a high-fidelity prototype that reflected the new onboarding journey. The goal was to feel transparent and secure without interrupting flow.</p>
           <div class="cs-screens">
-            <div class="screen-frame screen-frame--phone screen-frame--video"><video src="images/signup-friction/submit-banking.mp4" data-autoplay muted loop playsinline preload="metadata" aria-label="Adding banking later — prompted only after accepting a task."></video></div>
+            <div class="screen-frame screen-frame--phone screen-frame--video"><video src="images/signup-friction/submit-banking.mp4" data-hls="videos/hls/submit-banking/master.m3u8" poster="videos/posters/submit-banking.jpg" data-autoplay muted loop playsinline preload="metadata" aria-label="Adding banking later — prompted only after accepting a task."></video></div>
           </div>
           <figcaption class="cs-video-cap">Adding banking later — prompted only after accepting a task.</figcaption>
 
@@ -242,6 +242,8 @@
   <script src="js/reveal.js"></script>
   <script src="js/reduced-motion-video.js" defer></script>
   <script src="js/mobile-carousels.js" defer></script>
+  <script src="js/vendor/hls.min.js" defer></script>
+  <script src="js/hls-video.js" defer></script>
   <script src="js/lazy-media.js" defer></script>
 </body>
 </html>

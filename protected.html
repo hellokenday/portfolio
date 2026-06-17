@@ -76,7 +76,7 @@
         <div class="cs-screens cs-screens--hero" data-reveal>
           <div class="cs-screen"><img src="images/clary-hero-01.svg" alt="Clary app — onboarding hero screen 1" loading="lazy"></div>
           <div class="cs-screen cs-screen--video">
-            <video src="videos/clary-onboarding.mp4" data-autoplay muted loop playsinline preload="metadata" aria-label="Clary app onboarding walkthrough."></video>
+            <video src="videos/clary-onboarding.mp4" data-hls="videos/hls/clary-onboarding/master.m3u8" poster="videos/posters/clary-onboarding.jpg" data-autoplay muted loop playsinline preload="metadata" aria-label="Clary app onboarding walkthrough."></video>
           </div>
           <div class="cs-screen"><img src="images/clary-hero-02.svg" alt="Clary app — onboarding hero screen 2" loading="lazy"></div>
         </div>
@@ -391,6 +391,8 @@
   </script>
   <script src="js/reduced-motion-video.js" defer></script>
   <script src="js/mobile-carousels.js" defer></script>
+  <script src="js/vendor/hls.min.js" defer></script>
+  <script src="js/hls-video.js" defer></script>
   <script src="js/lazy-media.js" defer></script>
 </body>
 </html>
