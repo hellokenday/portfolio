@@ -76,9 +76,20 @@
     } else { // VIDEO
       // Don't touch preload/playback — cover-strip.js, reduced-motion-video.js and
       // hls-video.js already load lazily and play only in view. We just clear the
-      // shimmer once the video can paint. (Forcing preload="none" here broke
+      // shimmer once something can paint. (Forcing preload="none" here broke
       // muted-autoplay loading on real iOS Safari, so it's been removed.)
       var clear = function () { markLoaded(host); };
+      // Posters are the real placeholder: iOS doesn't preload video, so canplay
+      // never fires until playback — clear the shimmer as soon as the poster is
+      // ready so it doesn't sit for the full failsafe. The video plays over it.
+      var poster = el.getAttribute('poster');
+      if (poster) {
+        var pi = new Image();
+        pi.onload = clear;
+        pi.onerror = clear;
+        pi.src = poster;
+      }
+      el.addEventListener('loadedmetadata', clear, { once: true });
       el.addEventListener('loadeddata', clear, { once: true });
       el.addEventListener('canplay', clear, { once: true });
       el.addEventListener('playing', clear, { once: true });

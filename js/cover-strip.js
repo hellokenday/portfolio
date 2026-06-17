@@ -151,6 +151,10 @@ function initVisiblePreviewPlayback() {
   );
 
   videos.forEach((video) => {
+    // iOS needs muted set as a property (not just the attribute) for inline
+    // autoplay, and playsinline so it doesn't go fullscreen.
+    video.muted = true;
+    video.setAttribute("playsinline", "");
     if (mobileLayout.matches) {
       video.preload = "auto";
     }
@@ -167,6 +171,18 @@ function initVisiblePreviewPlayback() {
     });
     observer.observe(video);
   });
+
+  // iOS fallback: if autoplay was blocked (commonly Low Power Mode), the first
+  // user gesture lifts the restriction — (re)start any in-view videos then.
+  const kickOnGesture = () => {
+    queueVisibleVideos();
+    ["touchstart", "pointerdown", "scroll", "keydown"].forEach((ev) =>
+      window.removeEventListener(ev, kickOnGesture)
+    );
+  };
+  ["touchstart", "pointerdown", "scroll", "keydown"].forEach((ev) =>
+    window.addEventListener(ev, kickOnGesture, { passive: true })
+  );
 
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
