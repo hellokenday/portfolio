@@ -72,7 +72,7 @@ a { color: inherit; }
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 44px 0;
+  padding: 34px 0;
   box-sizing: border-box;
   background: var(--canvas);
 }
@@ -149,7 +149,11 @@ a { color: inherit; }
 /* ---- Scrollable strip ----------------------------------------------------- */
 .strip-wrap {
   position: relative;
-  flex: 1 1 calc(var(--carousel-image-h) + var(--carousel-caption-space));
+  /* Size the carousel row to the media height (+ caption), not a fixed 60vh —
+     the old 60vh basis left ~100px of dead space below each tile, which pushed
+     the footer off-screen on shorter laptops. Tracking --cover-media-h lets the
+     whole cover fit in one viewport while still growing to fill taller screens. */
+  flex: 1 1 calc(var(--cover-media-h) + var(--carousel-caption-space));
 }
 
 .strip {
