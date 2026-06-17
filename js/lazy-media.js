@@ -19,7 +19,6 @@
   'use strict';
 
   var FAILSAFE_MS = 8000;
-  var supportsIO = 'IntersectionObserver' in window;
 
   // Eligible media live in these framed containers only — skip icons/arrows.
   var HOST_SELECTOR = '.frame, .screen-frame, .preview-media, .about-portrait';
@@ -75,38 +74,19 @@
         el.addEventListener('error', function () { markLoaded(host); }, { once: true });
       }
     } else { // VIDEO
-      // Defer metadata/poster fetch until near the viewport.
-      var wantPreload = el.getAttribute('preload') || 'metadata';
-      el.setAttribute('data-preload', wantPreload);
-      if (supportsIO) el.setAttribute('preload', 'none');
+      // Don't touch preload/playback — cover-strip.js, reduced-motion-video.js and
+      // hls-video.js already load lazily and play only in view. We just clear the
+      // shimmer once the video can paint. (Forcing preload="none" here broke
+      // muted-autoplay loading on real iOS Safari, so it's been removed.)
       var clear = function () { markLoaded(host); };
       el.addEventListener('loadeddata', clear, { once: true });
       el.addEventListener('canplay', clear, { once: true });
+      el.addEventListener('playing', clear, { once: true });
       el.addEventListener('error', clear, { once: true });
       // A video that already has data (cached) won't re-fire — clear now.
       if (el.readyState >= 2) clear();
     }
   });
-
-  // IntersectionObserver: restore video preload as frames approach the viewport.
-  if (supportsIO) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var host = e.target;
-        var vid = host.querySelector('video[data-preload]');
-        if (vid) {
-          vid.setAttribute('preload', vid.getAttribute('data-preload'));
-          vid.removeAttribute('data-preload');
-        }
-        io.unobserve(host);
-      });
-    }, { rootMargin: '300px 0px' });
-
-    media.forEach(function (el) {
-      if (el.tagName === 'VIDEO') io.observe(hostFor(el));
-    });
-  }
 
   // Failsafe: never leave a shimmer up forever.
   setTimeout(function () {
