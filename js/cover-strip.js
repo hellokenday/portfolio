@@ -155,9 +155,9 @@ function initVisiblePreviewPlayback() {
     // autoplay, and playsinline so it doesn't go fullscreen.
     video.muted = true;
     video.setAttribute("playsinline", "");
-    if (mobileLayout.matches) {
-      video.preload = "auto";
-    }
+    // Don't force preload="auto" on every clip — on iOS that makes all five load
+    // at once and trips the concurrent-load limit, so some never appear. Leave
+    // preload="metadata"; the in-view play() below loads each one on demand.
 
     pauseVideo(video);
     video.currentTime = 0;

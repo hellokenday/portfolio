@@ -84,6 +84,12 @@
       // ready so it doesn't sit for the full failsafe. The video plays over it.
       var poster = el.getAttribute('poster');
       if (poster) {
+        // iOS often won't paint a <video poster> for a clip it hasn't loaded,
+        // leaving a blank tile. Paint the poster as the host's CSS background
+        // too — that always renders, and the video plays over it when it can.
+        host.style.backgroundImage = 'url("' + poster.replace(/"/g, '\\"') + '")';
+        host.style.backgroundSize = 'cover';
+        host.style.backgroundPosition = 'center';
         var pi = new Image();
         pi.onload = clear;
         pi.onerror = clear;
