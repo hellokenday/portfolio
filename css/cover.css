@@ -445,7 +445,7 @@ a { color: inherit; }
     margin-top: 0;
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 8px;
+    gap: 24px;
   }
   .contact-cta { width: 100%; }
 }
