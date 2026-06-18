@@ -259,3 +259,20 @@ function initVisiblePreviewPlayback() {
 
 initStrip();
 initVisiblePreviewPlayback();
+
+// On touch devices the previews show a static thumbnail over a grey shimmer
+// skeleton; reveal each thumbnail (fade it in, fade the shimmer out) once it has
+// actually loaded, so there's no flash of the video poster underneath.
+(function revealStaticThumbs() {
+  var imgs = document.querySelectorAll(".preview-media .preview-static");
+  Array.prototype.forEach.call(imgs, function (img) {
+    var host = img.closest(".preview-media");
+    if (!host) return;
+    var ready = function () { host.classList.add("thumb-ready"); };
+    if (img.complete && img.naturalWidth > 0) ready();
+    else {
+      img.addEventListener("load", ready, { once: true });
+      img.addEventListener("error", ready, { once: true });
+    }
+  });
+})();

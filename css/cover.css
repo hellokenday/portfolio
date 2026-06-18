@@ -273,11 +273,51 @@ a { color: inherit; }
 /* Static image fallback on touch devices (phones/tablets), where the looping
    preview videos can stutter. Detected via interaction media features — not
    viewport width — so a narrow desktop window still gets the live video.
-   Hidden by default; swapped in for the video only on coarse-pointer/no-hover. */
+   Hidden by default; swapped in for the video only on coarse-pointer/no-hover.
+   A grey shimmer skeleton fills the tile until the thumbnail has loaded, then
+   the image fades in — so there's no flash of the video poster first. */
 .preview img.preview-static { display: none; }
 @media (hover: none) and (pointer: coarse) {
   .preview-media video { display: none; }
-  .preview img.preview-static { display: block; width: 100%; height: 100%; }
+  /* suppress the video first-frame poster (inline bg) + lazy-media's own shimmer
+     span; the ::before below is the single shimmer for the static thumbnail */
+  .preview-media { background-image: none !important; }
+  .preview-media > .media-shimmer { display: none; }
+  .preview-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-color: var(--card, #f5f0e0);
+    background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      color-mix(in srgb, var(--strong-cream, #ebe6d6) 70%, transparent) 40%,
+      color-mix(in srgb, var(--strong-cream, #ebe6d6) 70%, transparent) 60%,
+      transparent 80%
+    );
+    background-size: 220% 100%;
+    background-repeat: no-repeat;
+    animation: media-shimmer-sweep 1.4s ease-in-out infinite;
+    transition: opacity .4s ease;
+  }
+  .preview-media.thumb-ready::before { opacity: 0; }
+  .preview img.preview-static {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .preview-media.thumb-ready img.preview-static { opacity: 1; }
+}
+@media (hover: none) and (pointer: coarse) and (prefers-reduced-motion: reduce) {
+  .preview-media::before { animation: none; }
+  .preview img.preview-static { transition: none; }
 }
 
 .preview-label {
