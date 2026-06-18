@@ -22,24 +22,49 @@
   function toggle(ev) {
     var next = current() === 'dark' ? 'light' : 'dark';
 
-    // No View Transitions support (or reduced motion) → instant swap.
-    if (!document.startViewTransition || reduce) { apply(next, true); return; }
+    // Reduced motion or no Web Animations → instant swap.
+    if (reduce || !document.body || typeof document.body.animate !== 'function') {
+      apply(next, true);
+      return;
+    }
 
     // Origin = the toggle's centre, so the circle blooms from the button.
     var btn = document.querySelector('.theme-toggle');
-    var r = btn.getBoundingClientRect();
+    var r = btn ? btn.getBoundingClientRect() : { left: innerWidth - 24, top: 24, width: 0, height: 0 };
     var x = ev && ev.clientX ? ev.clientX : r.left + r.width / 2;
     var y = ev && ev.clientY ? ev.clientY : r.top + r.height / 2;
     var end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
 
-    var vt = document.startViewTransition(function () { apply(next, true); });
-    vt.ready.then(function () {
-      root.animate(
-        { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)',
-                     'circle(' + end + 'px at ' + x + 'px ' + y + 'px)'] },
-        { duration: 620, easing: 'cubic-bezier(.4,0,.2,1)', pseudoElement: '::view-transition-new(root)' }
-      );
-    }).catch(function () {});  /* an interrupted/aborted transition is harmless */
+    // Snapshot-free circular reveal: an overlay in the INCOMING canvas colour
+    // blooms from the toggle, then the theme is applied under the full overlay
+    // and the overlay removed. Avoids the View-Transitions snapshot glitches on
+    // very tall pages / over playing videos, and works at any scroll position.
+    var nextCanvas = next === 'dark' ? '#14201e' : '#fffaf0';   // --canvas in theme.css
+    var from = 'circle(0px at ' + x + 'px ' + y + 'px)';
+    var to = 'circle(' + Math.ceil(end) + 'px at ' + x + 'px ' + y + 'px)';
+
+    var ov = document.createElement('div');
+    ov.className = 'theme-reveal';
+    ov.style.background = nextCanvas;
+    ov.style.clipPath = from;
+    document.body.appendChild(ov);
+
+    var anim = ov.animate(
+      { clipPath: [from, to] },
+      { duration: 620, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' }
+    );
+
+    var finished = false;
+    var done = function () {
+      if (finished) return;                                // run once
+      finished = true;
+      apply(next, true);                                   // recolour under the full overlay
+      requestAnimationFrame(function () {                  // next frame, drop the overlay
+        if (ov.parentNode) ov.parentNode.removeChild(ov);
+      });
+    };
+    anim.finished.then(done).catch(done);
+    setTimeout(done, 720);   // fallback: never leave the theme unapplied / overlay stuck
   }
 
   function init() {

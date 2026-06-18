@@ -119,13 +119,19 @@ body, .site-footer, .band--card, .band--dark, .work-media, .cs-cover {
 :root[data-theme="dark"] .tt-moon { opacity: 1; transform: rotate(0deg) scale(1); }
 
 /* ============================================================================
-   CIRCULAR REVEAL  (View Transitions API)
-   Replace the default cross-fade with a clip-path circle the JS animates.
+   CIRCULAR REVEAL  (theme toggle)
+   A fixed overlay painted in the incoming theme's canvas colour; js/theme.js
+   animates its clip-path circle from the toggle, applies the theme under the
+   full overlay, then removes it. Snapshot-free, so no View-Transitions artifacts
+   on tall pages or over playing videos.
    ========================================================================== */
-::view-transition-old(root),
-::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
-::view-transition-old(root) { z-index: 0; }
-::view-transition-new(root) { z-index: 1; }
+.theme-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  pointer-events: none;
+  will-change: clip-path;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .tt-knob, .tt-icon, .theme-toggle,
