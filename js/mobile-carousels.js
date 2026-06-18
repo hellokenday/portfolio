@@ -5,7 +5,7 @@
    focusable (tabindex=0) and labelled as a group; above 760px we strip those
    attributes again so there's no stray tab stop on the desktop grid. */
 (function () {
-  var SELECTOR = '.cs-screens--triptych, .process-grid, .sprint-grid, .reflect-row, .cs-screens--three, .cs-screens--pair, .cs-screens--quad, .cs-screens--hero, .cs-screen-tabs .cs-screens, .cs-tabpanel .cs-screens, .cs-figure--screens .cs-screens:not(.cs-screens--triptych), .cs-gallery, .cs-duo';
+  var SELECTOR = '.cs-screens--triptych, .process-grid, .sprint-grid, .reflect-row, .cs-screens--three, .cs-screens--pair, .cs-screens--quad, .cs-screens--hero, .cs-screen-tabs .cs-screens, .cs-tabpanel .cs-screens, .cs-figure--screens .cs-screens:not(.cs-screens--triptych), .cs-gallery, .cs-duo, .album-grid, .book-grid';
   var carousels = Array.prototype.slice.call(document.querySelectorAll(SELECTOR));
   if (!carousels.length) return;
 
@@ -14,6 +14,8 @@
   function labelFor(el) {
     if (el.classList.contains('cs-screens')) return 'Screens, scroll horizontally to see more';
     if (el.classList.contains('process-grid')) return 'Process steps, scroll horizontally to see more';
+    if (el.classList.contains('album-grid')) return 'Records, scroll horizontally to see more';
+    if (el.classList.contains('book-grid')) return 'Books, scroll horizontally to see more';
     return 'Cards, scroll horizontally to see more';
   }
   function enable(el) {

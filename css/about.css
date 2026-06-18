@@ -193,3 +193,45 @@
 @media (prefers-reduced-motion: reduce) {
   .album:hover .album-disc, .album:focus-within .album-disc { transform: translateX(30%) rotate(18deg); animation: none; }
 }
+
+/* ============================================================================
+   MOBILE (≤760px): records + books become peeking horizontal carousels, and the
+   section titles left-align. Matches the site-wide mobile-carousel pattern;
+   mobile-carousels.js makes each scroller keyboard-focusable + labelled.
+   ========================================================================== */
+@media (max-width: 760px) {
+  .about-section--white .collection-intro { text-align: left; }
+
+  .album-grid,
+  .book-grid {
+    display: flex;
+    grid-template-columns: none;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: auto;
+    margin-left: 0;
+    perspective: none;                     /* flatten the book 3D tilt in the scroller */
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    padding: 4px 2px 12px;                 /* room for the focus ring */
+    scroll-padding-left: 2px;
+  }
+  .album-grid::-webkit-scrollbar,
+  .book-grid::-webkit-scrollbar { display: none; }
+
+  .album-grid:focus-visible,
+  .book-grid:focus-visible {
+    outline: 2px solid var(--clay-teal, #1a3a3a);
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
+
+  /* <100% widths create the peek that signals "swipe me" */
+  .album-grid > .album { flex: 0 0 62%; scroll-snap-align: start; }
+  .book-grid > .book   { flex: 0 0 40%; scroll-snap-align: start; }
+}
