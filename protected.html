@@ -363,6 +363,7 @@
         onSuccess: function () {
           document.documentElement.classList.remove('is-locked');
           PassGate.close('success');
+          window.scrollTo(0, 0);   // reveal from the top (focus can shift scroll on mobile)
         }
       });
     })();
