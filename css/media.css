@@ -41,6 +41,19 @@
 /* Faded out once the media can paint; removed from the DOM after the transition. */
 .is-media-loaded .media-shimmer { opacity: 0; }
 
+/* The framed image fades in as it loads, so it replaces the skeleton in place
+   rather than snapping in. Gated on .is-shimmer-host (added by JS) so a no-JS
+   page still shows images normally; .preview-static is excluded because the
+   homepage manages its own touch-device fade. */
+.is-shimmer-host > img:not(.preview-static) {
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+.is-shimmer-host.is-media-loaded > img:not(.preview-static) {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .media-shimmer { animation: none; }
+  .is-shimmer-host > img:not(.preview-static) { transition: none; }
 }
