@@ -270,6 +270,16 @@ a { color: inherit; }
   border-radius: 0;          /* parent's overflow:hidden clips it — avoids a 1px edge seam */
 }
 
+/* Static image fallback on touch devices (phones/tablets), where the looping
+   preview videos can stutter. Detected via interaction media features — not
+   viewport width — so a narrow desktop window still gets the live video.
+   Hidden by default; swapped in for the video only on coarse-pointer/no-hover. */
+.preview img.preview-static { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .preview-media video { display: none; }
+  .preview img.preview-static { display: block; width: 100%; height: 100%; }
+}
+
 .preview-label {
   margin-top: 8px;
   font: var(--caption);            /* Clay caption: 13px/1.4 @500 */
